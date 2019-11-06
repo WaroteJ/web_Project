@@ -2,11 +2,17 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Mentions légales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Politique de protection de données</title>
 </head>
 <body>
     <header></header>
     <main>
+        <a href="index.php">Acceuil</a>
         <p>
           CESI est engagé dans une démarche continue de conformité avec le Règlement général sur la protection des données du 27 avril 2016. Avec ce nouveau règlement CESI renforce sa politique de protection de données personnelles afin que les données de nos utilisateurs soient collectées et utilisées de manière transparente, confidentielle et sécurisée.
         </p>
@@ -218,7 +224,9 @@
           </p>
   </main>
   <footer>
-  
+    <div>
+      <?php include ('footer.php');?>
+    </div>
   </footer>
 </body>
 </html>
