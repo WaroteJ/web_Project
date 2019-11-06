@@ -2,10 +2,16 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
   <title>Mentions légales</title>
 </head>
 <body>
     <main>
+        <a href="index.php">Acceuil</a>
         <h2>Éditeur : Association CESI</h2>
         <div>
             SIREN : 775 722 572<br>
@@ -63,5 +69,10 @@
             </p>
         </div>
     </main>
+    <footer>
+        <div>
+            <?php include ('footer.php');?>
+        </div>
+  </footer>
 </body>
 </html>
