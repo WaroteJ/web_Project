@@ -1,3 +1,6 @@
+/* add primary/secondary colours
+  same for background
+*/
 header {
   margin-bottom: 10px;
 }
@@ -11,6 +14,27 @@ header {
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
+}
+
+form {
+  margin: auto;
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid #004040;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-content: center;
+  padding: 10px;
+}
+form input {
+  width: 100%;
+  margin-bottom: 20px;
+}
+form select {
+  width: 100%;
+  display: block;
 }
 
 /*# sourceMappingURL=style.css.map */

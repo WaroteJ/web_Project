@@ -27,7 +27,42 @@
     <main>
         <?php include('php/menu.php');?>
 
-        
+        <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                    <form action="php/scriptRegister.php">
+                        <p>
+                            <label for="lastname">Nom</label>
+                            <input type="text" id="lastname" name="lastname" required placeholder="Nom">
+                        </p>    
+                        <p>
+                            <label for="firstname">Prénom</label>
+                            <input type="text" id="firstname" name="firstname" required placeholder="Prénom">
+                        </p>    
+                        <p>
+                            <label for="mail">Adresse mail</label>
+                            <input type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
+                        </p>
+                        <p>
+                            <label for="centre">Centre</label>
+                            <select name="centre" id="centre" required>
+                                <option value="Reims">Reims</option>
+                                <option value="Nanterre">Nanterre</option>
+                                <option value="Strasbourg">Strasbourg</option>
+                                <option value="Arras">Arras</option>
+                            </select>
+                        </p>   
+                        <p>
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" id="password" required placeholder="password">
+                        </p>       
+                        <p>
+                            <label for="passwordC">Confirmation de mot de passe</label>
+                            <input type="password" name="passwordC" id="passwordC" required placeholder="password confirmation">
+                        </p>   
+                        <input type="submit" value="S'enregistrer">
+                    </form>
+            </div>
+        </div>
     </main>
 </body>
 

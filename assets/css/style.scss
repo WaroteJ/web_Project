@@ -1,14 +1,49 @@
+/* add primary/secondary colours
+  same for background
+*/
+$primary-color:black;
+$secondary-color:#FFC252;
+$primary-bg:black;
+$secondary-bg:white;
+
 header {
     margin-bottom: 10px;
 }
-.menu{
+
+.menu {
     background: #000;
     color:#fff;
     border :1px solid grey;
     text-align: center;
     
     &:hover{
-        color:#FFC252;
+        color:$secondary-color;
         text-decoration: none;
     }
 }
+
+form {
+    margin: auto;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+
+    border: 2px solid #004040;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    padding: 10px;
+    
+    input{
+        width: 100%;
+        margin-bottom: 20px;
+            
+    }
+    select{
+        width: 100%;
+        display: block;
+    }
+}
+
+
