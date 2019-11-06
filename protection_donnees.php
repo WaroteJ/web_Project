@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Mentions légales</title>
+  <title>Politique de protection de données</title>
 </head>
 <body>
     <header></header>
