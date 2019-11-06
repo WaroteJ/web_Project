@@ -1,0 +1,194 @@
+#------------------------------------------------------------
+#        Script MySQL.
+#------------------------------------------------------------
+
+
+#------------------------------------------------------------
+# Table: Event
+#------------------------------------------------------------
+
+CREATE TABLE Event(
+        id             Int  Auto_increment  NOT NULL ,
+        payant         Bool NOT NULL ,
+        prix           Float NOT NULL ,
+        nom            Varchar (50) NOT NULL ,
+        date           Date NOT NULL ,
+        nb_participant Int NOT NULL ,
+        logo           Varchar (50) NOT NULL ,
+        recurrent      Int NOT NULL ,
+        deleted        Bool NOT NULL ,
+        id_centre      Int NOT NULL
+	,CONSTRAINT Event_AK UNIQUE (id_centre)
+	,CONSTRAINT Event_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Photo
+#------------------------------------------------------------
+
+CREATE TABLE Photo(
+        id                Int  Auto_increment  NOT NULL ,
+        url               Varchar (50) NOT NULL ,
+        signale           Bool NOT NULL ,
+        id_event          Int NOT NULL ,
+        id_Event_posseder Int NOT NULL
+	,CONSTRAINT Photo_AK UNIQUE (id_event)
+	,CONSTRAINT Photo_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Photo_Event_FK FOREIGN KEY (id_Event_posseder) REFERENCES Event(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Centre
+#------------------------------------------------------------
+
+CREATE TABLE Centre(
+        id  Int  Auto_increment  NOT NULL ,
+        nom Varchar (50) NOT NULL
+	,CONSTRAINT Centre_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: User
+#------------------------------------------------------------
+
+CREATE TABLE User(
+        id                   Int  Auto_increment  NOT NULL ,
+        nom                  Varchar (50) NOT NULL ,
+        prenom               Varchar (50) NOT NULL ,
+        droit                Int NOT NULL ,
+        email                Varchar (50) NOT NULL ,
+        password             TinyText NOT NULL ,
+        id_centre            Int NOT NULL ,
+        id_Centre_appartenir Int NOT NULL
+	,CONSTRAINT User_AK UNIQUE (id_centre)
+	,CONSTRAINT User_PK PRIMARY KEY (id)
+
+	,CONSTRAINT User_Centre_FK FOREIGN KEY (id_Centre_appartenir) REFERENCES Centre(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Commande
+#------------------------------------------------------------
+
+CREATE TABLE Commande(
+        id               Int  Auto_increment  NOT NULL ,
+        date             Date NOT NULL ,
+        etat             Bool NOT NULL ,
+        id_user          Int NOT NULL ,
+        id_User_realiser Int NOT NULL
+	,CONSTRAINT Commande_AK UNIQUE (id_user)
+	,CONSTRAINT Commande_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Commande_User_FK FOREIGN KEY (id_User_realiser) REFERENCES User(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Commentaire
+#------------------------------------------------------------
+
+CREATE TABLE Commentaire(
+        id              Int  Auto_increment  NOT NULL ,
+        commentaire     Longtext NOT NULL ,
+        signale         Bool NOT NULL ,
+        supprime        Bool NOT NULL ,
+        id_photo        Int NOT NULL ,
+        id_Photo_ecrire Int NOT NULL
+	,CONSTRAINT Commentaire_AK UNIQUE (id_photo)
+	,CONSTRAINT Commentaire_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Commentaire_Photo_FK FOREIGN KEY (id_Photo_ecrire) REFERENCES Photo(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Categorie
+#------------------------------------------------------------
+
+CREATE TABLE Categorie(
+        id  Int  Auto_increment  NOT NULL ,
+        nom Varchar (50) NOT NULL
+	,CONSTRAINT Categorie_PK PRIMARY KEY (id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: Article
+#------------------------------------------------------------
+
+CREATE TABLE Article(
+        id           Int  Auto_increment  NOT NULL ,
+        nom_article  Varchar (50) NOT NULL ,
+        description  Longtext NOT NULL ,
+        prix         Int NOT NULL ,
+        id_centre    Int NOT NULL ,
+        categorie    Int NOT NULL ,
+        id_Categorie Int NOT NULL
+	,CONSTRAINT Article_AK UNIQUE (id_centre,categorie)
+	,CONSTRAINT Article_PK PRIMARY KEY (id)
+
+	,CONSTRAINT Article_Categorie_FK FOREIGN KEY (id_Categorie) REFERENCES Categorie(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: acheter
+#------------------------------------------------------------
+
+CREATE TABLE acheter(
+        id      Int NOT NULL ,
+        id_User Int NOT NULL ,
+        qte     Int NOT NULL
+	,CONSTRAINT acheter_PK PRIMARY KEY (id,id_User)
+
+	,CONSTRAINT acheter_Article_FK FOREIGN KEY (id) REFERENCES Article(id)
+	,CONSTRAINT acheter_User0_FK FOREIGN KEY (id_User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: contenir
+#------------------------------------------------------------
+
+CREATE TABLE contenir(
+        id          Int NOT NULL ,
+        id_Commande Int NOT NULL ,
+        qte         Int NOT NULL
+	,CONSTRAINT contenir_PK PRIMARY KEY (id,id_Commande)
+
+	,CONSTRAINT contenir_Article_FK FOREIGN KEY (id) REFERENCES Article(id)
+	,CONSTRAINT contenir_Commande0_FK FOREIGN KEY (id_Commande) REFERENCES Commande(id)
+)ENGINE=InnoDB;
+
+
+#------------------------------------------------------------
+# Table: participer
+#------------------------------------------------------------
+
+CREATE TABLE participer(
+        id      Int NOT NULL ,
+        id_User Int NOT NULL
+	,CONSTRAINT participer_PK PRIMARY KEY (id,id_User)
+
+	,CONSTRAINT participer_Event_FK FOREIGN KEY (id) REFERENCES Event(id)
+	,CONSTRAINT participer_User0_FK FOREIGN KEY (id_User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
+#------------------------------------------------------------
+# Table: like
+#------------------------------------------------------------
+
+CREATE TABLE likes(
+        id      Int NOT NULL ,
+        id_User Int NOT NULL
+	,CONSTRAINT like_PK PRIMARY KEY (id,id_User)
+
+	,CONSTRAINT like_Photo_FK FOREIGN KEY (id) REFERENCES Photo(id)
+	,CONSTRAINT like_User0_FK FOREIGN KEY (id_User) REFERENCES User(id)
+)ENGINE=InnoDB;
+
