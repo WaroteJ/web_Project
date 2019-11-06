@@ -1,0 +1,14 @@
+header {
+    margin-bottom: 10px;
+}
+.menu{
+    background: #000;
+    color:#fff;
+    border :1px solid grey;
+    text-align: center;
+    
+    &:hover{
+        color:#FFC252;
+        text-decoration: none;
+    }
+}
