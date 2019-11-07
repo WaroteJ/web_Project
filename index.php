@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +22,9 @@
             </div>
         </div>
     </header>
-
+    <?php include('php/menu.php');?>
     <main>
-        <?php include('php/menu.php');?>
+        
     </main>
 </body>
 </html>
