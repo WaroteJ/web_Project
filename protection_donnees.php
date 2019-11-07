@@ -11,6 +11,7 @@
 </head>
 <body>
     <header></header>
+    <?php include ('php/menu.php');?>
     <main>
         <a href="index.php">Acceuil</a>
         <p>
@@ -223,10 +224,6 @@
             Si vous avez des questions ou des réclamations ou si vous souhaitez faire part à CESI de recommandations ou des commentaires visant à améliorer notre Politique de protection des données personnelles vous pouvez envoyer un email à l’adresse cil@cesi.fr ou adresser un courrier à l’adresse suivante : CESI – Data Protection Officer – la Défense FR, 1 Avenue du Général de Gaulle, 92074 Paris – FRANCE
           </p>
   </main>
-  <footer>
-    <div>
-      <?php include ('footer.php');?>
-    </div>
-  </footer>
+  <?php include ('php/footer.php');?>
 </body>
 </html>

@@ -10,6 +10,7 @@
   <title>Mentions légales</title>
 </head>
 <body>
+<?php include ('php/menu.php');?>
     <main>
         <a href="index.php">Acceuil</a>
         <h2>Éditeur : Association CESI</h2>
@@ -69,10 +70,6 @@
             </p>
         </div>
     </main>
-    <footer>
-        <div>
-            <?php include ('footer.php');?>
-        </div>
-  </footer>
+    <?php include ('php/footer.php');?>
 </body>
 </html>

@@ -73,6 +73,7 @@
             </div>
         </div>
     </main>
+    <?php include ('php/footer.php');?>
 </body>
 
 </html>
