@@ -2,11 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="utf-8">
-  <title>Mentions légales</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Politique de protection de données</title>
 </head>
 <body>
     <header></header>
+    <?php include ('php/menu.php');?>
     <main>
+        <a href="index.php">Acceuil</a>
         <p>
           CESI est engagé dans une démarche continue de conformité avec le Règlement général sur la protection des données du 27 avril 2016. Avec ce nouveau règlement CESI renforce sa politique de protection de données personnelles afin que les données de nos utilisateurs soient collectées et utilisées de manière transparente, confidentielle et sécurisée.
         </p>
@@ -217,8 +224,6 @@
             Si vous avez des questions ou des réclamations ou si vous souhaitez faire part à CESI de recommandations ou des commentaires visant à améliorer notre Politique de protection des données personnelles vous pouvez envoyer un email à l’adresse cil@cesi.fr ou adresser un courrier à l’adresse suivante : CESI – Data Protection Officer – la Défense FR, 1 Avenue du Général de Gaulle, 92074 Paris – FRANCE
           </p>
   </main>
-  <footer>
-  
-  </footer>
+  <?php include ('php/footer.php');?>
 </body>
 </html>

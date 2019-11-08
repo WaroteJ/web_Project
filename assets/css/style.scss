@@ -1,14 +1,92 @@
-header {
-    margin-bottom: 10px;
+$primary-color:black;
+$secondary-color:#FFC252;
+$primary-bg:black;
+$secondary-bg:white;
+$radius:5px;
+
+body{
+    background-color: $primary-bg;
+    display: flex;
+    flex-direction: column;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    min-height: 100vh;
 }
-.menu{
+header {
+    background-color: $secondary-bg;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.menu {
     background: #000;
     color:#fff;
     border :1px solid grey;
     text-align: center;
     
     &:hover{
-        color:#FFC252;
+        color:$secondary-color;
         text-decoration: none;
     }
+}
+
+main{
+    background-color: $secondary-bg;
+    width: 90%;
+    margin: auto;
+    display: flex;
+    flex-flow: column nowrap;
+    flex-grow: 1;
+    justify-content: space-around;
+    align-items: center;
+}
+
+form {
+    margin: auto;
+    margin-top: 20px;
+    padding:10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    border: 2px solid black;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-content: center;
+    
+    h3{
+        color:$secondary-color;
+    }
+    input{
+        width:100%;
+        margin-bottom: 10px;
+    }
+    select{
+        width: 100%;
+        display: block;
+    }
+    >.bottom-form{
+        display: flex;
+        flex: row;
+        justify-content: space-between;
+
+        >a{
+            color: $primary-color;
+            border: 1px solid black;
+            border-radius: $radius;
+            padding: 2px;
+            background-color: rgba(0, 0, 0, 0.2);
+            &:hover{
+                color: white;
+                text-decoration: none;
+                background-color: rgba(0, 0, 0, 0.4);
+
+            }
+        }
+    }
+}
+
+footer {
+    display: flex;
+    flex-flow: row nowrap;
 }

@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,10 +27,38 @@
     </header>
 
     
-
+    <?php include('php/menu.php');?>
     <main>
-        <?php include('php/menu.php');?>
+    <div class="container-fluid">
+            <div class="row justify-content-md-center">
+                    <form method="post" action="php/scriptLogin.php">  
+                        <h2>Connexion</h2>
+                        <?php
+                            if(isset($_SESSION["connected"])){
+                                if($_SESSION["connected"]==0){
+                                    echo "<h3>Adresse mail ou mot de passe incorrect</h3>";
+                                    $_SESSION["connected"]=NULL;
+                                }
+                            }
+                        ?>
+                        <p>
+                            <label for="mail">Adresse mail</label>
+                            <input type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
+                        </p>
+                        <p>
+                            <label for="password">Mot de passe</label>
+                            <input type="password" name="password" id="password" required placeholder="password">
+                        </p>        
+                        <input type="submit" value="Se connecter">
+                        <div class="bottom-form">
+                                <a href="register.php">S'enregistrer</a>
+                                <a href="#">Mot de passe oublié ?</a>
+                        </div>
+                    </form>
+            </div>
+        </div>
     </main>
+    <?php include ('php/footer.php');?>
 </body>
 
 </html>
