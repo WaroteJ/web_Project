@@ -52,7 +52,6 @@ form {
     display: flex;
     flex-direction: column;
     text-align: center;
-    align-content: center;
     
     h3{
         color:$secondary-color;
@@ -67,7 +66,7 @@ form {
     }
     >.bottom-form{
         display: flex;
-        flex: row;
+        flex-direction: row;
         justify-content: space-between;
 
         >a{

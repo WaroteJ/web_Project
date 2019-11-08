@@ -45,7 +45,6 @@ form {
   display: flex;
   flex-direction: column;
   text-align: center;
-  align-content: center;
 }
 form h3 {
   color: #FFC252;
@@ -60,7 +59,7 @@ form select {
 }
 form > .bottom-form {
   display: flex;
-  flex: row;
+  flex-direction: row;
   justify-content: space-between;
 }
 form > .bottom-form > a {

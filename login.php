@@ -34,10 +34,10 @@ session_start();
                     <form method="post" action="php/scriptLogin.php">  
                         <h2>Connexion</h2>
                         <?php
-                            if(isset($_SESSION["connected"])){
-                                if($_SESSION["connected"]==0){
+                            if(isset($_SESSION["centre"])){
+                                if($_SESSION["centre"]==0){
                                     echo "<h3>Adresse mail ou mot de passe incorrect</h3>";
-                                    $_SESSION["connected"]=NULL;
+                                    $_SESSION["centre"]=NULL;
                                 }
                             }
                         ?>

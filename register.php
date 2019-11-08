@@ -33,15 +33,15 @@
                         <h2>Inscription</h2>
                         <p>
                             <label for="lastname">Nom</label>
-                            <input type="text" id="lastname" name="lastname" required placeholder="Nom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}">
+                            <input type="text" id="lastname" name="lastname" required placeholder="Nom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}" maxlength="25">
                         </p>    
                         <p>
                             <label for="firstname">Prénom</label>
-                            <input type="text" id="firstname" name="firstname" required placeholder="Prénom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}">
+                            <input type="text" id="firstname" name="firstname" required placeholder="Prénom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}" maxlength="25">
                         </p>    
                         <p>
                             <label for="mail">Adresse mail</label>
-                            <input type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
+                            <input type="email" name="mail" id="mail" required placeholder="adresse@mail.fr" maxlength="50">
                         </p>
                         <p>
                         <!-- Select centers from the database -->
@@ -59,12 +59,14 @@
                         </p>   
                         <p>
                             <label for="password">Mot de passe</label>
-                            <input type="password" name="password" id="password" required placeholder="password" pattern="^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,}">
+                            <input type="password" name="password" id="password" required placeholder="password" pattern="^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,50}" maxlength="50">
                         </p>       
                         <p>
                             <label for="passwordC">Confirmation de mot de passe</label>
-                            <input type="password" name="passwordC" id="passwordC" required placeholder="password confirmation" pattern="^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,}">
-                        </p>   
+                            <input type="password" name="passwordC" id="passwordC" required placeholder="password confirmation" pattern="^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,50}" maxlength="50">
+                        </p>
+                        <input type="checkbox" name="CGU" id="CGU" required><label for="CGU">J'accepte les <a href="mentions_legales.php" target="_blank">CGU</a></label>
+                        <input type="checkbox" name="CGV" id="CGV" required><label for="CGV">J'accepte les <a href="conditions_ventes.php" target="_blank">CGV</a></label> 
                         <input type="submit" value="S'enregistrer">
                         <div class="bottom-form">
                                 <a href="login.php">Se connecter</a>

@@ -1,10 +1,11 @@
 <?php
 session_start();
+include('input_secure.php');
 
 if (isset($_POST['mail'],$_POST['password'])){
     
-    $mail = $_POST['mail'];
-    $password = $_POST['password'];
+    $mail = inputSecure($_POST['mail']);
+    $password = inputSecure($_POST['password']);
         require("bdd.php");      
 
         $requete = $bdd->prepare("SELECT `id`,`droit`,`password`,`id_Centre` FROM `user` WHERE `email`=:mail");
@@ -19,7 +20,7 @@ if (isset($_POST['mail'],$_POST['password'])){
            switch ($result[1]) {
                case 0:
                     $_SESSION['admin'] = 0;
-                    $_SESSION['connected']=$result[3];
+                    $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
 
@@ -27,7 +28,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                
                 case 1:
                     $_SESSION['admin'] = 1;
-                    $_SESSION['connected']=$result[3];
+                    $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
 
@@ -35,7 +36,7 @@ if (isset($_POST['mail'],$_POST['password'])){
 
                 case 2:
                     $_SESSION['admin'] = 2;
-                    $_SESSION['connected']=$result[3];
+                    $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
 
@@ -46,7 +47,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                 break;
            }
         }else{
-            $_SESSION['connected']=0;
+            $_SESSION['centre']=0;
             header("Location: ../login.php"); 
             exit();
         };

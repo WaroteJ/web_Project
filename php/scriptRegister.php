@@ -1,12 +1,14 @@
 <?php
+include('input_secure.php');
+
 if (isset($_POST['lastname'],$_POST['firstname'],$_POST['mail'],$_POST['centre'],$_POST['password'],$_POST['passwordC'])){
     
-    $lastname = $_POST['lastname'];
-    $firstname = $_POST['firstname'];
-    $mail = $_POST['mail'];
-    $centre = $_POST['centre'];
-    $password = $_POST['password'];
-    $passwordC = $_POST['passwordC'];
+    $lastname = inputSecure($_POST['lastname']);
+    $firstname = inputSecure($_POST['firstname']);
+    $mail = inputSecure($_POST['mail']);
+    $centre = inputSecure($_POST['centre']);
+    $password = inputSecure($_POST['password']);
+    $passwordC = inputSecure($_POST['passwordC']);
 
     if (preg_match("/^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,}$/",$password)){   
         if ($password==$passwordC) {
