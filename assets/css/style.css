@@ -39,8 +39,17 @@ main .event {
   text-align: left;
   align-items: top;
 }
-main .carousel {
+main .carousel-event-image {
+  width: 100%;
   justify-content: center;
+  height: auto;
+}
+main .membre-BDE {
+  display: flex;
+  flex-direction: row;
+}
+main .membre-BDE img {
+  width: 50%;
 }
 
 form {

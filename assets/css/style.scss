@@ -46,8 +46,17 @@ main{
         align-items: top;
     }
 
-    .carousel{
-        justify-content: center;
+    .carousel-event-image{
+        width:100%;
+        justify-content:center;
+        height:auto;
+    }
+    .membre-BDE{
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 50%;
+        }
     }
 }
 
