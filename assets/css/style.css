@@ -1,5 +1,16 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
 header {
-  margin-bottom: 10px;
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
 }
 
 .menu {
@@ -11,6 +22,60 @@ header {
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
+}
+
+main {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+}
+
+form {
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+form h3 {
+  color: #FFC252;
+}
+form input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+form select {
+  width: 100%;
+  display: block;
+}
+form > .bottom-form {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+form > .bottom-form > a {
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+form > .bottom-form > a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
 }
 
 /*# sourceMappingURL=style.css.map */

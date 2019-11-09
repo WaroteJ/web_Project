@@ -1,3 +1,10 @@
+<?php
+session_start();
+if(isset($_SESSION["centre"])){
+    header("Location: ./centre.php"); 
+} 
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,9 +25,15 @@
             </div>
         </div>
     </header>
-
+    <?php include('php/menu.php');?>
     <main>
-        <?php include('php/menu.php');?>
+        <?php     
+        if(isset($_SESSION["centre"])){
+            echo $_SESSION["centre"];
+        } 
+        ?>
+
     </main>
+    <?php include('php/footer.php');?>
 </body>
 </html>
