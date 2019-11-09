@@ -1,3 +1,9 @@
+<?php
+session_start();
+if(isset($_SESSION["centre"])){
+    header("Location: ./index.php"); 
+ } 
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -8,6 +14,7 @@
         <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <title>Site BDE Inscription</title>
+        <script></script>
     </head>
 
     <body>
@@ -48,7 +55,7 @@
                             <label for="centre">Centre</label> 
                             <select name="centre" id="centre" required>
                             <?php include('php/bdd.php');
-                             $req= $bdd->prepare("SELECT * FROM `centre`");
+                             $req= $bdd->prepare("SELECT * FROM `centre` ORDER BY `nom`");
                              $req->execute();
 
                              while($result = $req->fetch(PDO::FETCH_BOTH)){

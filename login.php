@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION["centre"])){
+    header("Location: ./index.php"); 
+ } 
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +40,7 @@ session_start();
                             if(isset($_SESSION["centre"])){
                                 if($_SESSION["centre"]==0){
                                     echo "<h3>Adresse mail ou mot de passe incorrect</h3>";
-                                    $_SESSION["centre"]=NULL;
+                                    unset($_SESSION["centre"]);
                                 }
                             }
                         ?>

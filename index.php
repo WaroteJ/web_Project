@@ -1,5 +1,8 @@
 <?php
 session_start();
+if(isset($_SESSION["centre"])){
+    header("Location: ./centre.php"); 
+} 
 ?>
 
 <!DOCTYPE html>
@@ -24,8 +27,13 @@ session_start();
     </header>
     <?php include('php/menu.php');?>
     <main>
-        
+        <?php     
+        if(isset($_SESSION["centre"])){
+            echo $_SESSION["centre"];
+        } 
+        ?>
+
     </main>
-    <?php include ('php/footer.php');?>
+    <?php include('php/footer.php');?>
 </body>
 </html>
