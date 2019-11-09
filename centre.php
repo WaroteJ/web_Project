@@ -32,18 +32,9 @@
         <div class="event container-fluid">
             <div class="col">
                 <h3>Dernier Evénement :</h3>
+                <div id="carousel">
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                        <img src="assets/img/evenement/logo_bad.png" class="d-block w-100" alt="logo_bad">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="assets/img/evenement/raquette.png" class="d-block w-100" alt="raquette">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="assets/img/evenement/joueur.png" class="d-block w-100" alt="joueur">
-                        </div>
-                    </div>
+                    <?php include('php/scriptCentre.php');?>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
@@ -53,7 +44,9 @@
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
+                </div>
                 <div>
+                
                     <h2>Membres du BDE:</h2>
                     <div class="row">
                         <p class="col-6"><img src="assets/img/membre_bde/avatar.png">Jérôme Pihet</p>
