@@ -32,6 +32,16 @@ main {
   flex-flow: column nowrap;
   flex-grow: 1;
 }
+main .event {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+  align-items: top;
+}
+main .carousel {
+  justify-content: center;
+}
 
 form {
   margin: auto;

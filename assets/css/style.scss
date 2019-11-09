@@ -37,6 +37,18 @@ main{
     display: flex;
     flex-flow: column nowrap;
     flex-grow: 1;
+
+    .event{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+        align-items: top;
+    }
+
+    .carousel{
+        justify-content: center;
+    }
 }
 
 form {
