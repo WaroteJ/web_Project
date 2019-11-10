@@ -58,20 +58,57 @@ main{
             width: 50%;
         }
     }
+    #admin_buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);    
+        border: 2px solid black;
+        border-radius: 10px;
+        margin:5px;
+        a{
+            color: black;
+
+            &:hover{
+                text-decoration: none;
+                color: $secondary-color;
+            }
+        }
+
+    }
+    .bouton_admin{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 5px;
+        background-color: rgba(245, 245, 245, 0.3);    
+        border: 2px solid black;
+        border-radius: 10px;
+        padding: 10px;
+
+        i{
+            color:rgba(0, 0, 0, 0.85);
+        }
+
+    }
+}
+.add_element{
+    width:40%;
 }
 
 form {
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding:10px;
-    background-color: rgba(0, 0, 0, 0.5);
-    
+    background-color: rgba(0, 0, 0, 0.5);    
     border: 2px solid black;
     border-radius: $radius;
+
     display: flex;
     flex-direction: column;
     text-align: center;
-    
+
     h3{
         color:$secondary-color;
     }
@@ -101,6 +138,9 @@ form {
 
             }
         }
+    }
+    #prix{
+        display:none;
     }
 }
 

@@ -51,10 +51,44 @@ main .membre-BDE {
 main .membre-BDE img {
   width: 50%;
 }
+main #admin_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  border-radius: 10px;
+  margin: 5px;
+}
+main #admin_buttons a {
+  color: black;
+}
+main #admin_buttons a:hover {
+  text-decoration: none;
+  color: #FFC252;
+}
+main .bouton_admin {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 5px;
+  background-color: rgba(245, 245, 245, 0.3);
+  border: 2px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+main .bouton_admin i {
+  color: rgba(0, 0, 0, 0.85);
+}
+
+.add_element {
+  width: 40%;
+}
 
 form {
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
   border: 2px solid black;
@@ -90,6 +124,9 @@ form > .bottom-form > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
+}
+form #prix {
+  display: none;
 }
 
 footer {
