@@ -34,6 +34,7 @@
     }
 ?>
 <form class="add_element" action="" method="post">
+    <h2>Création d'un évènement</h2>
     <label for="nom">Nom de l'évènement</label>
     <input type="text" name="nom" id="nom" placeholder="Nom de l'évènement" required>
     <label for="payant">Payant </label>
