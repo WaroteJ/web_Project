@@ -1,7 +1,9 @@
 <?php
 session_start();
 if(isset($_SESSION["centre"])){
-    header("Location: ./index.php"); 
+    if($_SESSION["centre"]!=0){
+        header("Location: ./index.php"); 
+    }
  } 
 ?>
 

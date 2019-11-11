@@ -1,4 +1,9 @@
-<?php session_start(); ?>
+<?php 
+    session_start();
+    if(!isset($_SESSION["centre"])){
+        header("Location: ./index.php"); 
+     }
+?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -24,28 +29,37 @@
     </header>
     <?php include('php/menu.php') ?>
     <main>
-        <div class="event">
-            <h3>Dernier Evénement :</h3>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active">
-                    <img src="evenement/logo_bad.png" class="d-block w-100" alt="logo_bad">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="evenement/raquette.png" class="d-block w-100" alt="raquette">
-                    </div>
-                    <div class="carousel-item">
-                    <img src="evenement/joueur.png" class="d-block w-100" alt="joueur">
+        <div class="container-fluid">
+            <div class="row">
+                <h3>Dernier Evénement :</h3>
+                <div id="carousel" class="col-12">
+                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                        <?php include('php/scriptCentre.php');?>
+                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
                     </div>
                 </div>
-                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                
+                <div>
+                    <h2>Membres du BDE:</h2>
+                    <div class="row">
+                        <?php
+                            $req= $bdd->prepare("SELECT `nom`,`prenom` FROM `user` WHERE `id_Centre`=:id AND `droit`=2");
+                            $req->bindValue(':id', $_SESSION["centre"], PDO::PARAM_STR);
+                            $req->execute();
+
+                            while($result = $req->fetch(PDO::FETCH_BOTH)){
+                               echo '<p class="col-6 membre-BDE"><img src="assets/img/membre_bde/avatar.png">'.$result[0].' '.$result[1].'</p>';
+                           }       
+                        ?>
+                    </div>
+                </div>
             </div>
         </div>
 </main>
