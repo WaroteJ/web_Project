@@ -1,0 +1,48 @@
+article {
+    margin: auto;
+    margin-top: 20px;
+    padding:10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    
+    border: 2px solid black;
+    border-radius: $radius;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    
+    h3{
+        color:$secondary-color;
+    }
+    input{
+        width:100%;
+        margin-bottom: 10px;
+    }
+    select{
+        width: 100%;
+        display: block;
+    }
+    >.bottom-article{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        >a{
+            color: $primary-color;
+            border: 1px solid black;
+            border-radius: $radius;
+            padding: 2px;
+            background-color: rgba(0, 0, 0, 0.2);
+            &:hover{
+                color: white;
+                text-decoration: none;
+                background-color: rgba(0, 0, 0, 0.4);
+
+            }
+        }
+    }
+}
+
+#events {
+    display: flex;
+  flex-direction: column;
+  }

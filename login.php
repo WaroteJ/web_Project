@@ -14,7 +14,7 @@ if(isset($_SESSION["centre"])){
         <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title>Site BDE Connexion</title>
+        <title>Site BDE Connection</title>
     </head>
 
     <body>

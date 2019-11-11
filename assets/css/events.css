@@ -33,7 +33,7 @@ main {
   flex-grow: 1;
 }
 
-form {
+article {
   margin: auto;
   margin-top: 20px;
   padding: 10px;
@@ -44,30 +44,30 @@ form {
   flex-direction: column;
   text-align: center;
 }
-form h3 {
+article h3 {
   color: #FFC252;
 }
-form input {
+article input {
   width: 100%;
   margin-bottom: 10px;
 }
-form select {
+article select {
   width: 100%;
   display: block;
 }
-form > .bottom-form {
+article > .bottom-article {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-form > .bottom-form > a {
+article > .bottom-article > a {
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-form > .bottom-form > a:hover {
+article > .bottom-article > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
@@ -78,9 +78,9 @@ footer {
   flex-flow: row nowrap;
 }
 
-#event {
+#events {
   display: flex;
-flex-direction: column;
+  flex-direction: column;
 }
 
-/*# sourceMappingURL=style.css.map */
+/*# sourceMappingURL=events.css.map */
