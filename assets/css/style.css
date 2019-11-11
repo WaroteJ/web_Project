@@ -40,7 +40,7 @@ main .event {
   align-items: top;
 }
 main .carousel-event-image {
-  width: 100%;
+  width: 70%;
   justify-content: center;
   height: auto;
 }
