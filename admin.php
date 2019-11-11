@@ -49,6 +49,18 @@ if ($_SESSION['admin']!=2){
                 <p>Ajouter un article</p>
             </div>
         </a>
+        <a href="admin.php?page=newCat">
+            <div class="bouton_admin">
+                <i class="fas fa-random fa-5x"></i> 
+                <p>Ajouter une catégorie</p>
+            </div>
+        </a>
+        <a href="admin.php?page=users">
+            <div class="bouton_admin">
+                <i class="fas fa-users fa-5x"></i> 
+                <p>Modifier droits utilisateur</p>
+            </div>
+        </a>
     </div>
 
     <?php
@@ -62,7 +74,16 @@ if ($_SESSION['admin']!=2){
 
                 case 'newArticle':
                     require("php/bo/newArticle.php");
-                    break;                           
+                    break;
+                    
+                case 'newCat':
+                    require("php/bo/newCat.php");
+                    break;      
+
+                case 'users':
+                    require("php/bo/users.php");
+                    break;        
+
                 default:
                     # code...
                     break;
