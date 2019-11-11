@@ -92,9 +92,6 @@ main{
 
     }
 }
-.add_element{
-    width:40%;
-}
 
 form {
     margin: auto;
@@ -139,9 +136,9 @@ form {
             }
         }
     }
-    #prix{
-        display:none;
-    }
+}
+.add_event>#prix{
+    display:none;
 }
 
 footer {

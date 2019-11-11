@@ -58,7 +58,11 @@ if ($_SESSION['admin']!=2){
             switch ($_GET['page']) {
                 case 'newEvent':
                     require("php/bo/newEvent.php");
-                    break;          
+                    break;
+
+                case 'newArticle':
+                    require("php/bo/newArticle.php");
+                    break;                           
                 default:
                     # code...
                     break;

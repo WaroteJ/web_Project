@@ -81,10 +81,6 @@ main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);
 }
 
-.add_element {
-  width: 40%;
-}
-
 form {
   margin: auto;
   margin-top: 20px;
@@ -125,7 +121,8 @@ form > .bottom-form > a:hover {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
 }
-form #prix {
+
+.add_event > #prix {
   display: none;
 }
 
