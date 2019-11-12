@@ -3,6 +3,7 @@ $secondary-color:#FFC252;
 $primary-bg:black;
 $secondary-bg:white;
 $radius:5px;
+$border:black 2px solid;
 
 body{
     background-color: $primary-bg;
@@ -16,12 +17,13 @@ header {
     background-color: $secondary-bg;
     display: flex;
     flex-flow: column nowrap;
+    padding-bottom: 5px;
 }
 
 .menu {
     background: #000;
     color:#fff;
-    border :1px solid grey;
+    border-right :1px solid grey;
     text-align: center;
     
     &:hover{
@@ -63,7 +65,7 @@ main{
         flex-direction: row;
         justify-content: center;
         background-color: rgba(0, 0, 0, 0.5);    
-        border: 2px solid black;
+        border: $border;
         border-radius: 10px;
         margin:5px;
         a{
@@ -82,7 +84,7 @@ main{
         text-align: center;
         margin: 5px;
         background-color: rgba(245, 245, 245, 0.3);    
-        border: 2px solid black;
+        border: $border;
         border-radius: 10px;
         padding: 10px;
 
@@ -92,9 +94,6 @@ main{
 
     }
 }
-.add_element{
-    width:40%;
-}
 
 form {
     margin: auto;
@@ -102,7 +101,7 @@ form {
     margin-bottom: 20px;
     padding:10px;
     background-color: rgba(0, 0, 0, 0.5);    
-    border: 2px solid black;
+    border: $border;
     border-radius: $radius;
 
     display: flex;
@@ -127,7 +126,7 @@ form {
 
         >a{
             color: $primary-color;
-            border: 1px solid black;
+            border: $border;
             border-radius: $radius;
             padding: 2px;
             background-color: rgba(0, 0, 0, 0.2);
@@ -139,9 +138,23 @@ form {
             }
         }
     }
-    #prix{
-        display:none;
+}
+#user_table{
+    border: 1px solid black;
+    width:99%;
+    margin: 5px;
+    
+    th{
+        text-align: center;
+        border: 2px solid black;
     }
+    td{
+        text-align: center;
+        border: 1px solid black;
+    }
+}
+.add_event>#prix{
+    display:none;
 }
 
 footer {

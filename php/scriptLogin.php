@@ -18,7 +18,7 @@ if (isset($_POST['mail'],$_POST['password'])){
         echo $result[1];
         if (password_verify($password,$result[2])){
             $_SESSION['user']=$result[0];
-           switch ($result[1]) {
+            switch ($result[1]) {
                case 0:
                     $_SESSION['admin'] = 0;
                     $_SESSION['centre']=$result[3];
@@ -46,7 +46,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                 default:
                    # code...
                 break;
-           }
+            }
         }else{
             $_SESSION['centre']=0;
             header("Location: ../login.php"); 
