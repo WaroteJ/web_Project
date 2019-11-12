@@ -95,7 +95,7 @@ main{
     }
 }
 
-form {
+.whole_form {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -139,6 +139,7 @@ form {
         }
     }
 }
+
 #user_table{
     border: 1px solid black;
     width:99%;
@@ -156,7 +157,17 @@ form {
 .add_event>#prix{
     display:none;
 }
+.command:nth-child(odd){
+    background-color: rgba(0, 0, 0, 0.4);
+}
 
+.command:nth-child(even){
+    background-color: rgba(0, 0, 0, 0.2);
+}
+.suivi{
+    display: flex;
+    justify-content: center;
+}
 footer {
     display: flex;
     flex-flow: row nowrap;

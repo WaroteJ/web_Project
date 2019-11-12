@@ -36,7 +36,7 @@ if(isset($_SESSION["centre"])){
     <main>
     <div class="container-fluid">
             <div class="row justify-content-md-center">
-                    <form method="post" action="php/scriptLogin.php">  
+                    <form class="whole_form" method="post" action="php/scriptLogin.php">  
                         <h2>Connexion</h2>
                         <?php
                             if(isset($_SESSION["centre"])){

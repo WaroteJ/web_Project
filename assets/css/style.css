@@ -82,7 +82,7 @@ main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);
 }
 
-form {
+.whole_form {
   margin: auto;
   margin-top: 20px;
   margin-bottom: 20px;
@@ -94,30 +94,30 @@ form {
   flex-direction: column;
   text-align: center;
 }
-form h3 {
+.whole_form h3 {
   color: #FFC252;
 }
-form input {
+.whole_form input {
   width: 100%;
   margin-bottom: 10px;
 }
-form select {
+.whole_form select {
   width: 100%;
   display: block;
 }
-form > .bottom-form {
+.whole_form > .bottom-form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-form > .bottom-form > a {
+.whole_form > .bottom-form > a {
   color: black;
   border: black 2px solid;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-form > .bottom-form > a:hover {
+.whole_form > .bottom-form > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
@@ -139,6 +139,19 @@ form > .bottom-form > a:hover {
 
 .add_event > #prix {
   display: none;
+}
+
+.command:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.command:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.suivi {
+  display: flex;
+  justify-content: center;
 }
 
 footer {
