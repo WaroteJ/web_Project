@@ -27,7 +27,7 @@
         $requete->closeCursor();
     }
 ?>
-<form action="" method="post">
+<form action="" method="post" class="whole_form">
     <h2>Ajouter un article</h2>
     <label for="nom">Nom de l'article</label>
     <input type="text" name="nom" id="nom" placeholder="Nom de l'article" required>
