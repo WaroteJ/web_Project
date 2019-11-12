@@ -17,6 +17,7 @@ if (isset($_POST['mail'],$_POST['password'])){
         $result = $requete->fetch(PDO::FETCH_BOTH);
         echo $result[1];
         if (password_verify($password,$result[2])){
+            $_SESSION['user']=$result[0];
            switch ($result[1]) {
                case 0:
                     $_SESSION['admin'] = 0;

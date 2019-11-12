@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/panier.css">
-  <title>Page des événements</title>
+  <title>Panier</title>
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -30,27 +30,20 @@
     </header>
     <?php include('php/menu.php') ?>
     <main>
+        <?php include('php/scriptPanier.php') ?>
         <h2>Mon Panier :</h2>
         <div class="panier">
             <table>
                     <thead class="container-fluid">
                         <tr class="row border">
-                            <th class="col-6">Article</th>
-                            <th class="col-3">Prix</th>
+                            <th class="col-5">Article</th>
+                            <th class="col-3">Prix Unitaire</th>
                             <th class="col-3">Quantité</th>
+                            <th class="col-1"></th>
                         </tr>
                     </thead>
                     <tbody class="container-fluid">
-                        <tr class="row border">
-                            <td class="col-6">The table body</td>
-                            <td class="col-3">with two columns</td>
-                            <td class="col-3">6</td>
-                        </tr>
-                        <tr class="row border">
-                            <td class="col-6">The table body</td>
-                            <td class="col-3">with two columns</td>
-                            <td class="col-3">6</td>
-                        </tr>
+                        <?php recup_infos(); ?>
                     </tbody>
             </table>
         </div>
@@ -58,7 +51,7 @@
             <div class="conteneur-prix container col-12">
                 <div class="prix col-4">    
                     <p class="text-white"><strong>Prix Commande TTC:</strong></p>
-                    <p class="text-center text-white">...</p>
+                    <p class="text-center text-white"><?php calcul_prix() ?></p>
                 </div>
             </div>
         </div>
