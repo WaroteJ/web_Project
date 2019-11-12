@@ -56,7 +56,7 @@ main #admin_buttons {
   flex-direction: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid black;
+  border: black 2px solid;
   border-radius: 10px;
   margin: 5px;
 }
@@ -73,7 +73,7 @@ main .bouton_admin {
   text-align: center;
   margin: 5px;
   background-color: rgba(245, 245, 245, 0.3);
-  border: 2px solid black;
+  border: black 2px solid;
   border-radius: 10px;
   padding: 10px;
 }
@@ -87,7 +87,7 @@ form {
   margin-bottom: 20px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
-  border: 2px solid black;
+  border: black 2px solid;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -111,7 +111,7 @@ form > .bottom-form {
 }
 form > .bottom-form > a {
   color: black;
-  border: 1px solid black;
+  border: black 2px solid;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -120,6 +120,20 @@ form > .bottom-form > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+#user_table {
+  border: 1px solid black;
+  width: 99%;
+  margin: 5px;
+}
+#user_table th {
+  text-align: center;
+  border: 2px solid black;
+}
+#user_table td {
+  text-align: center;
+  border: 1px solid black;
 }
 
 .add_event > #prix {
