@@ -127,6 +127,7 @@ main .bouton_admin i {
   border: 1px solid black;
   width: 99%;
   margin: 5px;
+  font-size: 0.8em;
 }
 #user_table th {
   text-align: center;

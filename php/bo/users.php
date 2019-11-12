@@ -27,7 +27,7 @@
           <td>';
           if($_SESSION['user']!=$result[0]){
           echo'  
-          <form class="users_form" method="post">
+          <form method="post">
               <select name="droit" id="droit" required>
                   <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>Utilisateur</option>"; 
                   <option value="1"';if($result[3]==1){echo 'selected="selected"';}echo '>Membre CESI</option>";

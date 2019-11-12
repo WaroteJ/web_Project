@@ -1,7 +1,7 @@
 <?php
 
     if(isset($_POST["valid_command"],$_POST["id_command"])){ // Si un bouton modifier a été cliqué 
-        $req = $bdd->prepare("UPDATE `commande` SET `etat`=1 WHERE `id`=:id"); 
+        $req = $bdd->prepare("UPDATE `commande` SET `etat`=1 WHERE `id`=:id"); //Valide la commande
         $req->execute(array(
             ':id'=>inputSecure($_POST["id_command"]),
         )); 
@@ -12,6 +12,7 @@
   $groupID=NULL;
   $id=NULL;
   $lastEtat=NULL;
+  // Sélectionne les items et leur prix d'une commande ainsi que l'utilisateur et la date 
   $requete = $bdd->prepare("SELECT  user.nom, user.prenom, commande.id, commande.date ,commande.etat,article.nom_article,article_commande.qte
   FROM ((commande INNER JOIN user ON commande.id_User = user.id) 
   INNER JOIN article_commande ON commande.id = article_commande.id_Commande) 
@@ -19,10 +20,10 @@
   $requete->execute();
   echo'<div class="container-fluid">
   <div class="row">';
-  while($result = $requete->fetch(PDO::FETCH_BOTH)){ //Affiche le nom, prénom, droit + un bouton modifier pour tous les utilisateurs
+  while($result = $requete->fetch(PDO::FETCH_BOTH)){ 
     if($result[2]!=$id){
         if($groupID!=NULL){
-            if($lastEtat==0){
+            if($lastEtat==0){ // Si la commande n'est pas validé, on affiche un bouton valider
                 echo'<form action="" method="post">
                         <input type="hidden" name="id_command" id="id_command" value="'.$result[2].'">
                         <input type="submit" value="Valider la commande" name="valid_command">
