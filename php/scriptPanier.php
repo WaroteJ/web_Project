@@ -22,9 +22,9 @@
                         <td class="col-3">'.$result[1].'</td>
                         <td class="col-3">'.$result[2].'</td>
                         <td class="col-1"> 
-                        <form method="post">
+                        <form method="post" class="cross">
                             <input type="hidden" name="id" id="id" value="'.$result[3].'">
-                            <input type="submit" value="X" name="supp">
+                            <input class="supp_input" type="submit" value="X" name="supp">
                         </form>
                         </td>
                     </tr>';

@@ -16,6 +16,14 @@ main table td {
   padding: 8px;
   text-align: center;
 }
+main table td .cross {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+main table td .cross .supp_input {
+  margin: 0;
+}
 main table tr:nth-child(odd) {
   background-color: #326295;
 }
@@ -53,6 +61,12 @@ main .valider_button a:hover {
 main .valider_button a p {
   margin: 0;
   color: white;
+}
+main .confirm {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding-top: 30%;
 }
 
 /*# sourceMappingURL=panier.css.map */
