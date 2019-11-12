@@ -13,7 +13,7 @@
         while($result = $requete->fetch()):          
         ?><div class="carousel-item <?php if($first){echo 'active';$first=false;}?>">
         <?php
-        echo '<img class="carousel-event-image" src="'.$result[0].'" class="d-block w-100" alt="logo_bad">
+        echo '<img class="carousel-event-image" src="'.$result[0].'" class="d-block" alt="logo_bad">
             </div>';
         endwhile;    
         }
