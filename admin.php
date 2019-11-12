@@ -38,7 +38,7 @@ if ($_SESSION['admin']!=2){
     <main>
     <div class="container-fluid">
             <div id="admin_buttons" class="row">
-                <a class="col-md-3 col-sm-6" href="admin.php?page=newEvent">
+                <a class="col-md-3 col-sm-6" href="admin.php?page=newEvent"> <!-- Fonctionnalités du BO -->
                     <div class="bouton_admin">
                         <i class="fas fa-calendar fa-5x"></i> 
                         <p>Créer un évènement</p>
@@ -60,6 +60,12 @@ if ($_SESSION['admin']!=2){
                     <div class="bouton_admin">
                         <i class="fas fa-users fa-5x"></i> 
                         <p>Modifier droits utilisateur</p>
+                    </div>
+                </a>
+                <a class="col-md-3 col-sm-6" href="admin.php?page=command">
+                    <div class="bouton_admin">
+                        <i class="fas fa-shopping-basket fa-5x"></i> 
+                        <p>Suivi des commandes</p>
                     </div>
                 </a>
             </div>

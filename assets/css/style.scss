@@ -17,12 +17,13 @@ header {
     background-color: $secondary-bg;
     display: flex;
     flex-flow: column nowrap;
+    padding-bottom: 5px;
 }
 
 .menu {
     background: #000;
     color:#fff;
-    border :1px solid grey;
+    border-right :1px solid grey;
     text-align: center;
     
     &:hover{

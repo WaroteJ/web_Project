@@ -29,16 +29,16 @@
           echo'  
           <form class="users_form" method="post">
               <select name="droit" id="droit" required>
-                  <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>0</option>"; 
-                  <option value="1"';if($result[3]==1){echo 'selected="selected"';}echo '>1</option>";
-                  <option value="2"';if($result[3]==2){echo 'selected="selected"';}echo '>2</option>";
+                  <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>Utilisateur</option>"; 
+                  <option value="1"';if($result[3]==1){echo 'selected="selected"';}echo '>Membre CESI</option>";
+                  <option value="2"';if($result[3]==2){echo 'selected="selected"';}echo '>Admin</option>";
               </select>
               <input type="hidden" name="id" class="id" value="'.$result[0].'">
           </td>
           <td><input type="submit" value="Modifier" name="user_modify"></td>
           </form>';
           }else{
-            echo $result[3].'</td>
+            echo 'Admin</td>
             <td>Vous ne pouvez pas modifier vos droits</td>';
           }
   echo'</tr>';
