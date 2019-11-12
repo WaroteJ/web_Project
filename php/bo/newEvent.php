@@ -1,16 +1,16 @@
 <?php
 
-    if(isset($_POST['newEvent'])){
+    if(isset($_POST['newEvent'])){ 
         $pay=1;
         $prix=0;
         $descri='';
         $logo='';
         if(isset($_POST['prix'])){
             if($_POST['prix']>=0)
-                $prix=inputSecure($_POST['prix']);
+                $prix=inputSecure($_POST['prix']); //Si le prix est >0 
         }
-        if(!isset($_POST['payant'])){
-            $pay=0;
+        if(!isset($_POST['payant'])){ // Si la case payant n'est pas coché, on set payant et prix à 0
+            $pay=0;             
             $prix=0;
         }
         if(isset($_POST['descri'])){
@@ -36,7 +36,7 @@
 <form class="add_event" action="" method="post">
     <h2>Création d'un évènement</h2>
     <label for="nom">Nom de l'évènement</label>
-    <input type="text" name="nom" id="nom" placeholder="Nom de l'évènement" required>
+    <input type="text" name="nom" id="nom" placeholder="Nom de l'évènement" required maxlength="50">
     <label for="payant">Payant </label>
     <input type="checkbox" name="payant" id="payant"> 
     <input type="number" name="prix" id="prix" placeholder="Prix" min="0">

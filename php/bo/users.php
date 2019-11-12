@@ -7,8 +7,8 @@
   </tr>
 <?php
 
-  if(isset($_POST["id"],$_POST["droit"])){
-    $req = $bdd->prepare("UPDATE `user` SET `droit`=:droit WHERE `id`=:id");
+  if(isset($_POST["id"],$_POST["droit"])){ // Si un bouton modifier a été cliqué 
+    $req = $bdd->prepare("UPDATE `user` SET `droit`=:droit WHERE `id`=:id"); // modifie le droit de l'utilisateur
     $req->execute(array(
         ':id'=>inputSecure($_POST["id"]),
         ':droit'=>inputSecure($_POST["droit"])
@@ -20,16 +20,16 @@
   $requete->execute(array(
       ':id'=>$_SESSION['centre']
   ));
-  while($result = $requete->fetch(PDO::FETCH_BOTH)){
+  while($result = $requete->fetch(PDO::FETCH_BOTH)){ //Affiche le nom, prénom, droit + un bouton modifier pour tous les utilisateurs
   echo'<tr>
-          <td>'.$result[1].'</td>
+          <td>'.$result[1].'</td> 
           <td>'.$result[2].'</td>
           <td>';
           if($_SESSION['user']!=$result[0]){
           echo'  
           <form class="users_form" method="post">
               <select name="droit" id="droit" required>
-                  <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>0</option>";
+                  <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>0</option>"; 
                   <option value="1"';if($result[3]==1){echo 'selected="selected"';}echo '>1</option>";
                   <option value="2"';if($result[3]==2){echo 'selected="selected"';}echo '>2</option>";
               </select>

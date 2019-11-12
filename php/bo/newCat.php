@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['newCat'])){
+    if(isset($_POST['newCat'],$_POST['nom'])){
         $requete = $bdd->prepare("INSERT INTO `categorie`(`nom`) VALUES (:nom)");
         $requete->execute(array(
             ':nom'=>inputSecure($_POST['nom']),
