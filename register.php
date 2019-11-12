@@ -38,6 +38,18 @@ if(isset($_SESSION["centre"])){
             <div class="row justify-content-md-center">
                     <form method="post" action="php/scriptRegister.php">
                         <h2>Inscription</h2>
+                        <?php
+                        if(isset($_SESSION['error'])){ // Variable d'erreur en cas de problème lors de l'enregistrement
+                            if($_SESSION['error']==1){
+                                echo "<h3>Adresse mail déjà utilisée</h3>";
+                                unset($_SESSION['error']);
+                            }
+                            else if($_SESSION['error']==2){
+                                echo "<h3>Mots de passe non identiques</h3>";
+                                unset($_SESSION['error']);
+                            }
+                        }
+                        ?>
                         <p>
                             <label for="lastname">Nom</label>
                             <input type="text" id="lastname" name="lastname" required placeholder="Nom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}" maxlength="25">
