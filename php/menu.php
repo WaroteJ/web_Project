@@ -16,7 +16,7 @@
           echo '<a href="register.php" class="col menu"> Inscription </a>';
           /* If connected then show the center page and show the menu of it*/  
           }else{
-              echo '<a href="centre.php" class="col menu"> Accueil </ a>'; // Je crois que cette page doit rediriger sur centre.php
+              echo '<a href="centre.php" class="col menu"> Accueil </ a>'; 
               echo '<a href="evenements.php" class="col menu"> Evénements </ a>';
               echo '<a href="boutique.php" class="col menu"> Boutique </ a>';
               echo '<a href="php/disconnect.php" class="col menu"> Déconnexion </a>';
