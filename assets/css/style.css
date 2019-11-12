@@ -141,6 +141,19 @@ form > .bottom-form > a:hover {
   display: none;
 }
 
+.command:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.command:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.suivi {
+  display: flex;
+  justify-content: center;
+}
+
 footer {
   display: flex;
   flex-flow: row nowrap;

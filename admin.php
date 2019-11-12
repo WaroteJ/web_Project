@@ -93,6 +93,10 @@ if ($_SESSION['admin']!=2){
                     require("php/bo/users.php");
                     break;        
 
+                case 'command':
+                    require("php/bo/command.php");
+                    break; 
+
                 default:
                     # code...
                     break;
