@@ -55,7 +55,7 @@
     <div class="container-fluid articles">
         <div class="row filtre">
             <div class="col-4">
-                <form>
+                <form class="whole_form">
                     <h2>Filtres</h2>
                     <p>
                         <label for="priceUp">Prix croissant</label>

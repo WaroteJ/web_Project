@@ -59,7 +59,7 @@
         if(((int)calcul_prix())>0){
             echo '<div class="valider_button container">
             <a href="confirm_basket.php">
-            <div class="bouton_admin">
+            <div class="btn btn-success">
                 <p>Valider</p>
             </div>
         </div>';
