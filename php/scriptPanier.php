@@ -18,10 +18,10 @@
             $requete->execute();
             while($result = $requete->fetch()):          
                 echo'<tr class="row border">
-                        <td class="col-5">'.$result[0].'</td>
-                        <td class="col-3">'.$result[1].'</td>
-                        <td class="col-3">'.$result[2].'</td>
-                        <td class="col-1"> 
+                        <td class="col-md-5">'.$result[0].'</td>
+                        <td class="col-md-3">'.$result[1].'</td>
+                        <td class="col-md-3">'.$result[2].'</td>
+                        <td class="col-md-1"> 
                         <form method="post" class="cross">
                             <input type="hidden" name="id" id="id" value="'.$result[3].'">
                             <input class="supp_input" type="submit" value="X" name="supp">
