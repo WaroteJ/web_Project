@@ -20,8 +20,11 @@ let con = mysql.createConnection({
 
 app.use(cors());
 
+let request;
+ 
 // Extract the entire body portion of an incoming requset stream and exposes it on req.body
 let bodyParser = require ("body-parser");
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
@@ -34,7 +37,7 @@ app.get('/users', (req, res) => {
 
 //List the user with the corresponding id when get request on /users/user_:id
 app.get('/users/:user_centre', (req, res) => {
-	let request =  "SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id WHERE centre.nom="+'"'+ req.params.user_centre+'"';
+	request =  "SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id WHERE centre.nom="+'"'+ req.params.user_centre+'"';
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
@@ -49,11 +52,38 @@ app.get('/articles', (req, res) => {
 
 
 
+// app.get('/articles/:choix', (req, res)=> {
+// 	let type = typeof req.params.choix;
+// 	if(type === "number"){
+// 		//List the article with the corresponding id when get request on /articles/choix:id
+// 		request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+// 		console.log(req.params.choix);
+// 	} else if(req.params.choix == "up" && type == "string"){
+// 			//List the article ordered when get request on /articles/up
+// 			request = "SELECT url, nom_article, prix, id FROM article ORDER BY prix";
+// 			console.log(req.params.choix);
+
+// 		}else if (req.params.choix == "down" && type == "string"){
+// 			//List the article ordered when get request on /articles/down
+// 			request =  "SELECT url, nom_article, prix, id FROM article ORDER BY prix DESC";
+// 			console.log(req.params.choix);
+
+// 		}else if (req.params.choix == "type" && type == "string"){
+// 			//List the article grouped by type when get request on /articles/down
+// 			request =  "SELECT url, nom_article, prix, id FROM article ORDER BY id_Categorie";
+// 			console.log(req.params.choix);
+
+// 		}
+// 	con.query(request, function (err, result) {
+// 		res.send(JSON.stringify(result));
+// 	});
+// });
+
+
 //List the article ordered when get request on /articles/up
 app.get('/articles/up', (req, res) => {
-	con.query("SELECT url, nom_article, prix, id FROM article ORDER BY prix", function (err, result) {
+	 	con.query("SELECT url, nom_article, prix, id FROM article ORDER BY prix", function (err, result) {
 		res.send(JSON.stringify(result));
-
 	});
 });
 
@@ -62,7 +92,6 @@ app.get('/articles/down', (req, res) => {
 	let request =  "SELECT url, nom_article, prix, id FROM article ORDER BY prix DESC";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
-
 	});
 });
 
@@ -71,13 +100,12 @@ app.get('/articles/type', (req, res) => {
 	let request =  "SELECT url, nom_article, prix, id FROM article ORDER BY id_Categorie";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
-
 	});
 });
 
 //List the article with the corresponding id when get request on /articles/article_:id
-app.get('/articles/:article_id', (req, res) => {
-	let request =  "SELECT * FROM article WHERE id ="+ req.params.article_id;
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});

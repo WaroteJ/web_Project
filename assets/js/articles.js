@@ -1,24 +1,24 @@
 $(function(){
-  let url = window.location.href;
-  var pathname = window.location.pathname; // Returns path only (/path/example.html)
-  console.log(url);
-  console.log(pathname);
+  let adresse = window.location.href;
+  let id_art;
+  let result = adresse.split('/');
+  if (result[3] == "web_project"){
+    id_art = result[4].split('=');
+  }
 
-  //let $url = 'http://localhost:3000/articles/'
+  let article='http://localhost:3000/articles/'+ id_art[1];
   $.ajax({
     type:'GET',
-    url: 'http://localhost:3000/articles/',
+    url: article,
     dataType:'json'
   })
   .done(function(data){
     let donnees = typeof data !='object' ? JSON.parse(data) : data;
-
-    for(let i=0;i<donnees.length;i++){
-    $(".articles").append('<div class="col-5 article"><a href=articles.php?art='+ donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
-  }              
-  })
+    // let addPanier = "<div class ='filtre'><form action='php/addPanier.php'><label for='qte'>Quantité</label><input type='number' name='qte' min='1' max='100'><input type='hidden' value='"+id_art[1]+"' name='id_art'><input type='submit' value='Ajouter'></form></div>"
+    $("#qte_art").val(id_art[1]);
+    $(".article").prepend('<div class="article col"><img class="picture"src= "'+ donnees[0].url +'" width=60%><div class="description">Prix: '+ donnees[0].prix +'€</div><div class="description">Nom: '+donnees[0].nom_article+'</div></div></div>');
+  })              
   .fail(function(jqXHR, textStatus, err){
     console.log('AJAX error response:', textStatus);
-    });
-})
- 
+  });
+});

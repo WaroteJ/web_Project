@@ -52,9 +52,9 @@
             </div>
         </div>
     </div>
-    <div class="container-fluid">
+    <div class="container-fluid articles">
         <div class="row filtre">
-            <div class="col-4 ">
+            <div class="col-4">
                 <form>
                     <h2>Filtres</h2>
                     <p>
