@@ -31,7 +31,7 @@
             endwhile;
         }
     }
-
+        global $prix_ttc;
         function calcul_prix(){
             require("bdd.php");
             $prix_ttc = 0;
@@ -45,10 +45,10 @@
                 $requete->execute();
             while($result = $requete->fetch()):
                  //calcul du prix total en fonction du prix unitaire et de la quantité          
-                $prix_ttc += $result[0]*$result[1];
+                 $prix_ttc += $result[0]*$result[1];
             endwhile;
             //affichage du prix de la commande
-            echo $prix_ttc." euros";
+            return $prix_ttc." euros";
             }
         }
 ?>

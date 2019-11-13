@@ -51,19 +51,24 @@
             <div class="conteneur-prix container col-12">
                 <div class="prix col-4">    
                     <p class="text-white"><strong>Prix Commande TTC:</strong></p>
-                    <p class="text-center text-white"><?php calcul_prix() ?></p>
+                    <p class="text-center text-white pan"><?php echo calcul_prix(); ?></p>
                 </div>
             </div>
         </div>
-        <div class="valider_button container">
+        <?php 
+        if(((int)calcul_prix())>0){
+            echo '<div class="valider_button container">
             <a href="confirm_basket.php">
             <div class="bouton_admin">
                 <p>Valider</p>
             </div>
-        </div>
+        </div>';
+        }
+        ?>
     </main>
 
 <?php include('php/footer.php') ?>
 
 </body>
+<!-- <script type="text/javascript" src="assets/js/check_basket.js"></script> -->
 </html>
