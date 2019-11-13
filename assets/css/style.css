@@ -11,14 +11,13 @@ header {
   background-color: white;
   display: flex;
   flex-flow: column nowrap;
+  padding-bottom: 5px;
 }
 
 .menu {
-
   background: black;
   color: white;
   border-right: 1px solid grey;
-
   text-align: center;
 }
 .menu:hover {
@@ -35,7 +34,6 @@ main {
   flex-flow: column nowrap;
   flex-grow: 1;
 }
-
 main .event {
   display: flex;
   justify-content: flex-start;
@@ -60,7 +58,7 @@ main #admin_buttons {
   flex-direction: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  border: black 2px solid;
+  border: 1px black solid;
   border-radius: 10px;
   margin: 5px;
   font-size: 0.8em;
@@ -79,7 +77,7 @@ main .bouton_admin {
   text-align: center;
   margin: 5px;
   background-color: rgba(245, 245, 245, 0.3);
-  border: black 2px solid;
+  border: 1px black solid;
   border-radius: 10px;
   padding: 10px;
   height: 120px;
@@ -88,8 +86,7 @@ main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);
 }
 
-
-form {
+.whole_form {
   margin: auto;
   margin-top: 20px;
   padding: 10px;
@@ -100,36 +97,35 @@ form {
   flex-direction: column;
   text-align: center;
 }
-form h3 {
+.whole_form h3 {
   color: #FFC252;
 }
-form input {
+.whole_form input {
   width: 100%;
   margin-bottom: 10px;
 }
-form select {
+.whole_form select {
   width: 100%;
   display: block;
 }
-form > .bottom-form {
+.whole_form > .bottom-form {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
 }
-form > .bottom-form > a {
+.whole_form > .bottom-form > a {
   color: black;
   border: 1px solid black;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
 }
-form > .bottom-form > a:hover {
+.whole_form > .bottom-form > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.4s;
 }
-
 
 #user_table {
   border: 1px solid black;
@@ -164,7 +160,6 @@ form > .bottom-form > a:hover {
   display: flex;
   justify-content: center;
 }
-
 
 footer {
   display: flex;

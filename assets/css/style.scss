@@ -3,7 +3,7 @@ $secondary-color:#FFC252;
 $primary-bg:black;
 $secondary-bg:white;
 $radius:5px;
-
+$border:1px black solid;
 body{
     background-color: $primary-bg;
     display: flex;
@@ -16,6 +16,7 @@ header {
     background-color: $secondary-bg;
     display: flex;
     flex-flow: column nowrap;
+    padding-bottom: 5px;
 }
 
 .menu {
@@ -99,7 +100,7 @@ main{
 
 }
 
-form {
+.whole_form {
     margin: auto;
     margin-top: 20px;
     padding:10px;
