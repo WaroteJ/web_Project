@@ -164,7 +164,8 @@ main{
 .add_event>#prix{
     display:none;
 }
-.command{
+
+.command,.signal{
     padding-bottom: 5px;
     &:nth-child(odd){
         background-color: rgba(0, 0, 0, 0.4);
@@ -174,7 +175,6 @@ main{
         background-color: rgba(0, 0, 0, 0.2);
     }
 }
-
 .suivi{
     display: flex;
     justify-content: center;
