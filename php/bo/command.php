@@ -16,7 +16,8 @@
   $requete = $bdd->prepare("SELECT  user.nom, user.prenom, commande.id, commande.date ,commande.etat,article.nom_article,article_commande.qte
   FROM ((commande INNER JOIN user ON commande.id_User = user.id) 
   INNER JOIN article_commande ON commande.id = article_commande.id_Commande) 
-  INNER JOIN article on article_commande.id = article.id");
+  INNER JOIN article on article_commande.id = article.id
+  ORDER BY commande.id");
   $requete->execute();
   echo'<div class="container-fluid">
   <div class="row">';
@@ -25,7 +26,7 @@
         if($groupID!=NULL){
             if($lastEtat==0){ // Si la commande n'est pas validé, on affiche un bouton valider
                 echo'<form action="" method="post">
-                        <input type="hidden" name="id_command" id="id_command" value="'.$result[2].'">
+                        <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
                         <input type="submit" value="Valider la commande" name="valid_command">
                     </form>';
             }
