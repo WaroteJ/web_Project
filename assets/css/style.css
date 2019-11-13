@@ -146,13 +146,13 @@ main .bouton_admin i {
   display: none;
 }
 
-.command {
+.command, .signal {
   padding-bottom: 5px;
 }
-.command:nth-child(odd) {
+.command:nth-child(odd), .signal:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.4);
 }
-.command:nth-child(even) {
+.command:nth-child(even), .signal:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
