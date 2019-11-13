@@ -17,7 +17,8 @@ if (isset($_POST['mail'],$_POST['password'])){
         $result = $requete->fetch(PDO::FETCH_BOTH);
         echo $result[1];
         if (password_verify($password,$result[2])){
-           switch ($result[1]) {
+            $_SESSION['user']=$result[0];
+            switch ($result[1]) {
                case 0:
                     $_SESSION['admin'] = 0;
                     $_SESSION['centre']=$result[3];
@@ -45,7 +46,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                 default:
                    # code...
                 break;
-           }
+            }
         }else{
             $_SESSION['centre']=0;
             header("Location: ../login.php"); 
