@@ -78,9 +78,4 @@ footer {
   flex-flow: row nowrap;
 }
 
-#event {
-  display: flex;
-flex-direction: column;
-}
-
 /*# sourceMappingURL=style.css.map */

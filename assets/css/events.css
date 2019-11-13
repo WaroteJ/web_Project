@@ -1,38 +1,3 @@
-body {
-  background-color: black;
-  display: flex;
-  flex-direction: column;
-  flex-flow: column nowrap;
-  justify-content: space-between;
-  min-height: 100vh;
-}
-
-header {
-  background-color: white;
-  display: flex;
-  flex-flow: column nowrap;
-}
-
-.menu {
-  background: #000;
-  color: #fff;
-  border: 1px solid grey;
-  text-align: center;
-}
-.menu:hover {
-  color: #FFC252;
-  text-decoration: none;
-}
-
-main {
-  background-color: white;
-  width: 90%;
-  margin: auto;
-  display: flex;
-  flex-flow: column nowrap;
-  flex-grow: 1;
-}
-
 article {
   margin: auto;
   margin-top: 20px;
@@ -58,7 +23,7 @@ article select {
 article > .bottom-article {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 article > .bottom-article > a {
   color: black;
@@ -71,16 +36,6 @@ article > .bottom-article > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
-}
-
-footer {
-  display: flex;
-  flex-flow: row nowrap;
-}
-
-#events {
-  display: flex;
-  flex-direction: column;
 }
 
 /*# sourceMappingURL=events.css.map */

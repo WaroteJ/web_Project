@@ -36,9 +36,8 @@ require_once('php/bdd.php');
     <?php include('php/menu.php');?>
     <main>
     <div class="container-fluid">
-            <div class="row events border"> 
-                <?php include('php/scriptListEvent.php') ?>
-                
+            <div class="row events border">                 
+                <?php include('php/scriptEvent.php') ?>
         </div>
     </main>
     <?php include ('php/footer.php');?>
