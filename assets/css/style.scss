@@ -21,8 +21,8 @@ header {
 }
 
 .menu {
-    background: #000;
-    color:#fff;
+    background: $primary-bg;
+    color:  $secondary-bg;
     border-right :1px solid grey;
     text-align: center;
     
@@ -90,7 +90,7 @@ main{
         border: $border;
         border-radius: 10px;
         padding: 10px;
-
+        height: 120px;
         i{
             color:rgba(0, 0, 0, 0.85);
         }
@@ -106,7 +106,7 @@ main{
     background-color: rgba(0, 0, 0, 0.5);    
     border: $border;
     border-radius: $radius;
-
+    
     display: flex;
     flex-direction: column;
     text-align: center;

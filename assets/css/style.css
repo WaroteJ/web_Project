@@ -15,8 +15,8 @@ header {
 }
 
 .menu {
-  background: #000;
-  color: #fff;
+  background: black;
+  color: white;
   border-right: 1px solid grey;
   text-align: center;
 }
@@ -80,6 +80,7 @@ main .bouton_admin {
   border: black 2px solid;
   border-radius: 10px;
   padding: 10px;
+  height: 120px;
 }
 main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);

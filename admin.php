@@ -74,6 +74,18 @@ if ($_SESSION['admin']!=2){
                         <p>Historique des commandes</p>
                     </div>
                 </a>
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=signalC">
+                    <div class="bouton_admin">
+                        <i class="fas fa-exclamation fa-3x"></i> 
+                        <p>Suivi des signalements commentaire</p>
+                    </div>
+                </a>
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=signalP">
+                    <div class="bouton_admin">
+                        <i class="fas fa-image fa-3x"></i> 
+                        <p>Suivi des signalements photo</p>
+                    </div>
+                </a>        
             </div>
         </div>
     </div>
@@ -107,6 +119,14 @@ if ($_SESSION['admin']!=2){
                     require("php/bo/commandHistory.php");
                     break;
                     
+                case 'signalC':
+                    require("php/bo/signalC.php");
+                    break;   
+                    
+                case 'signalP':
+                    require("php/bo/signalP.php");
+                    break;   
+                                
                 default:
                     # code...
                     break;

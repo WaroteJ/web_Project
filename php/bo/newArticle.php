@@ -34,16 +34,16 @@
         }
     }
 ?>
-<form action="" method="post" class="whole_form" enctype="multipart/form-data">
+<form action="" method="post" class="whole_form col-lg-6 col-md-8 col-11" enctype="multipart/form-data">
     <h2>Ajouter un article</h2>
     <?php if ($error!=NULL) {
         echo '<h3>Image incorrecte ou déjà existante</h3>';
         $error=NULL;
     }?>
     <label for="nom">Nom de l'article</label>
-    <input type="text" name="nom" id="nom" placeholder="Nom de l'article" required>
+    <input class="form-control" type="text" name="nom" id="nom" placeholder="Nom de l'article" required>
     <label for="cat">Catégorie</label> 
-    <select name="cat" id="cat" required>
+    <select class="form-control" name="cat" id="cat" required>
     <?php 
         $req= $bdd->prepare("SELECT * FROM `categorie` ORDER BY `nom`");
         $req->execute();
@@ -54,10 +54,15 @@
     ?>
     </select>
     <label for="prix">Prix</label>
-    <input type="number" name="prix" id="prix" placeholder="Prix" min="0">
+    <input class="form-control" type="number" name="prix" id="prix" placeholder="Prix" min="0">
     <label for="descri">Description de l'article</label>
-    <textarea name="descri" id="descri" placeholder="Description de l'article" row=5></textarea>
+    <textarea class="form-control" name="descri" id="descri" placeholder="Description de l'article" row=5></textarea>
     <label for="img">Photo de l'article</label>
-    <input type="file" name="img" id="img" accept="image/*">
-    <input type="submit" value="Créer" name="newArticle">
+    <div class="input-group mb-3">
+        <div class="custom-file">
+            <input type="file" class="custom-file-input" name ="img" id="img" aria-describedby="inputGroupFileAddon04" accept="image/*">
+            <label class="custom-file-label" for="img">Choose file</label>
+        </div>
+    </div>
+    <input class="btn btn-primary" type="submit" value="Créer" name="newArticle">
 </form>

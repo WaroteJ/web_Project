@@ -27,7 +27,7 @@
         if($groupID!=NULL){
             echo'<form action="" method="post">
                     <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-                    <input type="submit" value="Valider la commande" name="valid_command">
+                    <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
                 </form>
                 </div>';
         }
@@ -45,7 +45,7 @@
 
     echo'<form action="" method="post">
             <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-            <input type="submit" value="Valider la commande" name="valid_command">
+            <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
         </form>
     </div>';
   $requete->closeCursor();
