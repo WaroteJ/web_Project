@@ -38,34 +38,40 @@ if ($_SESSION['admin']!=2){
     <main>
     <div class="container-fluid">
             <div id="admin_buttons" class="row">
-                <a class="col-md-3 col-sm-6" href="admin.php?page=newEvent"> <!-- Fonctionnalités du BO -->
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=newEvent"> <!-- Fonctionnalités du BO -->
                     <div class="bouton_admin">
-                        <i class="fas fa-calendar fa-5x"></i> 
+                        <i class="fas fa-calendar fa-3x"></i> 
                         <p>Créer un évènement</p>
                     </div>
                 </a>
-                <a class="col-md-3 col-sm-6" href="admin.php?page=newArticle">
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=newArticle">
                     <div class="bouton_admin">
-                        <i class="fas fa-tshirt fa-5x"></i> 
+                        <i class="fas fa-tshirt fa-3x"></i> 
                         <p>Ajouter un article</p>
                     </div>
                 </a>
-                <a class="col-md-3 col-sm-6" href="admin.php?page=newCat">
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=newCat">
                     <div class="bouton_admin">
-                        <i class="fas fa-random fa-5x"></i> 
+                        <i class="fas fa-random fa-3x"></i> 
                         <p>Ajouter une catégorie</p>
                     </div>
                 </a>
-                <a class="col-md-3 col-sm-6" href="admin.php?page=users">
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=users">
                     <div class="bouton_admin">
-                        <i class="fas fa-users fa-5x"></i> 
+                        <i class="fas fa-users fa-3x"></i> 
                         <p>Modifier droits utilisateur</p>
                     </div>
                 </a>
-                <a class="col-md-3 col-sm-6" href="admin.php?page=command">
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=command">
                     <div class="bouton_admin">
-                        <i class="fas fa-shopping-basket fa-5x"></i> 
+                        <i class="fas fa-shopping-basket fa-3x"></i> 
                         <p>Suivi des commandes</p>
+                    </div>
+                </a>
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=commandHistory">
+                    <div class="bouton_admin">
+                        <i class="fas fa-book-open fa-3x"></i> 
+                        <p>Historique des commandes</p>
                     </div>
                 </a>
             </div>
@@ -97,6 +103,10 @@ if ($_SESSION['admin']!=2){
                     require("php/bo/command.php");
                     break; 
 
+                case 'commandHistory':
+                    require("php/bo/commandHistory.php");
+                    break;
+                    
                 default:
                     # code...
                     break;
