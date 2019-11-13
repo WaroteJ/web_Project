@@ -1,14 +1,5 @@
 <?php
 
-    if(isset($_POST["valid_command"],$_POST["id_command"])){ // Si un bouton modifier a été cliqué 
-        $req = $bdd->prepare("UPDATE `commande` SET `etat`=1 WHERE `id`=:id"); //Valide la commande
-        $req->execute(array(
-            ':id'=>inputSecure($_POST["id_command"]),
-        )); 
-        $req->closeCursor();
-    }
-
-
   $groupID=NULL; // Sert à déterminer si l'article fait partie de la même commande
   $id=NULL;
 
@@ -17,7 +8,7 @@
   FROM ((commande INNER JOIN user ON commande.id_User = user.id) 
   INNER JOIN article_commande ON commande.id = article_commande.id_Commande) 
   INNER JOIN article on article_commande.id = article.id
-  WHERE commande.etat=0
+  WHERE commande.etat=1
   ORDER BY commande.id");
   $requete->execute();
   echo'<div class="container-fluid">
@@ -25,10 +16,7 @@
   while($result = $requete->fetch(PDO::FETCH_BOTH)){ 
     if($result[2]!=$id){
         if($groupID!=NULL){
-            echo'<form action="" method="post">
-                    <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-                    <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
-                </form>
+            echo'Commande validée
                 </div>';
         }
         $groupID=false;
@@ -43,10 +31,7 @@
         echo '<div class="suivi">'.$result[5].' x '.$result[4].'</div>';
   }
 
-    echo'<form action="" method="post">
-            <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-            <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
-        </form>
+    echo'Commande validée
     </div>';
   $requete->closeCursor();
 ?>

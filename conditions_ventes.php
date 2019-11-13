@@ -13,6 +13,14 @@
   <script src="script.js"></script>
 </head>
 <body>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
+                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+            </div>
+        </div>
+    </header>
     <?php include ('php/menu.php');?>
     <main>
         <div>
@@ -22,7 +30,7 @@
             
             <p>Bienvenue sur Cesi.fr.</p>
             
-            <p>Cesi Europe Core SARL, Cesi EU SARL et/ou leurs sociétés affiliées (« Cesi ») vous fournissent des fonctionnalités de site internet et d'autres produits et services quand vous visitez le site internet Cesi.fr (le « site internet »), effectuer des achats sur le site Internet, utiliser des appareils, produits et services d'Cesi, utiliser des applications Cesi pour mobile, utiliser des logiciels fournis par Cesi dans le cadre de tout ce qui précède (ensemble ci-après, les « Services Cesi »). Veuillez consulter notre Notice Protection de vos Informations Personnelles, notre Notice Cookies et notre Notice Annonces publicitaires basées sur vos centres d'intérêt pour comprendre comment nous collectons et traitons vos informations personnelles dans le cadre des Services Cesi. Cesi fournit les Services Cesi et vend des produits selon les conditions définies sur cette page. Cesi.fr est le nom commercial utilisé par Cesi.</p>
+            <p>Cesi Europe Core SARL, Cesi EU SARL et/ou leurs sociétés affiliées (« Cesi ») vous fournissent des fonctionnalités de site internet et d'autres produits et services quand vous visitez le site internet Cesi.fr (le « site internet »), effectuer des achats sur le site Internet, utiliser des appareils, produits et services d'Cesi, utiliser des applications Cesi pour mobile, utiliser des logiciels fournis par Cesi dans le cadre de tout ce qui précède (ensemble ci-après, les « Services Cesi »). Veuillez consulter notre Notice Protection de vos Informations Personnelles et notre Notice Annonces publicitaires basées sur vos centres d'intérêt pour comprendre comment nous collectons et traitons vos informations personnelles dans le cadre des Services Cesi. Cesi fournit les Services Cesi et vend des produits selon les conditions définies sur cette page. Cesi.fr est le nom commercial utilisé par Cesi.</p>
             
             <p>
             <a href="#GUID-602FA6E8-D724-4317-89F6-E78834F9BA58__SECTION_E43AAFC78C1543548F6B3D44AC4D5D20"> Conditions d'utilisation</a>
@@ -266,7 +274,7 @@
             <strong> Note concernant les offres des vendeurs tiers</strong> : merci de garder à l'esprit que les offres des vendeurs tiers sont seulement hébergées sur Cesi.fr et sont publiées uniquement sous la direction des vendeurs tiers qui peuvent être contactés par leur page « Informations sur le vendeur », accessible depuis toutes leurs offres.</p>
             
             <p> 
-            <strong> Définition d'ASIN et de ISBN-10 :</strong> « ASIN » signifie Cesi Standard Item (or Identification) Number (Numéro d'identification ou d'article standard d'Cesi) et est un identifiant composé de dix (10) caractères. Ce numéro figure dans toute fiche descriptive d'un produit sous le titre « Détails sur le produit ». « ISBN-10 » signifie International Standard Book Number (Numéro de livre standard international) et est un identifiant composé de dix (10) chiffres figurant sur certaines fiches descriptives de livres dans la catégorie « Détails sur le produit ».</p>
+            <strong> Définition de CSIN et de ISBN-10 :</strong> « CSIN » signifie Cesi Standard Item (or Identification) Number (Numéro d'identification ou d'article standard d'Cesi) et est un identifiant composé de dix (10) caractères. Ce numéro figure dans toute fiche descriptive d'un produit sous le titre « Détails sur le produit ». « ISBN-10 » signifie International Standard Book Number (Numéro de livre standard international) et est un identifiant composé de dix (10) chiffres figurant sur certaines fiches descriptives de livres dans la catégorie « Détails sur le produit ».</p>
             
             <p> 
             <strong> Avertissement important :</strong> fournir des informations inexactes, trompeuses ou fausses dans un Formulaire de Notification adressé à Cesi engage sa responsabilité civile et/ou pénale. En cas de doute, veuillez contacter un conseiller juridique..</p>
@@ -345,7 +353,7 @@
             </li>
             
             <li>
-            <span class="a-list-item"> <strong>Numéro ASIN (1) ou ISBN-13 (2) du livre :</strong> ____________________________________________________</span>
+            <span class="a-list-item"> <strong>Numéro CSIN (1) ou ISBN-13 (2) du livre :</strong> ____________________________________________________</span>
             </li>
             
             <li>
@@ -386,7 +394,7 @@
             <p>
             <strong>Signature, Lieu, Date:</strong> _____________________________ __________________________________</p>
             
-            <p>(1) « <strong>ASIN</strong> » signifie « <strong>A</strong>mazon <strong>S</strong>tandard <strong>I</strong>tem (or <strong>I</strong>dentification) <strong>N</strong>umber » (Numéro d'identification ou d'article standard d'Cesi) et représente un identifiant propre à Cesi.fr composé de dix (10) caractères. Ce numéro figure dans toute fiche descriptive d'un produit sous le titre « Détails sur le produit ». </p>
+            <p>(1) « <strong>CSIN</strong> » signifie « <strong>C</strong>esi <strong>S</strong>tandard <strong>I</strong>tem (or <strong>I</strong>dentification) <strong>N</strong>umber » (Numéro d'identification ou d'article standard d'Cesi) et représente un identifiant propre à Cesi.fr composé de dix (10) caractères. Ce numéro figure dans toute fiche descriptive d'un produit sous le titre « Détails sur le produit ». </p>
 
             <p>(2) « <strong>ISBN-10</strong> » signifie « <strong>I</strong>nternational <strong>S</strong>tandard <strong>B</strong>ook <strong>N</strong>umber » (Numéro de livre standard international) et est un identifiant composé de dix (10) chiffres figurant sur certaines fiches descriptives de livres dans la catégorie « Détails sur le produit ». </p>
 
