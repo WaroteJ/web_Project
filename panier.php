@@ -36,10 +36,10 @@
             <table>
                     <thead class="container-fluid">
                         <tr class="row border">
-                            <th class="col-5">Article</th>
-                            <th class="col-3">Prix Unitaire</th>
-                            <th class="col-3">Quantité</th>
-                            <th class="col-1"></th>
+                            <th class="col-md-5">Article</th>
+                            <th class="col-md-3">Prix Unitaire</th>
+                            <th class="col-md-3">Quantité</th>
+                            <th class="col-md-1"></th>
                         </tr>
                     </thead>
                     <tbody class="container-fluid">
