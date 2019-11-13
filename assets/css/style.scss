@@ -19,14 +19,17 @@ header {
 }
 
 .menu {
-    background: #000;
-    color:#fff;
-    border :1px solid grey;
+
+    background: $primary-bg;
+    color:  $secondary-bg;
+    border-right :1px solid grey;
+
     text-align: center;
 
     &:hover{
         color:$secondary-color;
         text-decoration: none;
+        transition: 0.4s;
     }
 }
 
@@ -37,6 +40,63 @@ main{
     display: flex;
     flex-flow: column nowrap;
     flex-grow: 1;
+
+    .event{
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        text-align: left;
+        align-items: top;
+    }
+
+    .carousel-event-image{
+        width:100%;
+        justify-content:center;
+        height:auto;
+    }
+    .membre-BDE{
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 50%;
+        }
+    }
+    #admin_buttons{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.5);    
+        border: $border;
+        border-radius: 10px;
+        margin:5px;
+        font-size:0.8em;
+        a{
+            color: black;
+
+            &:hover{
+                text-decoration: none;
+                color: $secondary-color;
+                transition: 0.4s;
+            }
+        }
+
+    }
+    .bouton_admin{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 5px;
+        background-color: rgba(245, 245, 245, 0.3);    
+        border: $border;
+        border-radius: 10px;
+        padding: 10px;
+        height: 120px;
+        i{
+            color:rgba(0, 0, 0, 0.85);
+        }
+
+    }
+
 }
 
 form {
@@ -46,6 +106,7 @@ form {
     background-color: rgba(0, 0, 0, 0.5);
     border: 2px solid black;
     border-radius: $radius;
+
     display: flex;
     flex-direction: column;
     text-align: center;
@@ -76,10 +137,46 @@ form {
                 color: white;
                 text-decoration: none;
                 background-color: rgba(0, 0, 0, 0.4);
+                transition: 0.4s;
 
             }
         }
     }
+}
+
+
+#user_table{
+    border: 1px solid black;
+    width:99%;
+    margin: 5px;
+    font-size: 0.8em;
+    
+    th{
+        text-align: center;
+        border: 2px solid black;
+    }
+    td{
+        text-align: center;
+        border: 1px solid black;
+    }
+}
+.add_event>#prix{
+    display:none;
+}
+.command{
+    padding-bottom: 5px;
+    &:nth-child(odd){
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &:nth-child(even){
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+.suivi{
+    display: flex;
+    justify-content: center;
 }
 
 footer {

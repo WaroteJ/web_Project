@@ -14,14 +14,17 @@ header {
 }
 
 .menu {
-  background: #000;
-  color: #fff;
-  border: 1px solid grey;
+
+  background: black;
+  color: white;
+  border-right: 1px solid grey;
+
   text-align: center;
 }
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
+  transition: 0.4s;
 }
 
 main {
@@ -32,6 +35,59 @@ main {
   flex-flow: column nowrap;
   flex-grow: 1;
 }
+
+main .event {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  text-align: left;
+  align-items: top;
+}
+main .carousel-event-image {
+  width: 100%;
+  justify-content: center;
+  height: auto;
+}
+main .membre-BDE {
+  display: flex;
+  flex-direction: row;
+}
+main .membre-BDE img {
+  width: 50%;
+}
+main #admin_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: black 2px solid;
+  border-radius: 10px;
+  margin: 5px;
+  font-size: 0.8em;
+}
+main #admin_buttons a {
+  color: black;
+}
+main #admin_buttons a:hover {
+  text-decoration: none;
+  color: #FFC252;
+  transition: 0.4s;
+}
+main .bouton_admin {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  margin: 5px;
+  background-color: rgba(245, 245, 245, 0.3);
+  border: black 2px solid;
+  border-radius: 10px;
+  padding: 10px;
+  height: 120px;
+}
+main .bouton_admin i {
+  color: rgba(0, 0, 0, 0.85);
+}
+
 
 form {
   margin: auto;
@@ -71,7 +127,44 @@ form > .bottom-form > a:hover {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.4s;
 }
+
+
+#user_table {
+  border: 1px solid black;
+  width: 99%;
+  margin: 5px;
+  font-size: 0.8em;
+}
+#user_table th {
+  text-align: center;
+  border: 2px solid black;
+}
+#user_table td {
+  text-align: center;
+  border: 1px solid black;
+}
+
+.add_event > #prix {
+  display: none;
+}
+
+.command {
+  padding-bottom: 5px;
+}
+.command:nth-child(odd) {
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.command:nth-child(even) {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.suivi {
+  display: flex;
+  justify-content: center;
+}
+
 
 footer {
   display: flex;

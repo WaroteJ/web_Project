@@ -16,12 +16,10 @@ if(isset($_SESSION["centre"])){
         <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title>Site BDE Connexion</title>
+        <title>Site BDE Connection</title>
     </head>
 
-    <body>
-
-    <!-- L'en-tête -->    
+    <body> 
     <header>
         <div class="container-fluid">
             <div class="row">
@@ -36,7 +34,7 @@ if(isset($_SESSION["centre"])){
     <main>
     <div class="container-fluid">
             <div class="row justify-content-md-center">
-                    <form class="whole_form" method="post" action="php/scriptLogin.php">  
+                    <form class="whole_form col-lg-6 col-md-8 col-11" method="post" action="php/scriptLogin.php">  
                         <h2>Connexion</h2>
                         <?php
                             if(isset($_SESSION["centre"])){
@@ -48,13 +46,13 @@ if(isset($_SESSION["centre"])){
                         ?>
                         <p>
                             <label for="mail">Adresse mail</label>
-                            <input type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
+                            <input class="form-control" type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
                         </p>
                         <p>
                             <label for="password">Mot de passe</label>
-                            <input type="password" name="password" id="password" required placeholder="password">
+                            <input class="form-control" type="password" name="password" id="password" required placeholder="password">
                         </p>        
-                        <input type="submit" value="Se connecter">
+                        <input class="btn btn-primary" type="submit" value="Se connecter">
                         <div class="bottom-form">
                                 <a href="register.php">S'enregistrer</a>
                                 <a href="#">Mot de passe oublié ?</a>
