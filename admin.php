@@ -36,9 +36,9 @@ if ($_SESSION['admin']!=2){
     <?php include('php/menu.php');?>
 
     <main>
-    <div class="container-fluid">
+    <div class="container-fluid"> <!-- Boutons des différentes fonctionnalités du BO-->
             <div id="admin_buttons" class="row">
-                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=newEvent"> <!-- Fonctionnalités du BO -->
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=newEvent"> 
                     <div class="bouton_admin">
                         <i class="fas fa-calendar fa-3x"></i> 
                         <p>Créer un évènement</p>

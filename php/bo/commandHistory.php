@@ -13,7 +13,7 @@
   $requete->execute();
   echo'<div class="container-fluid">
   <div class="row">';
-  while($result = $requete->fetch(PDO::FETCH_BOTH)){ 
+  while($result = $requete->fetch(PDO::FETCH_BOTH)){ // Affiche toutes les commandes qui ont été validées
     if($result[2]!=$id){
         if($groupID!=NULL){
             echo'Commande validée

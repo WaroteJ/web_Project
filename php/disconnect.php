@@ -3,6 +3,7 @@
 
     unset($_SESSION['centre']);
     unset($_SESSION['admin']);
+    unset($_SESSION['user']);
     session_destroy();
     header("Location: ../index.php")
 ?>

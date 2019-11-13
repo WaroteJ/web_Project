@@ -16,7 +16,7 @@ if (isset($_POST['mail'],$_POST['password'])){
 
         $result = $requete->fetch(PDO::FETCH_BOTH);
         echo $result[1];
-        if (password_verify($password,$result[2])){
+        if (password_verify($password,$result[2])){ // Si le mot de passe est bon, on connecte l'utilisateur à son centre en lui donnant des droits appropriés 
             $_SESSION['user']=$result[0];
             switch ($result[1]) {
                case 0:
@@ -24,30 +24,27 @@ if (isset($_POST['mail'],$_POST['password'])){
                     $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
-
-                break;
+                    break;
                
                 case 1:
                     $_SESSION['admin'] = 1;
                     $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
-
-                break;
+                    break;
 
                 case 2:
                     $_SESSION['admin'] = 2;
                     $_SESSION['centre']=$result[3];
                     header("Location: ../index.php"); 
                     exit();
-
-                break; 
+                    break; 
 
                 default:
                    # code...
-                break;
+                    break;
             }
-        }else{
+        }else{ //Sinon on le renvoie sur la page de login
             $_SESSION['centre']=0;
             header("Location: ../login.php"); 
             exit();

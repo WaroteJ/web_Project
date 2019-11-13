@@ -19,9 +19,7 @@ if(isset($_SESSION["centre"])){
         <title>Site BDE Connection</title>
     </head>
 
-    <body>
-
-    <!-- L'en-tête -->    
+    <body> 
     <header>
         <div class="container-fluid">
             <div class="row">

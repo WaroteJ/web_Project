@@ -1,5 +1,5 @@
 <?php
-    if(isset($_POST['newCat'],$_POST['nom'])){
+    if(isset($_POST['newCat'],$_POST['nom'])){ // Crée une nouvelle catégorie
         $requete = $bdd->prepare("INSERT INTO `categorie`(`nom`) VALUES (:nom)");
         $requete->execute(array(
             ':nom'=>inputSecure($_POST['nom']),

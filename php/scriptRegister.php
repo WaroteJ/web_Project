@@ -42,12 +42,12 @@ if (isset($_POST['lastname'],$_POST['firstname'],$_POST['mail'],$_POST['centre']
                     $requete->closeCursor();
                     header("Location: ../login.php"); 
                     exit();
-                }else{                    
+                }else{        //set le code erreur pour mail déjà présent
                     $_SESSION['error']=1;
                     header("Location: ../register.php"); 
                     exit();
                 };
-            }else{
+            }else{  //set le code erreur pour mdp différents
                 $_SESSION['error']=2;
                 header("Location: ../register.php"); 
                 exit();

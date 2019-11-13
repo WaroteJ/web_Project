@@ -3,9 +3,9 @@
 
     if(isset($_POST['newArticle'])){
         include ("php/image.php");
-        $photoArray=imageUpload("assets/img/products/");
+        $photoArray=imageUpload("assets/img/products/");// Renvoie la validation de l'image et son chemin d'accès
 
-        if($photoArray[0]==1){
+        if($photoArray[0]==1){// Si l'image est valide(format, pas déjà présente,...)
             $prix=0;
             $descri='';
             $photo='';
@@ -45,10 +45,10 @@
     <label for="cat">Catégorie</label> 
     <select class="form-control" name="cat" id="cat" required>
     <?php 
-        $req= $bdd->prepare("SELECT * FROM `categorie` ORDER BY `nom`");
+        $req= $bdd->prepare("SELECT * FROM `categorie` ORDER BY `nom`"); // Retourne les différentes catégories 
         $req->execute();
 
-        while($result = $req->fetch(PDO::FETCH_BOTH)){
+        while($result = $req->fetch(PDO::FETCH_BOTH)){  //On les affiche dans une balise select 
         echo "<option value='".$result[0]."'>".$result[1]."</option>";
         }   
     ?>
