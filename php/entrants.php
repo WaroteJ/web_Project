@@ -14,7 +14,7 @@
         }  
     $req->closeCursor();
 
-    $fp = fopen('participants.csv','w');
+    $fp = fopen('../entrants/participants.csv','w');
     fprintf($fp, chr(0xEF).chr(0xBB).chr(0xBF));
     foreach ($list as $personne) {
         fputcsv($fp,$personne);
