@@ -20,7 +20,7 @@
         
 
 
-                if ( $response[3] > date('Y-m-d')  ) {
+                if ( $response[3] >= date('Y-m-d')  ) {
                     echo '  <div class="bottom-article">
                             <a href="evenement.php?event='.$response[0].'">Plus d informations</a>
                             </div>
