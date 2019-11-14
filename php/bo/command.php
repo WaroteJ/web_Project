@@ -9,31 +9,27 @@
     }
 
 
-  $groupID=NULL;
+  $groupID=NULL; // Sert à déterminer si l'article fait partie de la même commande
   $id=NULL;
-  $lastEtat=NULL;
+
   // Sélectionne les items et leur prix d'une commande ainsi que l'utilisateur et la date 
-  $requete = $bdd->prepare("SELECT  user.nom, user.prenom, commande.id, commande.date ,commande.etat,article.nom_article,article_commande.qte
+  $requete = $bdd->prepare("SELECT  user.nom, user.prenom, commande.id, commande.date ,article.nom_article,article_commande.qte
   FROM ((commande INNER JOIN user ON commande.id_User = user.id) 
   INNER JOIN article_commande ON commande.id = article_commande.id_Commande) 
   INNER JOIN article on article_commande.id = article.id
+  WHERE commande.etat=0
   ORDER BY commande.id");
   $requete->execute();
-  echo'<div class="container-fluid">
-  <div class="row">';
-  while($result = $requete->fetch(PDO::FETCH_BOTH)){ 
+  echo '<div class="container-fluid">
+        <div class="row">';
+  while($result = $requete->fetch(PDO::FETCH_BOTH)){  // Affiche les articles de chaque commande
     if($result[2]!=$id){
         if($groupID!=NULL){
-            if($lastEtat==0){ // Si la commande n'est pas validé, on affiche un bouton valider
-                echo'<form action="" method="post">
-                        <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-                        <input type="submit" value="Valider la commande" name="valid_command">
-                    </form>';
-            }
-            else if($lastEtat==1){
-                echo'Commande validée';
-            }
-        echo'</div>';
+            echo'<form action="" method="post">
+                    <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
+                    <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
+                </form>
+                </div>';
         }
         $groupID=false;
     }
@@ -43,21 +39,15 @@
         <h3>Commande n°'.$result[2].' du '.$result[3].' : '.$result[0].' '.$result[1].'</h3>';
         $groupID=true;
         $id=$result[2];
-        $lastEtat=$result[4];
     }
-        echo '<div class="suivi">'.$result[6].' x '.$result[5].'</div>';
-
+        echo '<div class="suivi">'.$result[5].' x '.$result[4].'</div>';
   }
-    if($lastEtat==0){
-        echo'<form action="" method="post">
+
+    echo'<form action="" method="post">
             <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
-            <input type="submit" value="Valider la commande" name="valid_command">
-        </form>';
-    }
-    else if($lastEtat==1){
-        echo'Commande validée';
-    }
-    echo'</div>';
+            <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
+        </form>
+    </div>';
   $requete->closeCursor();
 ?>
 </table>

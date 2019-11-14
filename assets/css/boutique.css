@@ -1,0 +1,79 @@
+body {
+  background-color: black;
+  display: flex;
+  flex-direction: column;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+header {
+  background-color: white;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.bigvitrine {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.articles {
+  border: 3px black solid;
+}
+
+.vitrine {
+  border: 2px solid black;
+  border-radius: 5px;
+  margin-right: 20px;
+}
+
+.article {
+  border: 2px solid black;
+  border-radius: 5px;
+  padding-top: 20px;
+  margin-bottom: 15px;
+  margin-left: 25px;
+}
+
+.results {
+  margin-top: 3%;
+  justify-content: center;
+}
+
+main {
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-flow: column nowrap;
+  flex-grow: 1;
+}
+
+footer {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.close {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=boutique.css.map */

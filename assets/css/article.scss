@@ -1,0 +1,43 @@
+$primary-color:black;
+$secondary-color:#FFC252;
+$primary-bg:black;
+$secondary-bg:white;
+$radius:5px;
+h3{
+    text-decoration: underline;
+}
+.filtre {
+    padding-bottom: 10px;
+    margin-top: 5px;
+    padding: 10px;
+    margin-right: auto;
+    margin-left: auto;
+
+}
+
+footer {
+    display: flex;
+    flex-flow: row nowrap;
+}
+
+.article {
+    margin: auto;
+    padding-top: 3%;
+    border: 2px $primary-color solid;
+    border-radius: $radius;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+.picture{
+    height: aut;
+    width: 20%;
+    border: 2px $primary-color solid;
+    border-radius: $radius;
+}
+
+.a{
+    margin-top: 10px;
+    align-items: center;
+    text-align: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}

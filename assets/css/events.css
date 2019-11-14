@@ -1,0 +1,51 @@
+.buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.button {
+  margin-left: 20px;
+}
+
+article {
+  margin: auto;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+article h3 {
+  color: #FFC252;
+}
+article input {
+  width: 100%;
+  margin-bottom: 10px;
+}
+article select {
+  width: 100%;
+  display: block;
+}
+article > .bottom-article {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+article > .bottom-article > a {
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 2px;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+article > .bottom-article > a:hover {
+  color: white;
+  text-decoration: none;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+/*# sourceMappingURL=events.css.map */

@@ -11,7 +11,15 @@
   <title>Mentions légales</title>
 </head>
 <body>
-<?php include ('php/menu.php');?>
+    <header>
+        <div class="container-fluid">
+            <div class="row">
+                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
+                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+            </div>
+        </div>
+    </header>
+    <?php include ('php/menu.php');?>
     <main>
         <a href="index.php">Acceuil</a>
         <h2>Éditeur : Association CESI</h2>
@@ -43,13 +51,6 @@
         <h2>Sécurité</h2>
         <p>
             Le CESI s’engage à mettre en œuvre tous les moyens nécessaires au bon fonctionnement du site. Cependant, le CESI ne peut pas garantir la continuité absolue de l’accès aux services proposés par le site. Les adhérents sont informés que les informations et services proposés sur le site pourront être interrompus en cas de force majeure et pourront le cas échéant contenir des erreurs techniques.
-        </p>
-        <h2>Utilisation de cookies</h2>
-        <p>
-            Des cookies sont utilisés sur nos sites.
-        </p>
-        <p>
-            Pour plus d’informations, vous pouvez vous référer à la Politique sur le Protection des Données Personnelles en cliquant-ici
         </p>
         <h2>Déclarations d’activité</h2>
         <div>
