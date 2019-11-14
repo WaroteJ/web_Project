@@ -85,7 +85,13 @@ if ($_SESSION['admin']!=2){
                         <i class="fas fa-image fa-3x"></i> 
                         <p>Suivi des signalements photo</p>
                     </div>
-                </a>        
+                </a>
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=signalE">
+                    <div class="bouton_admin">
+                        <i class="fas fa-calendar-times fa-3x"></i> 
+                        <p>Suivi des signalements event</p>
+                    </div>
+                </a>             
             </div>
         </div>
     </div>
@@ -126,7 +132,11 @@ if ($_SESSION['admin']!=2){
                 case 'signalP':
                     require("php/bo/signalP.php");
                     break;   
-                                
+                      
+                case 'signalE':
+                    require("php/bo/signalE.php");
+                    break; 
+
                 default:
                     # code...
                     break;

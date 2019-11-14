@@ -20,24 +20,25 @@
     echo '<div class="container-fluid">
             <div class="row">';
     while($result = $requete->fetch(PDO::FETCH_BOTH)){ // Affiche toutes les photos signalées
-        echo '  <div class="signal col-12 container">
+        echo <<<HTML
+          <div class="signal col-12 col-md-6 container">
                     <div class="row">
-                        <div class="col-8">
-                            <img class="w-100" src="'.$result[1].'">
+                        <div class="col-12 col-md-8">
+                            <img class="w-100" src="{$result[1]}">
                         </div>
-                        <div class="col-4">
+                        <div class="col-6 col-md-4">
                             <form action="" method="post">
-                                <input type="hidden" name="id" value="'.$result[0].'">
+                                <input type="hidden" name="id" value="{$result[0]}">
                                 <input class="btn btn-success" type="submit" name="Val" value="Valider">
                             </form>
                             <form action="" method="post">
-                                <input type="hidden" name="id" value="'.$result[0].'">
+                                <input type="hidden" name="id" value="{$result[0]}">
                                 <input class="btn btn-danger" type="submit" name="Del" value="Supprimer">
                             </form>
                         </div>
                     </div>
-                </div>';
-
+                </div>
+HTML;
     }
     echo '</div></div>';
   $requete->closeCursor();
