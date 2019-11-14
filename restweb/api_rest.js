@@ -82,14 +82,14 @@ app.get('/articles', (req, res) => {
 
 //List the article ordered when get request on /articles/up
 app.get('/articles/up', (req, res) => {
-	 	con.query("SELECT url, nom_article, prix, id FROM article ORDER BY prix", function (err, result) {
+	 	con.query("SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix", function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });
 
 //List the article ordered when get request on /articles/down
 app.get('/articles/down', (req, res) => {
-	let request =  "SELECT url, nom_article, prix, id FROM article ORDER BY prix DESC";
+	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix DESC";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
@@ -97,7 +97,7 @@ app.get('/articles/down', (req, res) => {
 
 //List the article grouped by type when get request on /articles/down
 app.get('/articles/type', (req, res) => {
-	let request =  "SELECT url, nom_article, prix, id FROM article ORDER BY id_Categorie";
+	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY id_Categorie";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
@@ -105,7 +105,7 @@ app.get('/articles/type', (req, res) => {
 
 //List the article with the corresponding id when get request on /articles/article_:id
 app.get('/articles/:choix', (req, res)=> {
-	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 WHERE id ="+ req.params.choix;
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});

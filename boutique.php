@@ -49,9 +49,14 @@
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+            </div>        
+            <div >               
+                <button id="panier" name="panier">Panier</button>
             </div>
-        </div>
     </div>
+        
+    </div>
+    
     <div class="container-fluid articles">
         <div class="row filtre">
             <div class="col-4">
@@ -83,7 +88,15 @@
         </div>
     </main>
 
-<?php include('php/footer.php') ?>
+<?php include('php/footer.php');
+  
+?>
 </body>
-<script src="assets/js/boutique.js"></script>
+<?php 
+   if($_SESSION['admin'] == 2){
+        echo '<script src="assets/js/boutique_admin.js"></script>';
+    }else{
+        echo '<script src="assets/js/boutique.js"></script>';
+    }
+?>
 </html>

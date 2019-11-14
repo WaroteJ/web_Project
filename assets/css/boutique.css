@@ -66,4 +66,14 @@ a:hover {
   color: black;
 }
 
+.close {
+  position: absolute;
+  right: 10px;
+  top: 0;
+}
+
+.close:hover {
+  cursor: pointer;
+}
+
 /*# sourceMappingURL=boutique.css.map */

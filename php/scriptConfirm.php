@@ -11,7 +11,8 @@
         //execution de la requête
         $requete->execute();
 
-        $requete2 = $bdd->prepare("SELECT user_article.id as id_article, commande.id as id_commande, user_article.qte as qte FROM user_article INNER JOIN commande ON user_article.id_User = commande.id_User WHERE commande.id_User = :id_User");
+        $requete2 = $bdd->prepare("SELECT user_article.id as id_article, commande.id as id_commande, user_article.qte as qte FROM user_article INNER JOIN commande ON user_article.id_User = commande.id_User WHERE commande.id_User = ':id_user'
+        AND `commande`.`id`= (SELECT MAX(id) FROM `commande`)");
         // Liaison des variables de la requête préparée aux variables PHP
         $requete2->bindValue(':id_User', $id_User, PDO::PARAM_INT);
         //execution de la requête

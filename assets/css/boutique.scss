@@ -51,6 +51,8 @@ main{
     flex-grow: 1;
 }
 
+.carousel {
+}
 
 footer {
     display: flex;
@@ -64,4 +66,13 @@ a{
 a:hover{
     text-decoration: none;
     color: black;
+}
+.close {
+    position: absolute;
+    right: 10px;
+    top: 0;
+}
+
+.close:hover{
+    cursor: pointer; 
 }
