@@ -23,7 +23,7 @@ header {
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 main {
@@ -69,7 +69,7 @@ main #admin_buttons a {
 main #admin_buttons a:hover {
   text-decoration: none;
   color: #FFC252;
-  transition: 0.4s;
+  transition: 0.2s;
 }
 main .bouton_admin {
   display: flex;
@@ -124,7 +124,7 @@ main .bouton_admin i {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
-  transition: 0.4s;
+  transition: 0.2s;
 }
 
 #user_table {
