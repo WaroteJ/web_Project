@@ -68,5 +68,27 @@ main .confirm {
   text-align: center;
   padding-top: 30%;
 }
+main .com {
+  border: 2mm ridge black;
+  margin: auto;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  background-color: black;
+  color: white;
+}
+main .blog {
+  max-height: 200px;
+  overflow-y: scroll;
+  border: #000000 1px solid;
+}
+main .blog .name {
+  border: black;
+}
+main .blog .name .name_Comment {
+  font-weight: bold;
+}
+main .blog .commentaire {
+  border: black;
+}
 
 /*# sourceMappingURL=panier.css.map */

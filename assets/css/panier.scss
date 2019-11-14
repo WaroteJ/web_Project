@@ -82,4 +82,28 @@ main{
         text-align: center;
         padding-top: 30%;
     }
+    .com{
+        border: 2mm ridge $primary-color;
+        margin: auto;
+        margin-top: 1%;
+        margin-bottom: 1%;
+        background-color: $primary-bg;
+        color: white;
+    }
+    .blog{
+        max-height: 200px;
+        overflow-y: scroll; 
+        border:#000000 1px solid;
+
+        .name{
+            border: $primary-color;
+            .name_Comment{
+                font-weight: bold;
+            }
+        }
+
+        .commentaire{
+            border: $primary-color;
+        }
+    }
 }
