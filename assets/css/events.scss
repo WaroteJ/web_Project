@@ -4,6 +4,16 @@ $primary-bg:black;
 $secondary-bg:white;
 $radius:5px;
 
+.buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+
+.button{
+    margin-left:20px;
+}
+
 article {
     margin: auto;
     margin-top: 20px;
