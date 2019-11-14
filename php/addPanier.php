@@ -11,8 +11,8 @@ $prep = $bdd->prepare('SELECT  id, qte FROM user_article WHERE id_User = :id_Use
 $prep->execute(array(
 	':id_User' => $_SESSION['user'],
 ));
-$response = $prep->fetch();
- while($response = $prep->fetch()){
+
+while($response = $prep->fetch()){
     if($id_newArticle == $response['id']){
        $qte_final= $response['qte'] + $qte_newArticle;
        $prepa = $bdd->prepare('UPDATE user_article SET qte = :qte_final WHERE id_User = :id_User AND id = :id_Article');   
@@ -33,4 +33,7 @@ if($diff == 0){
     'qte' => $qte_newArticle,
     ));
 }
+
+echo '<meta http-equiv="refresh" content="1;URL=../boutique.php">';
+
 ?>
