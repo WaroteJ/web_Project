@@ -11,23 +11,27 @@
                     ':id_art'=>$_POST["id"]
                 ));
             }
-            $requete = $bdd->prepare("SELECT article.nom_article, article.prix, user_article.qte, article.id FROM user_article INNER JOIN article ON article.id = user_article.id WHERE id_User = :id_User");
+            $requete = $bdd->prepare("SELECT article.nom_article, article.prix, user_article.qte, article.id 
+            FROM user_article INNER JOIN article ON article.id = user_article.id 
+            WHERE id_User = :id_User");
             // Liaison des variables de la requête préparée aux variables PHP
             $requete->bindValue(':id_User', $id_User, PDO::PARAM_INT);
             //execution de la requête
             $requete->execute();
             while($result = $requete->fetch()):          
-                echo'<tr class="row border">
-                        <td class="col-md-5">'.$result[0].'</td>
-                        <td class="col-md-3">'.$result[1].'</td>
-                        <td class="col-md-3">'.$result[2].'</td>
+                echo <<<HTML
+                <tr class="row border">
+                        <td class="col-md-5">{$result[0]}</td>
+                        <td class="col-md-3">{$result[1]}</td>
+                        <td class="col-md-3">{$result[2]}</td>
                         <td class="col-md-1"> 
                         <form method="post" class="cross">
-                            <input type="hidden" name="id" id="id" value="'.$result[3].'">
+                            <input type="hidden" name="id" id="id" value="{$result[3]}">
                             <input class="supp_input" type="submit" value="X" name="supp">
                         </form>
                         </td>
-                    </tr>';
+                    </tr>
+HTML;
             endwhile;
         }
     }
