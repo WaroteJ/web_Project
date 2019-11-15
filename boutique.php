@@ -27,24 +27,28 @@
     </header>
     <?php include('php/menu.php') ?>
     <main>
-        <div class="event">
-            <h3>Meilleures ventes :</h3>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
+        <div class="container">
+            <div class="event row">
+                <h3 class="col-12 text-center font-weight-bold underline">Meilleures ventes</h3>
+                <div id="carouselExampleFade" class="carousel slide carousel-fade col-12 w-100 mx-auto" data-ride="carousel">
+                    <div class="carousel-inner row">
+                    
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev carousel-button" href="#carouselExampleFade" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next carousel-button" href="#carouselExampleFade" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div>
+                <div class="basket">               
+                    <i id="panier" name="panier" class="fas fa-shopping-basket fa-5x"></i>
+                </div>
             </div>        
-            <div >               
-                <button id="panier" name="panier">Panier</button>
-            </div>
-    </div>
+        
+        </div>
         
     </div>
     

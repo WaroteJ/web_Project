@@ -32,7 +32,7 @@
             <div class ='filtre col-3'>
                 <form action='php/addPanier.php' method="POST">
                     <label for='qte'>Quantité</label>
-                    <input type='number' name='qte' id='qte' min='1' max='100'>
+                    <input type='number' name='qte' id='qte' min='1' max='100' required>
                     <input type='hidden' id='qte_art' name='id_art'>
                     <input type='submit' value='Ajouter'>
                 </form>
