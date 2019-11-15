@@ -22,7 +22,7 @@ if(isset($_SESSION["centre"])){
         <div class="container-fluid">
             <div class="row">
                 <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+                <h1 class="col-md-8 ml-auto">BDE du CESI</h1>
             </div>
         </div>
     </header>
@@ -33,7 +33,7 @@ if(isset($_SESSION["centre"])){
             echo $_SESSION["centre"];
         } 
         ?>
-        <h1 class="col title_intro">Bienvenue sur le site du BDE</h1>
+        <h2 class="col title_intro font-weight-bold">Bienvenue sur le site du BDE</h2>
     </main>
     <?php include('php/footer.php');?>
 </body>

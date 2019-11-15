@@ -19,7 +19,7 @@ if ($_SESSION['admin']!=2){
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <title>BDE du CESI</title>
+    <title>BDE CESI <?php echo $_SESSION['nomCentre']?> Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/admin.js"></script>  
 </head>
@@ -28,7 +28,7 @@ if ($_SESSION['admin']!=2){
         <div class="container-fluid">
             <div class="row">
                 <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Admin</h1>
             </div>
         </div>
     </header>

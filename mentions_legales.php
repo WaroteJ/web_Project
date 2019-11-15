@@ -8,14 +8,14 @@
   <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css">
-  <title>Mentions légales</title>
+  <title>BDE CESI <?php echo $_SESSION['nomCentre']?> Mentions légales</title>
 </head>
 <body>
     <header>
         <div class="container-fluid">
             <div class="row">
                 <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Mentions légales</h1>
             </div>
         </div>
     </header>
