@@ -11,7 +11,7 @@ $req = $bdd->prepare('UPDATE `article` SET `deleted`=1 WHERE `id` = :id_article'
 		':id_article' => $id_article,
     ));
 
-    echo '<meta http-equiv="refresh" content="1;URL=./boutique.php">';
+    echo '<meta http-equiv="refresh" content="1;URL=../../boutique.php">';
 
 
 ?>

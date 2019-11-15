@@ -14,7 +14,24 @@ $(function(){
   .fail(function(jqXHR, textStatus, err){
     console.log('AJAX error response:', textStatus);
     });
-})
+  alert('ready');
+    $.ajax({
+      type:'GET',
+      url: 'http://localhost:3000/articles/carousel',
+      dataType:'json'
+    })
+    .done(function(data){
+      let donnees = typeof data !='object' ? JSON.parse(data) : data;
+      for(let i=0;i<donnees.length;i++){
+        alert(donnees[i].url);
+     // $(".carousel-inner").append('<div class="carousel-item active "><img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-50" alt=top'+i+'></div>');
+     }       
+                
+    })
+    .fail(function(jqXHR, textStatus, err){
+      console.log('AJAX error response:', textStatus);
+      });
+  })
 
 
 $(":checkbox").on('click', function() {

@@ -20,11 +20,28 @@ $(function(){
       });
 
       $(".close").on('click', function(){
-        alert ("coucou");
         let parent = this.parentElement;
         parent.style.display = "none";
     })
-  })
+
+    $.ajax({
+      type:'GET',
+      url: 'http://localhost:3000/articles/carousel',
+      dataType:'json'
+    })
+    .done(function(data){
+      let donnees = typeof data !='object' ? JSON.parse(data) : data;
+      for(let i=0;i<donnees.length;i++){
+      $(".carousel-inner").append('<div class="carousel-item "><img src="' +donnees[i].url+'" class="d-block w-50 mx-auto" alt=top'+i+'></div>');
+     }
+     $(".carousel-inner :nth-child(1)").addClass("active");       
+                
+    })
+    .fail(function(jqXHR, textStatus, err){
+      console.log('AJAX error response:', textStatus);
+      });
+  });
+
 
   
   
@@ -74,16 +91,6 @@ $(function(){
   $("#panier").on('click', function() {
     window.location.href = "http://localhost/web_project/panier.php";
   })
-  
-  
-  
-
-
-// function addCross(donnees){
-//   alert (donnees);
-//   let spanC="<input type=hidden value =" +donnees+  " class=\"close\">\u00D7>";
-//   $(".article").append(spanC);   
-// }
   
 
 

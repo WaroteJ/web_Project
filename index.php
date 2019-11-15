@@ -19,7 +19,16 @@ if(isset($_SESSION["centre"])){
 </head>
 <body>
     <header>
+<<<<<<< HEAD
         
+=======
+        <div class="container-fluid">
+            <div class="row">
+                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
+                <h1 class="col-md-8 ml-auto">BDE du CESI</h1>
+            </div>
+        </div>
+>>>>>>> b5ef2e029c1643fc01ee30d4f6a7f41909df3abb
     </header>
     <?php include('php/menu.php');?>
     <main>
@@ -28,7 +37,7 @@ if(isset($_SESSION["centre"])){
             echo $_SESSION["centre"];
         } 
         ?>
-        <h1 class="col title_intro">Bienvenue sur le site du BDE</h1>
+        <h2 class="col title_intro font-weight-bold">Bienvenue sur le site du BDE</h2>
     </main>
     <?php include('php/footer.php');?>
 </body>

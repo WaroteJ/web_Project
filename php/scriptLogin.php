@@ -8,7 +8,8 @@ if (isset($_POST['mail'],$_POST['password'])){
     $password = inputSecure($_POST['password']);
         require("bdd.php");      
 
-        $requete = $bdd->prepare("SELECT `id`,`droit`,`password`,`id_Centre` FROM `user` WHERE `email`=:mail");
+        $requete = $bdd->prepare("SELECT user.`id`,user.`droit`,user.`password`,user.`id_Centre`,centre.nom 
+        FROM `user` LEFT JOIN centre ON user.id_Centre=centre.id WHERE `email`=:mail");
         // Liaison des variables de la requête préparée aux variables PHP
         $requete->bindValue(':mail', $mail, PDO::PARAM_STR);
         // Exécution de la requête
@@ -22,6 +23,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                case 0:
                     $_SESSION['admin'] = 0;
                     $_SESSION['centre']=$result[3];
+                    $_SESSION['nomCentre']=$result[4];
                     header("Location: ../index.php"); 
                     exit();
                     break;
@@ -29,6 +31,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                 case 1:
                     $_SESSION['admin'] = 1;
                     $_SESSION['centre']=$result[3];
+                    $_SESSION['nomCentre']=$result[4];
                     header("Location: ../index.php"); 
                     exit();
                     break;
@@ -36,6 +39,7 @@ if (isset($_POST['mail'],$_POST['password'])){
                 case 2:
                     $_SESSION['admin'] = 2;
                     $_SESSION['centre']=$result[3];
+                    $_SESSION['nomCentre']=$result[4];
                     header("Location: ../index.php"); 
                     exit();
                     break; 

@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="assets/css/boutique.css">
   <link rel="stylesheet" href="assets/css/style.css">
 
-  <title>Boutique</title>
+  <title>Boutique du BDE <?php echo $_SESSION['nomCentre']?></title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -21,39 +21,34 @@
         <div class="container-fluid">
             <div class="row">
             <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Boutique du BDE</h1>
+                <h1 class="col-md-8 ml-auto">Boutique du BDE <?php echo $_SESSION['nomCentre']?></h1>
             </div>
         </div>
     </header>
     <?php include('php/menu.php') ?>
     <main>
-        <div class="event">
-            <h3>Meilleures ventes :</h3>
-            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                <div class="carousel-inner">
-                    <div class="carousel-item active ">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top1">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top2">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top3">
-                        </div>
+        <div class="container">
+            <div class="event row">
+                <h3 class="col-12 text-center font-weight-bold underline">Meilleures ventes</h3>
+                <div id="carouselExampleFade" class="carousel slide carousel-fade col-12 w-100 mx-auto" data-ride="carousel">
+                    <div class="carousel-inner row">
+                    
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <a class="carousel-control-prev carousel-button" href="#carouselExampleFade" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="sr-only">Previous</span>
                     </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <a class="carousel-control-next carousel-button" href="#carouselExampleFade" role="button" data-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="sr-only">Next</span>
                     </a>
+                </div>
+                <div class="basket">               
+                    <i id="panier" name="panier" class="fas fa-shopping-basket fa-5x"></i>
+                </div>
             </div>        
-            <div >               
-                <button id="panier" name="panier">Panier</button>
-            </div>
-    </div>
+        
+        </div>
         
     </div>
     

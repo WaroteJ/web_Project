@@ -51,7 +51,18 @@ main{
     flex-grow: 1;
 }
 
-.carousel {
+
+.basket {
+    position: absolute;
+    top: 0;
+    right: 0;
+    //border: 1px black solid;
+    border-radius: $radius;
+    background-color: gray;
+}
+
+.basket:hover {
+    cursor: pointer;
 }
 
 footer {
@@ -75,4 +86,8 @@ a:hover{
 
 .close:hover{
     cursor: pointer; 
+}
+
+.carousel-button {
+    box-shadow: 2px 2px 2px black !important ; 
 }
