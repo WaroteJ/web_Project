@@ -32,7 +32,14 @@
     <main>
         <?php include 'php/scriptPhoto.php' ?>
         <div class="text-center">
-            <?php recup_photo($_GET['photo']) ?>
+
+                <?php recup_photo($_GET['photo']) ?>
+        </div>
+        <div class="text-center">
+            <form class="bottom-article button" action="" method="post">
+                <?php aime($_GET['photo']) ?>
+            </form>
+
         </div>
         <h2 class="com">Commentaires</h2>  
         <div class="blog container-fluid">

@@ -93,4 +93,39 @@ HTML;
         $requete3->execute();
         header("Location: ../photo.php?photo=".$_POST["id_photo"]);
     }
+      
+    function aime($id){
+        require('bdd.php');
+        if(isset($_POST["aime"])){
+            $req = $bdd->prepare('INSERT INTO user_photo (id, id_User) VALUES (:id_photo, :idUser)');
+            $req->execute(array(
+                'idUser' => $_SESSION["user"],
+                'id_photo' => $id
+            ));
+        }
+        if(isset($_POST["aime_pas"])){
+            $req = $bdd->prepare('DELETE FROM user_photo WHERE id=:id_photo AND id_User= :id_User');
+            $req->execute(array(
+                'id_User' => $_SESSION["user"],
+                'id_photo' => $id
+            ));
+        }
+
+        if(isset($id)){
+            $req = $bdd->prepare('  SELECT COUNT(user_photo.id_User) as aime
+                                    FROM user_photo
+                                    WHERE id=:id_photo AND id_User= :id_User');
+            $req->execute(array(
+                'id_User' => $_SESSION["user"],
+                'id_photo' => $id
+            ));
+            $aime = $req->fetch();
+
+            if ( $aime[0] > 0  ) {
+                echo'   <input class="btn btn-primary" type="submit" value="Dislike" name="aime_pas">';               
+            }else{
+                echo'   <input class="btn btn-primary" type="submit" value="Like" name="aime">';                   
+            }
+        }
+    } 
 ?>
