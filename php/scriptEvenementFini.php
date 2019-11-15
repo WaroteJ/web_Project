@@ -7,6 +7,22 @@ if(isset($_POST["getPhotos"])){
     require ("zip.php");
     getPhotos($_GET['event']);
 }
+if(isset($_POST["signalPhoto"])){
+    $req = $bdd->prepare('UPDATE `photo` SET `signale`= 1 WHERE id = :id');
+    $req->execute(array(
+    'id' => $_POST['id']
+    ));
+    header("Location: ./evenements.php"); 
+}
+
+if(isset($_POST["deletPhoto"])){
+    $req = $bdd->prepare('UPDATE `photo` SET `deleted`= 1 WHERE id = :id');
+    $req->execute(array(
+    'id' => $_POST['id']
+    ));
+    header("Location: ./evenements.php"); 
+}
+
     $req = $bdd->prepare('  SELECT COUNT(event_user.id_user) as nombre_participant, event.nom, event.logo
                             FROM event LEFT JOIN event_user ON event.id = event_user.id
                             WHERE event.deleted = 0 AND event.id = :id
@@ -30,13 +46,14 @@ HTML;
 
     if ( $_SESSION['admin'] > 0) {
         echo <<<HTML
-            <div class="buttons" >
-                <form class="bottom-article" action="" method="post">
+            <div class="row" >
+                <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
                     <input class="btn btn-primary" type="submit" value="Télécharger toutes les photos" name="getPhotos">
                 </form>
-HTML;   if($_SESSION['admin'] > 1){
+HTML;
+    if($_SESSION['admin'] > 1){
             echo <<<HTML
-                <form class="bottom-article button" action="" method="post">
+                <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
                     <input class="btn btn-primary" type="submit" value="Récupérer liste participants" name="getEntrants">
                 </form>
 HTML;
@@ -56,12 +73,26 @@ HTML;
     // Ce while boucle tant que le "fetch" renvoie des données
     while ($response = $req->fetch()) {
     // Cet echo génère le code HTML de chaque événement dans la base de données
-    echo <<<HTML
-    <article class= "col-md-10 col-sm-12">
+    echo '
+    <article>
         <div>
-            <a href="photo.php?photo={$response[1]}"><img class="w-50" src="{$response[0]}" alt="Une photo de l événement"/></a>
+            <a href="photo.php?photo={'.$response[1].'"><img class="w-100" src="'.$response[0].'" alt="Une photo de l événement"/></a>
         </div>
-    </article>
-HTML;  
+        <div class="row" >';
+        if ( $_SESSION['admin'] > 1) {
+            echo '  <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <input type="hidden" name="id" value="'.$response[1].'">
+                    <input class="btn btn-danger" type="submit" value="Supprimer cette photo" name="deletPhoto">
+                    </form>';
+        }
+
+        if ( $_SESSION['admin'] > 0) {
+            echo '  <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <input type="hidden" name="id" value="'.$response[1].'">
+                    <input class="btn btn-warning" type="submit" value="Signaler cette photo" name="signalPhoto">
+                    </form>';
+        }
+    echo '  </div>
+            </article>';
     }
 ?>
