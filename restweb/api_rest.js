@@ -44,8 +44,6 @@ app.get('/articles', (req, res) => {
 	});
 });
 
-
-
 // app.get('/articles/:choix', (req, res)=> {
 // 	let type = typeof req.params.choix;
 // 	if(type === "number"){
@@ -77,6 +75,14 @@ app.get('/articles', (req, res) => {
 //List the article ordered when get request on /articles/up
 app.get('/articles/up', (req, res) => {
 	 	con.query("SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix", function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+//List the top 3 the most sold articles
+app.get('/articles/carousel', (req, res) => {
+	let request =  "SELECT article.url FROM `article_commande` INNER JOIN article on article_commande.id = article.id GROUP BY article_commande.id ORDER BY SUM(`qte`) DESC LIMIT 3";
+	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });

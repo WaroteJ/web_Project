@@ -31,15 +31,6 @@
             <h3>Meilleures ventes :</h3>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active ">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top1">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top2">
-                        </div>
-                        <div class="carousel-item">
-                        <img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-30 mx-auto" alt="top3">
-                        </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
