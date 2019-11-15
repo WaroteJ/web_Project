@@ -57,12 +57,14 @@
         </div>
         <?php 
         if(((int)calcul_prix())>0){
-            echo '<div class="valider_button container">
-            <a href="confirm_basket.php">
-            <div class="bouton_admin">
-                <p>Valider</p>
+            echo <<<HTML
+            <div class="valider_button container">
+                <a href="confirm_basket.php">
+                    <div class="btn btn-success">
+                        <p>Valider</p>
+                    </div>
             </div>
-        </div>';
+HTML;
         }
         ?>
     </main>

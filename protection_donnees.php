@@ -11,10 +11,16 @@
   <title>Politique de protection de données</title>
 </head>
 <body>
-    <header></header>
+  <header>
+    <div class="container-fluid">
+      <div class="row">
+        <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
+        <h1 class="col-md-8 ml-auto">Site du BDE</h1>
+      </div>
+    </div>
+  </header>
     <?php include ('php/menu.php');?>
     <main>
-        <a href="index.php">Acceuil</a>
         <p>
           CESI est engagé dans une démarche continue de conformité avec le Règlement général sur la protection des données du 27 avril 2016. Avec ce nouveau règlement CESI renforce sa politique de protection de données personnelles afin que les données de nos utilisateurs soient collectées et utilisées de manière transparente, confidentielle et sécurisée.
         </p>

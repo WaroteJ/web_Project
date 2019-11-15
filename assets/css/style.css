@@ -15,14 +15,15 @@ header {
 }
 
 .menu {
-  background: #000;
-  color: #fff;
+  background: black;
+  color: white;
   border-right: 1px solid grey;
   text-align: center;
 }
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
+  transition: 0.2s;
 }
 
 main {
@@ -57,9 +58,10 @@ main #admin_buttons {
   flex-direction: row;
   justify-content: center;
   background-color: rgba(0, 0, 0, 0.5);
-  border: black 2px solid;
+  border: 1px black solid;
   border-radius: 10px;
   margin: 5px;
+  font-size: 0.8em;
 }
 main #admin_buttons a {
   color: black;
@@ -67,6 +69,7 @@ main #admin_buttons a {
 main #admin_buttons a:hover {
   text-decoration: none;
   color: #FFC252;
+  transition: 0.2s;
 }
 main .bouton_admin {
   display: flex;
@@ -74,9 +77,10 @@ main .bouton_admin {
   text-align: center;
   margin: 5px;
   background-color: rgba(245, 245, 245, 0.3);
-  border: black 2px solid;
+  border: 1px black solid;
   border-radius: 10px;
   padding: 10px;
+  height: 120px;
 }
 main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);
@@ -85,10 +89,9 @@ main .bouton_admin i {
 .whole_form {
   margin: auto;
   margin-top: 20px;
-  margin-bottom: 20px;
   padding: 10px;
   background-color: rgba(0, 0, 0, 0.5);
-  border: black 2px solid;
+  border: 2px solid black;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
@@ -112,7 +115,7 @@ main .bouton_admin i {
 }
 .whole_form > .bottom-form > a {
   color: black;
-  border: black 2px solid;
+  border: 1px solid black;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -121,6 +124,7 @@ main .bouton_admin i {
   color: white;
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
+  transition: 0.2s;
 }
 
 #user_table {
@@ -142,11 +146,13 @@ main .bouton_admin i {
   display: none;
 }
 
-.command:nth-child(odd) {
+.command, .signal {
+  padding-bottom: 5px;
+}
+.command:nth-child(odd), .signal:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.4);
 }
-
-.command:nth-child(even) {
+.command:nth-child(even), .signal:nth-child(even) {
   background-color: rgba(0, 0, 0, 0.2);
 }
 

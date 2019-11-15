@@ -1,20 +1,15 @@
-//Connection to the database
-//import {database} from db_connection.js;
-
-//La variable express nous permettra d'utiliser les fonctionnalités du module Express.  
+// To allow us to use the express functionnalities  
 let express = require('express'); 
 
-// Nous définissons ici les paramètres du serveur.
+let cors = require('cors');
+// Defining the server's parameters
 let hostname = 'localhost'; 
 let port = 3000; 
 
-// Nous créons un objet de type Express. 
+//Creating express object to. 
 let app = express(); 
 
-
-//Database execution of a request
-//let sql = database("SELECT * FROM user");
-
+// Database connection
 let mysql = require('mysql');
 let con = mysql.createConnection({
 	host: "localhost",
@@ -23,89 +18,100 @@ let con = mysql.createConnection({
 	database: "bde"
 });
 
-//Afin de faciliter le routage (les URL que nous souhaitons prendre en charge dans notre API), nous créons un objet Router.
-//C'est à partir de cet objet router, que nous allons implémenter les méthodes. 
-var router = express.Router();
+app.use(cors());
 
-
+let request;
+ 
+// Extract the entire body portion of an incoming requset stream and exposes it on req.body
 let bodyParser = require ("body-parser");
+
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
-router.route('/')
-.all(function(req,res){ 
-      res.json({message : "Bienvenue sur notre Frugal API ", methode : req.method});
-});
-
-
-// con.connect(function(err) {
-// 	if (err) throw err;
-//     	console.log("Connected!");
-//     	con.query("SELECT * FROM user LIMIT 10", function (err, result, fields) {
-// 	if (err) throw err;
-// 		json_result = JSON.stringify(result);
-// 		console.log(json_result);
-//     })
-// });
-
-router.route('/users')
+//List all the user when get request on /users
 app.get('/users', (req, res) => {
-	con.connect(function(err) {
-		  if (err) throw err;
-		  console.log("Connected to the database!");
-		  con.query("SELECT * FROM user", function (err, result) {
-			if (err) throw err;
-			res.json(result);
-		  });
-		});
-});
-
-//POST
-app.post('/users', (req, res) => {
-	con.connect(function(err) {
-		  if (err) throw err;
-		  console.log("Connected to the database!");
-		  con.query("", function (err, result) {
-			if (err) throw err;
-			res.json(result);
-		  });
-		});
-});
-
-//PUT
-// .put(function(req,res){ 
-//       res.json({message : "Mise à jour des informations d'une piscine dans la liste", methode : req.method});
-// })
-// //DELETE
-// .delete(function(req,res){ 
-// res.json({message : "Suppression d'une piscine dans la liste", methode : req.method});  
-// }); 
-
-
-router.route('/users/:user_id')
-app.get('/users/:user_id', (req, res) => {
-	con.connect(function(err) {
-		  if (err) throw err;
-		  console.log("Connected!");
-		  let request =  "SELECT * FROM user WHERE id ="+ req.params.user_id;
-		  con.query(request, function (err, result) {
-			if (err) throw err;
-			res.json(result);
-		  });
+	con.query("SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id", function (err, result) {
+		res.send(JSON.stringify(result));
 	});
 });
-// .put(function(req,res){ 
-// 	  res.json({message : "Vous souhaitez modifier les informations de la piscine n°" + req.params.piscine_id});
-// })
-// .delete(function(req,res){ 
-// 	  res.json({message : "Vous souhaitez supprimer la piscine n°" + req.params.piscine_id});
+
+//List the user with the corresponding id when get request on /users/user_:id
+app.get('/users/:user_centre', (req, res) => {
+	request =  "SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id WHERE centre.nom="+'"'+ req.params.user_centre+'"';
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+//List all the articles when get request on /articles
+app.get('/articles', (req, res) => {
+	con.query("SELECT nom_article as nom, description, prix,url categorie.nom as categorie FROM article INNER JOIN categorie ON article.id_Categorie = categorie.id", function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+
+
+// app.get('/articles/:choix', (req, res)=> {
+// 	let type = typeof req.params.choix;
+// 	if(type === "number"){
+// 		//List the article with the corresponding id when get request on /articles/choix:id
+// 		request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+// 		console.log(req.params.choix);
+// 	} else if(req.params.choix == "up" && type == "string"){
+// 			//List the article ordered when get request on /articles/up
+// 			request = "SELECT url, nom_article, prix, id FROM article ORDER BY prix";
+// 			console.log(req.params.choix);
+
+// 		}else if (req.params.choix == "down" && type == "string"){
+// 			//List the article ordered when get request on /articles/down
+// 			request =  "SELECT url, nom_article, prix, id FROM article ORDER BY prix DESC";
+// 			console.log(req.params.choix);
+
+// 		}else if (req.params.choix == "type" && type == "string"){
+// 			//List the article grouped by type when get request on /articles/down
+// 			request =  "SELECT url, nom_article, prix, id FROM article ORDER BY id_Categorie";
+// 			console.log(req.params.choix);
+
+// 		}
+// 	con.query(request, function (err, result) {
+// 		res.send(JSON.stringify(result));
+// 	});
 // });
 
 
-// Nous demandons à l'application d'utiliser notre routeur
-app.use(router);  
+//List the article ordered when get request on /articles/up
+app.get('/articles/up', (req, res) => {
+	 	con.query("SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix", function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
 
-// // Démarrer le serveur 
+//List the article ordered when get request on /articles/down
+app.get('/articles/down', (req, res) => {
+	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix DESC";
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+//List the article grouped by type when get request on /articles/down
+app.get('/articles/type', (req, res) => {
+	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY id_Categorie";
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+//List the article with the corresponding id when get request on /articles/article_:id
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 WHERE id ="+ req.params.choix;
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+// Start the server
 app.listen(port, hostname, function(){
 	console.log("Mon serveur fonctionne sur http://"+ hostname +":"+port); 
 });
