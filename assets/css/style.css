@@ -127,17 +127,17 @@ main .bouton_admin i {
   transition: 0.2s;
 }
 
-#user_table {
+.user_table {
   border: 1px solid black;
   width: 99%;
   margin: 5px;
   font-size: 0.8em;
 }
-#user_table th {
+.user_table th {
   text-align: center;
   border: 2px solid black;
 }
-#user_table td {
+.user_table td {
   text-align: center;
   border: 1px solid black;
 }
@@ -164,6 +164,11 @@ main .bouton_admin i {
 footer {
   display: flex;
   flex-flow: row nowrap;
+}
+
+#list_user:hover {
+  cursor: pointer;
+  color: #FFC252;
 }
 
 /*# sourceMappingURL=style.css.map */

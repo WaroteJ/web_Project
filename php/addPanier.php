@@ -34,6 +34,6 @@ if($diff == 0){
     ));
 }
 
-echo '<meta http-equiv="refresh" content="1;URL=../boutique.php">';
+echo '<meta http-equiv="refresh" content="0.1;URL=../boutique.php">';
 
 ?>

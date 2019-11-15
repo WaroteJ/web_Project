@@ -1,4 +1,4 @@
-<table id="user_table">
+<table class="user_table">
   <tr>
     <th>Nom</th>
     <th>Prénom</th> 

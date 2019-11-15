@@ -35,13 +35,7 @@ app.get('/users', (req, res) => {
 	});
 });
 
-//List the user with the corresponding id when get request on /users/user_:id
-app.get('/users/:user_centre', (req, res) => {
-	request =  "SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id WHERE centre.nom="+'"'+ req.params.user_centre+'"';
-	con.query(request, function (err, result) {
-		res.send(JSON.stringify(result));
-	});
-});
+
 
 //List all the articles when get request on /articles
 app.get('/articles', (req, res) => {
@@ -103,13 +97,23 @@ app.get('/articles/type', (req, res) => {
 	});
 });
 
-//List the article with the corresponding id when get request on /articles/article_:id
-app.get('/articles/:choix', (req, res)=> {
-	request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 WHERE id ="+ req.params.choix;
+//List the user with the corresponding id when get request on /users/user_:centre
+app.get('/users/:user_centre', (req, res) => {
+	request =  "SELECT  user.nom, user.prenom, user.droit  FROM user WHERE id_Centre ="+ req.params.user_centre+"";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });
+
+//List the article with the corresponding id when get request on /articles/article_:id
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+
 
 // Start the server
 app.listen(port, hostname, function(){

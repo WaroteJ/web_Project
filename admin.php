@@ -9,6 +9,7 @@ if ($_SESSION['admin']!=2){
     header("Location: centre.php");
     exit();  
 }
+$centre = $_SESSION['centre'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,6 +23,7 @@ if ($_SESSION['admin']!=2){
     <title>BDE du CESI</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script type="text/javascript" src="assets/js/admin.js"></script>  
+
 </head>
 <body>
     <header>
@@ -56,10 +58,16 @@ if ($_SESSION['admin']!=2){
                         <p>Ajouter une catégorie</p>
                     </div>
                 </a>
-                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=users">
-                    <div class="bouton_admin">
+                <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=users">                 
+                    <div class="bouton_admin">                
                         <i class="fas fa-users fa-3x"></i> 
                         <p>Modifier droits utilisateur</p>
+                    </div>
+                </a>
+                    <div class="bouton_admin" id="list_user">
+                        <?php echo "<input type='hidden' id='admin' name='centre' value='$centre'/>"; ?>              
+                        <i class="fas fa-users fa-3x"></i>
+                        <p>Lister les utilisateurs</p>
                     </div>
                 </a>
                 <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=command">
@@ -100,6 +108,7 @@ if ($_SESSION['admin']!=2){
     require("php/bdd.php");
     require("php/input_secure.php");
         if(isset($_GET['page'])){
+            ?> <div id="mylist"> <?php
             switch ($_GET['page']) {
                 case 'newEvent':
                     require("php/bo/newEvent.php");
@@ -143,8 +152,13 @@ if ($_SESSION['admin']!=2){
             }
         }
     ?>
+    </div>    
+    <table></table>
     </main>
+
     <?php include('php/footer.php');?>
+    <script type="text/javascript" src="restweb/ajax_users.js"></script>  
+
 </body>
 </html>
  
