@@ -19,12 +19,7 @@ if(isset($_SESSION["centre"])){
 </head>
 <body>
     <header>
-        <div class="container-fluid">
-            <div class="row">
-                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Site du BDE</h1>
-            </div>
-        </div>
+        
     </header>
     <?php include('php/menu.php');?>
     <main>
