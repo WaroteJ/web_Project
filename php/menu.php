@@ -11,6 +11,7 @@
           }
           /* If not connected send back on the home page and show the menu of it*/
           if($centre == NULL){
+
           echo '<a href="index.php" class="col menu"> Accueil </a>
            <a href="login.php" class="col menu"> Connexion </a>
            <a href="register.php" class="col menu"> Inscription </a>';

@@ -34,24 +34,15 @@ main {
   flex-flow: column nowrap;
   flex-grow: 1;
 }
+main .underline {
+  text-decoration: underline;
+}
 main .event {
   display: flex;
   justify-content: flex-start;
   width: 100%;
   text-align: left;
   align-items: top;
-}
-main .carousel-event-image {
-  width: 100%;
-  justify-content: center;
-  height: auto;
-}
-main .membre-BDE {
-  display: flex;
-  flex-direction: row;
-}
-main .membre-BDE img {
-  width: 50%;
 }
 main #admin_buttons {
   display: flex;
@@ -147,7 +138,7 @@ main .bouton_admin i {
 }
 
 .command, .signal {
-  padding-bottom: 5px;
+  padding: 0px 0px 5px 0px;
 }
 .command:nth-child(odd), .signal:nth-child(odd) {
   background-color: rgba(0, 0, 0, 0.4);

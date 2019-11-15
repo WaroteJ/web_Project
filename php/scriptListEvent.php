@@ -16,10 +16,21 @@
                         </p>
                         <p>
                             <label for="dateheure">'.$response[3].'</label>
-                        </p>
-                        <div class="bottom-article">
-                                <a href="evenement.php?event='.$response[0].'">Plus d informations</a>
-                        </div>
-                </article>';
+                        </p>';
+        
+
+
+                if ( $response[3] >= date('Y-m-d')  ) {
+                    echo '  <div class="bottom-article">
+                            <a href="evenement.php?event='.$response[0].'">Plus d informations</a>
+                            </div>
+                            </article>';
+                }
+                else{
+                            echo'   <div class="bottom-article">
+                            <a href="evenementFini.php?event='.$response[0].'">Plus d informations</a>
+                            </div>
+                            </article>';
+                }
     }
 ?>
