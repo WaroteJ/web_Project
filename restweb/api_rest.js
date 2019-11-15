@@ -35,7 +35,12 @@ app.get('/users', (req, res) => {
 	});
 });
 
-
+// List all the articles when get request on /articles
+app.get('/commandes', (req, res) => {
+	con.query("SELECT  user.nom, user.prenom, commande.id, commande.date ,article.nom_article,article_commande.qte FROM ((commande INNER JOIN user ON commande.id_User = user.id) INNER JOIN article_commande ON commande.id = article_commande.id_Commande)  INNER JOIN article on article_commande.id = article.id WHERE commande.etat=1 ORDER BY commande.id", function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
 
 //List all the articles when get request on /articles
 app.get('/articles', (req, res) => {

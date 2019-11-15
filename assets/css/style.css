@@ -157,7 +157,12 @@ footer {
   flex-flow: row nowrap;
 }
 
-#list_user:hover {
+.list_user:hover {
+  cursor: pointer;
+  color: #FFC252;
+}
+
+#list_commandes:hover {
   cursor: pointer;
   color: #FFC252;
 }

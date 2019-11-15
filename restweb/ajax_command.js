@@ -1,7 +1,7 @@
 $(document).ready(function() {
-    $("#list_user").on("click", function() {         
-
-        let url  = 'http://localhost:3000/users/' + $('#admin').val();
+    $("#list_commandes").on("click", function() {
+            
+        let url  = 'http://localhost:3000/commandes/' /*+ $('#admin').val();*/
     
         $.ajax({
             type:'GET',
@@ -36,6 +36,3 @@ $(document).ready(function() {
         });
     });
 });
-
-    
-

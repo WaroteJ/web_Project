@@ -176,23 +176,12 @@ footer {
     flex-flow: row nowrap;
 } 
 
-#list_user:hover {
+.list_user:hover {
     cursor: pointer;
     color: $secondary-color;
 }
 
-// table {
-//     border: 1px solid black;
-//     width:99%;
-//     margin: 5px;
-//     font-size: 0.8em;
-    
-//     th{
-//         text-align: center;
-//         border: 2px solid black;
-//     }
-//     td{
-//         text-align: center;
-//         border: 1px solid black;
-//     }
-// }
+#list_commandes:hover {
+    cursor: pointer;
+    color: $secondary-color;
+}
