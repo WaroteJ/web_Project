@@ -76,7 +76,7 @@ HTML;
     echo '
     <article>
         <div>
-            <a href="photo.php?photo={'.$response[1].'"><img class="w-100" src="'.$response[0].'" alt="Une photo de l événement"/></a>
+            <a href="photo.php?photo='.$response[1].'"><img class="w-100" src="'.$response[0].'" alt="Une photo de l événement"/></a>
         </div>
         <div class="row" >';
         if ( $_SESSION['admin'] > 1) {
