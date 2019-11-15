@@ -7,12 +7,31 @@ if(isset($_POST["getPhotos"])){
     require ("zip.php");
     getPhotos($_GET['event']);
 }
+$error=NULL;
+if(isset($_POST["newPhoto"])){
+    if($_FILES["img"]["error"] == 0){
+        //File uploaded
+        include ("php/image.php");
+        $photoArray=imageUpload("assets/img/events/");
+        if($photoArray[0]==1){
+            $req = $bdd->prepare('INSERT INTO `photo`(`url`, `id_Event`) VALUES (:url,:id)');
+            $req->execute(array(
+                'url'=>$photoArray[1],
+                'id' => $_GET['event']
+            ));
+        }
+        else{
+            $error=1;
+        }
+    }else{
+        $error=2;
+    }
+}
 if(isset($_POST["signalPhoto"])){
     $req = $bdd->prepare('UPDATE `photo` SET `signale`= 1 WHERE id = :id');
     $req->execute(array(
     'id' => $_POST['id']
     ));
-    header("Location: ./evenements.php"); 
 }
 
 if(isset($_POST["deletPhoto"])){
@@ -20,7 +39,6 @@ if(isset($_POST["deletPhoto"])){
     $req->execute(array(
     'id' => $_POST['id']
     ));
-    header("Location: ./evenements.php"); 
 }
 
     $req = $bdd->prepare('  SELECT COUNT(event_user.id_user) as nombre_participant, event.nom, event.logo
@@ -43,7 +61,32 @@ if(isset($_POST["deletPhoto"])){
                 <label for="nb_participants"><strong>Nombre de Participants:</strong> {$response[0]}</label>
             </p>
 HTML;
-
+    switch ($error) {
+        case 1:
+            echo '<h3>Image incorrecte ou déjà existante</h3>';
+            $error=NULL;
+            break;
+        
+        case 2:
+            echo '<h3>Image trop grosse</h3>';
+            $error=NULL;
+            break;
+        default:
+            # code...
+            break;
+    }
+    echo <<<HTML
+    <form action="" method="post" enctype="multipart/form-data">
+        <label for="img">Ajouter une photo à l'événement</label>
+        <div class="input-group mb-3">
+            <div class="custom-file">
+                <input required type="file" class="custom-file-input" name ="img" id="img" aria-describedby="inputGroupFileAddon04" accept="image/*">
+                <label class="custom-file-label" for="img">Choose file</label>
+            </div>
+        </div>
+        <input class="btn btn-primary" type="submit" value="Ajouter une photo" name="newPhoto">
+    </form>
+HTML;
     if ( $_SESSION['admin'] > 0) {
         echo <<<HTML
             <div class="row" >
@@ -80,17 +123,21 @@ HTML;
         </div>
         <div class="row" >';
         if ( $_SESSION['admin'] > 1) {
-            echo '  <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input type="hidden" name="id" value="'.$response[1].'">
+            echo <<<HTML
+              <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <input type="hidden" name="id" value="{$response[1]}">
                     <input class="btn btn-danger" type="submit" value="Supprimer cette photo" name="deletPhoto">
-                    </form>';
+                    </form>
+HTML;
         }
 
         if ( $_SESSION['admin'] > 0) {
-            echo '  <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input type="hidden" name="id" value="'.$response[1].'">
+            echo <<<HTML
+              <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <input type="hidden" name="id" value="{$response[1]}">
                     <input class="btn btn-warning" type="submit" value="Signaler cette photo" name="signalPhoto">
-                    </form>';
+                    </form>
+HTML;
         }
     echo '  </div>
             </article>';

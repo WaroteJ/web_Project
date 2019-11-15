@@ -18,6 +18,7 @@ require_once('php/bdd.php');
         <link rel="stylesheet" href="assets/css/events.css">
         <link rel="stylesheet" href="assets/css/style.css">
         <title>Site BDE Events</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     </head>
 
     <body>
@@ -41,6 +42,7 @@ require_once('php/bdd.php');
         </div>
     </main>
     <?php include ('php/footer.php');?>
+<script src="assets/js/photoUploadName.js"></script>
 </body>
 
 </html>
