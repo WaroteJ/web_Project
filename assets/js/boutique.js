@@ -1,19 +1,19 @@
 $(function(){
-  // $.ajax({
-  //   type:'GET',
-  //   url: 'http://localhost:3000/articles/up',
-  //   dataType:'json'
-  // })
-  // .done(function(data){
-  //   let donnees = typeof data !='object' ? JSON.parse(data) : data;
-  //   for(let i=0;i<donnees.length;i++){
-  //   $(".results").append('<div class="col-5 article"><a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
-  //  }       
+  $.ajax({
+    type:'GET',
+    url: 'http://localhost:3000/articles/up',
+    dataType:'json'
+  })
+  .done(function(data){
+    let donnees = typeof data !='object' ? JSON.parse(data) : data;
+    for(let i=0;i<donnees.length;i++){
+    $(".results").append('<div class="col-5 article"><a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
+   }       
               
-  // })
-  // .fail(function(jqXHR, textStatus, err){
-  //   console.log('AJAX error response:', textStatus);
-  //   });
+  })
+  .fail(function(jqXHR, textStatus, err){
+    console.log('AJAX error response:', textStatus);
+    });
   alert('ready');
     $.ajax({
       type:'GET',
@@ -24,7 +24,7 @@ $(function(){
       let donnees = typeof data !='object' ? JSON.parse(data) : data;
       for(let i=0;i<donnees.length;i++){
         alert(donnees[i].url);
-     // $(".carousel-inner").append('<div class="carousel-item active "><img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-50 mx-auto" alt=top'+i+'></div>');
+     // $(".carousel-inner").append('<div class="carousel-item active "><img src="https://www.comptoir-irlandais.com/12804-large_default/pull-lambswool-rond-orange-celtic-alliance.jpg" class="d-block w-50" alt=top'+i+'></div>');
      }       
                 
     })
