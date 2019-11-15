@@ -35,13 +35,7 @@ app.get('/users', (req, res) => {
 	});
 });
 
-//List the user with the corresponding id when get request on /users/user_:id
-app.get('/users/:user_centre', (req, res) => {
-	request =  "SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id WHERE centre.nom="+'"'+ req.params.user_centre+'"';
-	con.query(request, function (err, result) {
-		res.send(JSON.stringify(result));
-	});
-});
+
 
 //List all the articles when get request on /articles
 app.get('/articles', (req, res) => {
@@ -49,8 +43,6 @@ app.get('/articles', (req, res) => {
 		res.send(JSON.stringify(result));
 	});
 });
-
-
 
 // app.get('/articles/:choix', (req, res)=> {
 // 	let type = typeof req.params.choix;
@@ -87,6 +79,14 @@ app.get('/articles/up', (req, res) => {
 	});
 });
 
+//List the top 3 the most sold articles
+app.get('/articles/carousel', (req, res) => {
+	let request =  "SELECT article.url FROM `article_commande` INNER JOIN article on article_commande.id = article.id GROUP BY article_commande.id ORDER BY SUM(`qte`) DESC LIMIT 3";
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
 //List the article ordered when get request on /articles/down
 app.get('/articles/down', (req, res) => {
 	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY prix DESC";
@@ -103,13 +103,23 @@ app.get('/articles/type', (req, res) => {
 	});
 });
 
-//List the article with the corresponding id when get request on /articles/article_:id
-app.get('/articles/:choix', (req, res)=> {
-	request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 WHERE id ="+ req.params.choix;
+//List the user with the corresponding id when get request on /users/user_:centre
+app.get('/users/:user_centre', (req, res) => {
+	request =  "SELECT  user.nom, user.prenom, user.droit  FROM user WHERE id_Centre ="+ req.params.user_centre+"";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });
+
+//List the article with the corresponding id when get request on /articles/article_:id
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
+
 
 // Start the server
 app.listen(port, hostname, function(){
