@@ -158,7 +158,7 @@ $centre = $_SESSION['centre'];
 
     <?php include('php/footer.php');?>
     <script type="text/javascript" src="restweb/ajax_users.js"></script>  
-
+    <script src="assets/js/photoUploadName.js"></script>
 </body>
 </html>
  

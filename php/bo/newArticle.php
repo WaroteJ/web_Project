@@ -1,14 +1,13 @@
 <?php
     $error=NULL;
 
-    if(isset($_POST['newArticle'])){
+    if(isset($_POST['newArticle'],$_POST['article'],$_POST['nom'],$_POST['cat'],$_POST['prix'],$_POST['descri'])){
         include ("php/image.php");
         $photoArray=imageUpload("assets/img/products/");// Renvoie la validation de l'image et son chemin d'accès
 
         if($photoArray[0]==1){// Si l'image est valide(format, pas déjà présente,...)
             $prix=0;
             $descri='';
-            $photo='';
             if(isset($_POST['prix'])){
                 if($_POST['prix']>=0)
                     $prix=inputSecure($_POST['prix']);
@@ -54,13 +53,13 @@
     ?>
     </select>
     <label for="prix">Prix</label>
-    <input class="form-control" type="number" name="prix" id="prix" placeholder="Prix" min="0">
+    <input class="form-control" type="number" name="prix" id="prix" placeholder="Prix" min="0" required>
     <label for="descri">Description de l'article</label>
     <textarea class="form-control" name="descri" id="descri" placeholder="Description de l'article" row=5></textarea>
     <label for="img">Photo de l'article</label>
     <div class="input-group mb-3">
         <div class="custom-file">
-            <input type="file" class="custom-file-input" name ="img" id="img" aria-describedby="inputGroupFileAddon04" accept="image/*">
+            <input type="file" class="custom-file-input" name ="img" id="img" aria-describedby="inputGroupFileAddon04" accept="image/*" required>
             <label class="custom-file-label" for="img">Choose file</label>
         </div>
     </div>
