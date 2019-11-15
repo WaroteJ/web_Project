@@ -42,6 +42,9 @@ main{
     flex-flow: column nowrap;
     flex-grow: 1;
 
+    .underline{
+        text-decoration: underline;
+    }
     .event{
         display: flex;
         justify-content: flex-start;
@@ -50,18 +53,6 @@ main{
         align-items: top;
     }
 
-    .carousel-event-image{
-        width:100%;
-        justify-content:center;
-        height:auto;
-    }
-    .membre-BDE{
-        display: flex;
-        flex-direction: row;
-        img{
-            width: 50%;
-        }
-    }
     #admin_buttons{
         display: flex;
         flex-direction: row;

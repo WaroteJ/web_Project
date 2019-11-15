@@ -34,24 +34,15 @@ main {
   flex-flow: column nowrap;
   flex-grow: 1;
 }
+main .underline {
+  text-decoration: underline;
+}
 main .event {
   display: flex;
   justify-content: flex-start;
   width: 100%;
   text-align: left;
   align-items: top;
-}
-main .carousel-event-image {
-  width: 100%;
-  justify-content: center;
-  height: auto;
-}
-main .membre-BDE {
-  display: flex;
-  flex-direction: row;
-}
-main .membre-BDE img {
-  width: 50%;
 }
 main #admin_buttons {
   display: flex;

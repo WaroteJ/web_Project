@@ -31,37 +31,43 @@
     <main>
         <div class="container-fluid">
             <div class="row">
-                <h3>Dernier Evénement :</h3>
-                <div id="carousel" class="col-12">
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <h2 class="col-12 text-center font-weight-bold underline">Dernier Evénement </h2>
+                <div id="carouselExampleFade" class="carousel slide carousel-fade col-8 w-100 mx-auto" data-ride="carousel">
+                    <div class="carousel-inner row">
                         <?php include('php/scriptCentre.php');?>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
-                </div>
-                
-                <div>
-                    <h2>Membres du BDE:</h2>
-                    <div class="row">
-                        <?php
-                            $req= $bdd->prepare("SELECT `nom`,`prenom` FROM `user` WHERE `id_Centre`=:id AND `droit`=2");
-                            $req->bindValue(':id', $_SESSION["centre"], PDO::PARAM_STR);
-                            $req->execute();
-
-                            while($result = $req->fetch(PDO::FETCH_BOTH)){
-                               echo '<p class="col-6 membre-BDE"><img src="assets/img/membre_bde/avatar.png">'.$result[0].' '.$result[1].'</p>';
-                           }       
-                        ?>
-                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleFade" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleFade" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
                 </div>
             </div>
+                
+            <div class="row">
+                <h2 class="col-12 text-center font-weight-bold underline">Membres du BDE</h2>
+                
+                    <?php
+                        $req= $bdd->prepare("SELECT `nom`,`prenom` FROM `user` WHERE `id_Centre`=:id AND `droit`=2");
+                        $req->bindValue(':id', $_SESSION["centre"], PDO::PARAM_STR);
+                        $req->execute();
+
+                        while($result = $req->fetch(PDO::FETCH_BOTH)){
+                            echo '<div class="col-12 col-md-6">
+                                    <div class="row">
+                                        <img class="col-8" src="assets/img/membre_bde/avatar.png">
+                                        <p class="col-4 text-center font-weight-bold align-self-center">'.$result[0].' '.$result[1].'</p>
+                                    </div>
+                                </div>';
+                        }       
+                    ?>
+                
+            </div>
         </div>
+    </div>
 </main>
 
 <?php include('php/footer.php') ?>
