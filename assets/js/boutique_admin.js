@@ -1,30 +1,48 @@
 $(function(){
+    // $.ajax({
+    //   type:'GET',
+    //   url: 'http://localhost:3000/articles/up',
+    //   dataType:'json'
+    // })
+    // .done(function(data){
+    //   let donnees = typeof data !='object' ? JSON.parse(data) : data;
+    //   for(let i=0;i<donnees.length;i++){
+    //     let spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>";
+
+    //   $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div>'+spanC+'</div></div></div>');
+    //   //addCross(donnees.id);
+      
+    //   // $(".article").append(spanC);   
+    // }       
+    // })
+    // .fail(function(jqXHR, textStatus, err){
+    //   console.log('AJAX error response:', textStatus);
+    //   });
+
+    //   $(".close").on('click', function(){
+    //     alert ("coucou");
+    //     let parent = this.parentElement;
+    //     parent.style.display = "none";
+    // })
+
     $.ajax({
       type:'GET',
-      url: 'http://localhost:3000/articles/up',
+      url: 'http://localhost:3000/articles/carousel',
       dataType:'json'
     })
     .done(function(data){
       let donnees = typeof data !='object' ? JSON.parse(data) : data;
       for(let i=0;i<donnees.length;i++){
-        let spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>";
-
-      $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div>'+spanC+'</div></div></div>');
-      //addCross(donnees.id);
-      
-      // $(".article").append(spanC);   
-    }       
+      $(".carousel-inner").append('<div class="carousel-item "><img src="' +donnees[i].url+'" class="d-block w-50 mx-auto" alt=top'+i+'></div>');
+     }
+     $(".carousel-inner :nth-child(1)").addClass("active");       
+                
     })
     .fail(function(jqXHR, textStatus, err){
       console.log('AJAX error response:', textStatus);
       });
+  });
 
-      $(".close").on('click', function(){
-        alert ("coucou");
-        let parent = this.parentElement;
-        parent.style.display = "none";
-    })
-  })
 
   
   
