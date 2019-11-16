@@ -11,7 +11,7 @@
 
   $groupID=NULL; // Sert à déterminer si l'article fait partie de la même commande
   $id=NULL;
-
+  $once=false;
   // Sélectionne les items et leur prix d'une commande ainsi que l'utilisateur et la date 
   $requete = $bdd->prepare("SELECT  user.nom, user.prenom, commande.id, commande.date ,article.nom_article,article_commande.qte
   FROM ((commande INNER JOIN user ON commande.id_User = user.id) 
@@ -38,16 +38,18 @@
         echo'<div class="col-12 command">
         <h3>Commande n°'.$result[2].' du '.$result[3].' : '.$result[0].' '.$result[1].'</h3>';
         $groupID=true;
+        $once=true;
         $id=$result[2];
     }
         echo '<div class="suivi">'.$result[5].' x '.$result[4].'</div>';
   }
-
+  if($once){
     echo'<form action="" method="post">
             <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
             <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
         </form>
     </div>';
-  $requete->closeCursor();
+  }
+    $requete->closeCursor();
 ?>
 </table>

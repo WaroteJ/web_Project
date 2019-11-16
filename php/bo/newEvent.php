@@ -65,7 +65,7 @@
     <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de l'évènement" required maxlength="50">
     <label for="payant">Payant </label>
     <input type="checkbox" name="payant" id="payant"> 
-    <input type="number" class="form-control" name="prix" id="prix" placeholder="Prix" min="0">
+    <input type="number" class="form-control" name="prix" id="prix" placeholder="Prix" min="0" step="any">
     <label for="descri">Description de l'évènement</label>
     <textarea class="form-control" name="descri" id="descri" placeholder="Description de l'évènement" row=5></textarea>
     <label for="date">Date de l'évènement</label>

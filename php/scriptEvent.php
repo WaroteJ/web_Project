@@ -74,7 +74,7 @@
 
                     $participe = $req->fetch();
 
-                    if ( $_SESSION['admin'] > 0) {
+                    if ( $_SESSION['admin'] > 1) {
                         echo '  <form class="bottom-article button col-md-4 col-sm-12" action="" method="post">
                                 <input class="btn btn-danger" type="submit" value="Supprimer cet event" name="deletEvent">
                                 </form>';

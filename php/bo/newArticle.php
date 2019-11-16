@@ -70,7 +70,7 @@
     ?>
     </select>
     <label for="prix">Prix</label>
-    <input class="form-control" type="number" name="prix" id="prix" placeholder="Prix" min="0" required>
+    <input class="form-control" type="number" name="prix" id="prix" placeholder="Prix" min="0" step="any" required>
     <label for="descri">Description de l'article</label>
     <textarea class="form-control" name="descri" id="descri" placeholder="Description de l'article" row=5></textarea>
     <label for="img">Photo de l'article</label>
