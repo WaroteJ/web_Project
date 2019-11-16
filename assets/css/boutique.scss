@@ -18,26 +18,32 @@ header {
     flex-flow: column nowrap;
 }
 .bigvitrine{
+    background-color: rgb(28, 56, 94);
     margin-top: 20px;
-    background-color: rgba(0, 0, 0, 0.5);
     text-align: center;
 }
 .articles{
     border: 3px $primary-color solid;
 }
 .vitrine{
+    background-color: rgb(28, 56, 94);
     border: 2px solid black;
     border-radius: $radius;
     margin-right: 20px;
 }
 .article{
+    background-color: #326295;
     border: 2px solid black;
     border-radius: $radius;
     padding-top: 20px;
     margin-bottom: 15px;
     margin-left: 25px;
 }
+.description{
+    color: white;
+}
 .results{
+    background-color: rgb(28, 56, 94);
     margin-top: 3%;
     justify-content: center;
 }
@@ -49,20 +55,6 @@ main{
     display: flex;
     flex-flow: column nowrap;
     flex-grow: 1;
-}
-
-
-.basket {
-    position: absolute;
-    top: 0;
-    right: 0;
-    //border: 1px black solid;
-    border-radius: $radius;
-    background-color: gray;
-}
-
-.basket:hover {
-    cursor: pointer;
 }
 
 footer {

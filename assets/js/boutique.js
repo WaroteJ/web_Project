@@ -62,7 +62,7 @@ $(":checkbox").on('click', function() {
 
     let donnees = typeof data !='object' ? JSON.parse(data) : data;
     for(let i=0;i<donnees.length;i++){    
-      $(".results").append('<div class="col-5 article"><a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
+      $(".results").append('<div class="col-5 text-white article"><a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
    }
     
   })

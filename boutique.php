@@ -56,17 +56,17 @@
         <div class="row filtre">
             <div class="col-4">
                 <form class="whole_form">
-                    <h2>Filtres</h2>
+                    <h2 class="text-white">Filtres</h2>
                     <p>
-                        <label for="priceUp">Prix croissant</label>
+                        <label class="text-white" for="priceUp">Prix croissant</label>
                         <input type="checkbox" id="up" name="filtre">
                     </p>
                     <p>
-                        <label for="priceDown">Prix décroissant</label>
+                        <label class="text-white" for="priceDown">Prix décroissant</label>
                         <input type="checkbox" id="down" name="filtre">
                     </p>
                     <p>
-                        <label for="type">Type</label>
+                        <label class="text-white" for="type">Type</label>
                         <input type="checkbox" id="type" name="filtre">
                     </p>
                 </form>

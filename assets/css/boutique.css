@@ -14,8 +14,8 @@ header {
 }
 
 .bigvitrine {
+  background-color: #1c385e;
   margin-top: 20px;
-  background-color: rgba(0, 0, 0, 0.5);
   text-align: center;
 }
 
@@ -24,12 +24,14 @@ header {
 }
 
 .vitrine {
+  background-color: #1c385e;
   border: 2px solid black;
   border-radius: 5px;
   margin-right: 20px;
 }
 
 .article {
+  background-color: #326295;
   border: 2px solid black;
   border-radius: 5px;
   padding-top: 20px;
@@ -37,7 +39,12 @@ header {
   margin-left: 25px;
 }
 
+.description {
+  color: white;
+}
+
 .results {
+  background-color: #1c385e;
   margin-top: 3%;
   justify-content: center;
 }
