@@ -32,7 +32,7 @@
     <?php include('php/menu.php') ?>
     <main>
         <div class="container">
-            <div class="event row">
+            <div class="row">
                 <h3 class="col-12 text-center font-weight-bold underline">Meilleures ventes</h3>
                 <div id="carouselExampleFade" class="carousel slide carousel-fade col-12 w-100 mx-auto" data-ride="carousel">
                     <div class="carousel-inner row">
