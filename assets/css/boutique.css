@@ -60,14 +60,13 @@ main {
 
 .basket {
   position: fixed;
-  top: 150px;
   right: 5px;
+  top: 150px;
+  z-index: 9999;
+  background-color: grey;
+  border: 2px solid black;
   border-radius: 5px;
-  background-color: gray;
-}
-
-.basket:hover {
-  cursor: pointer;
+  color: white;
 }
 
 footer {

@@ -16,7 +16,6 @@ if (isset($_POST['mail'],$_POST['password'])){
         $requete->execute();
 
         $result = $requete->fetch(PDO::FETCH_BOTH);
-        echo $result[1];
         if (password_verify($password,$result[2])){ // Si le mot de passe est bon, on connecte l'utilisateur à son centre en lui donnant des droits appropriés 
             $_SESSION['user']=$result[0];
             switch ($result[1]) {
