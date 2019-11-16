@@ -1,11 +1,15 @@
 <?php
-    if(isset($_POST["Val"])){
+  if(!isset($_SESSION["centre"])){
+    header("Location: ../../index.php");
+  }
+  
+    if(isset($_POST["Val"],$_POST["id"])){
         $requete = $bdd->prepare("UPDATE `event` SET `signale`=0 WHERE `id`=:id");
         $requete->execute(array(
             ':id'=>$_POST["id"]
         ));
     }
-    else if(isset($_POST["Del"])){
+    else if(isset($_POST["Del"],$_POST["id"])){
         $requete = $bdd->prepare("UPDATE `event` SET `deleted`=1 WHERE `id`=:id");
         $requete->execute(array(
             ':id'=>$_POST["id"]

@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../../index.php");
+    }
     $error=NULL;
 
     if(isset($_POST['newArticle'],$_POST['nom'],$_POST['cat'],$_POST['prix'],$_POST['descri'])){
@@ -38,8 +41,8 @@
         }
     }
 ?>
-<form action="" method="post" class="whole_form col-lg-6 col-md-8 col-11" enctype="multipart/form-data">
-    <h2>Ajouter un article</h2>
+<form action="" method="post" class="whole_form col-lg-6 col-md-8 col-11 text-white" enctype="multipart/form-data">
+    <h2 class="underline">Ajouter un article</h2>
     <?php 
         switch ($error){
             case 1:

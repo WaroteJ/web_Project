@@ -27,14 +27,14 @@ if(isset($_POST["newPhoto"])){
         $error=2;
     }
 }
-if(isset($_POST["signalPhoto"])){
+if(isset($_POST["signalPhoto"],$_POST['id'])){
     $req = $bdd->prepare('UPDATE `photo` SET `signale`= 1 WHERE id = :id');
     $req->execute(array(
     'id' => $_POST['id']
     ));
 }
 
-if(isset($_POST["deletPhoto"])){
+if(isset($_POST["deletPhoto"],$_POST['id'])){
     $req = $bdd->prepare('UPDATE `photo` SET `deleted`= 1 WHERE id = :id');
     $req->execute(array(
     'id' => $_POST['id']

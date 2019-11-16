@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }   
     require ("bdd.php");
       
     function recup_photo($id_photo){

@@ -53,5 +53,7 @@ if (isset($_POST['lastname'],$_POST['firstname'],$_POST['mail'],$_POST['centre']
                 exit();
             }
         }    
+    }else{
+        header("Location: ../index.php");
     }
 ?>

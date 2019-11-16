@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }
     function getPhotos($id){
         require("bdd.php");
         

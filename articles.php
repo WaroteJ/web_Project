@@ -1,4 +1,22 @@
-<?php session_start(); ?>
+<?php 
+    session_start(); 
+    if(!isset($_SESSION["centre"])){
+        header("Location: ./index.php"); 
+     }
+    if(!isset($_GET["art"])){
+        header("Location: ./boutique.php");
+    }
+    require("php/bdd.php");
+    $requete = $bdd->prepare("SELECT `id` FROM `article` WHERE `id_centre`=:id_centre AND `deleted`=0 AND `id`=:id");
+    $requete->execute(array(
+        ':id_centre'=>$_SESSION['centre'],
+        ':id'=>$_GET["art"]
+    ));
+    $result = $requete->fetch(PDO::FETCH_BOTH);
+    if($result[0]==NULL){
+        header("Location: ./boutique.php");
+    }
+?>
 <!doctype html>
 <html lang="fr">
 <head>

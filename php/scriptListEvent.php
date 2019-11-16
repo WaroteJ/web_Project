@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION['centre'])){
+        header("Location: ../index.php");
+    }
     // Cette requête préparée renvoie l'id, le nom, la description, la date et le logo de tout les evenements qui correspondent au centre de la session en cours
     $req = $bdd->prepare('SELECT `id`,`nom`,`description`,`date`,`logo` 
     FROM `event` WHERE `id_centre`=:id AND `deleted`= 0 AND `signale` = 0 

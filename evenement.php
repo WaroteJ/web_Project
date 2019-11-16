@@ -1,10 +1,21 @@
 <?php
-session_start();
-if(!isset($_SESSION["centre"])){
-    header("Location: index.php"); 
- } 
-
-require_once('php/bdd.php');
+    session_start();
+    if(!isset($_SESSION["centre"])){
+        header("Location: ./index.php"); 
+    }
+    if(!isset($_GET["event"])){
+        header("Location: ./evenements.php");
+    }
+    require("php/bdd.php");
+    $requete = $bdd->prepare("SELECT `id` FROM `event` WHERE `id_centre`=:id_centre AND `deleted`=0 AND `id`=:id");
+    $requete->execute(array(
+        ':id_centre'=>$_SESSION['centre'],
+        ':id'=>$_GET["event"]
+    ));
+    $result = $requete->fetch(PDO::FETCH_BOTH);
+    if($result[0]==NULL){
+        header("Location: ./evenements.php");
+    }
 ?>
 
 <!DOCTYPE html>

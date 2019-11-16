@@ -3,6 +3,22 @@
     if(!isset($_SESSION["centre"])){
         header("Location: ./index.php"); 
      }
+    if(!isset($_GET["photo"])){
+        header("Location: ./evenements.php");
+    }
+    require("php/bdd.php");
+    $requete = $bdd->prepare("SELECT photo.`id` 
+    FROM `photo` 
+    INNER JOIN event ON photo.id_Event=event.id
+    WHERE event.`id_centre`=:id_centre AND photo.`deleted`=0 AND photo.`id`=:id");
+    $requete->execute(array(
+        ':id_centre'=>$_SESSION['centre'],
+        ':id'=>$_GET["photo"]
+    ));
+    $result = $requete->fetch(PDO::FETCH_BOTH);
+    if($result[0]==NULL){
+        header("Location: ./evenements.php");
+    }
 ?>
 <!doctype html>
 <html lang="fr">

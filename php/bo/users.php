@@ -1,3 +1,9 @@
+<?php
+  if(!isset($_SESSION["centre"])){
+    header("Location: ../../index.php");
+  }
+?>
+
 <table class="user_table">
   <tr>
     <th>Nom</th>
