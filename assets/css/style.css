@@ -81,7 +81,7 @@ main .bouton_admin i {
   margin: auto;
   margin-top: 20px;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #1c385e;
   border: 2px solid black;
   border-radius: 5px;
   display: flex;
