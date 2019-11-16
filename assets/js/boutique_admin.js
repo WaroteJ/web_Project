@@ -46,7 +46,7 @@ $(function(){
     .done(function(data){
       let donnees = typeof data !='object' ? JSON.parse(data) : data;
       for(let i=0;i<donnees.length;i++){
-        $('.whole_form').append('<p><label for="type">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
+        $('.whole_form').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
       }
       $(":checkbox").on('click', function() {
         $(".results").empty();
