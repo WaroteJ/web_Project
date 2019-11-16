@@ -51,6 +51,9 @@ app.get('/articles', (req, res) => {
 	});
 });
 
+
+
+
 // app.get('/articles/:choix', (req, res)=> {
 // 	let type = typeof req.params.choix;
 // 	if(type === "number"){
@@ -119,13 +122,13 @@ app.get('/users/:user_centre', (req, res) => {
 	});
 });
 
-// //List the article with the corresponding id when get request on /articles/article_:id
-// app.get('/articles/:choix', (req, res)=> {
-// 	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
-// 	con.query(request, function (err, result) {
-// 		res.send(JSON.stringify(result));
-// 	});
-// });
+//List the article with the corresponding id when get request on /articles/article_:id
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
 
 //List the article grouped by type when get request on /articles/type/:type
 app.get('/articles/type/:categorie', (req, res) => {
