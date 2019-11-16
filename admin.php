@@ -64,12 +64,13 @@ $centre = $_SESSION['centre'];
                         <p>Modifier droits utilisateur</p>
                     </div>
                 </a>
+                <div class="col-lg-2 col-md-3 col-6">
                     <div class="bouton_admin" id="list_user">
                         <?php echo "<input type='hidden' id='admin' name='centre' value='$centre'/>"; ?>              
                         <i class="fas fa-users fa-3x"></i>
                         <p>Lister les utilisateurs</p>
                     </div>
-                </a>
+                </div>
                 <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=command">
                     <div class="bouton_admin">
                         <i class="fas fa-shopping-basket fa-3x"></i> 
@@ -158,7 +159,7 @@ $centre = $_SESSION['centre'];
 
     <?php include('php/footer.php');?>
     <script type="text/javascript" src="restweb/ajax_users.js"></script>  
-
+    <script src="assets/js/photoUploadName.js"></script>
 </body>
 </html>
  

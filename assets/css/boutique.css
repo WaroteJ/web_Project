@@ -58,6 +58,18 @@ main {
   flex-grow: 1;
 }
 
+.basket {
+  position: absolute;
+  top: 0;
+  right: 0;
+  border-radius: 5px;
+  background-color: gray;
+}
+
+.basket:hover {
+  cursor: pointer;
+}
+
 footer {
   display: flex;
   flex-flow: row nowrap;
@@ -81,6 +93,10 @@ a:hover {
 
 .close:hover {
   cursor: pointer;
+}
+
+.carousel-button {
+  box-shadow: 2px 2px 2px black !important;
 }
 
 /*# sourceMappingURL=boutique.css.map */
