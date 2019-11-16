@@ -107,7 +107,7 @@ app.get('/articles/down', (req, res) => {
 
 //List the article grouped by type when get request on /articles/down
 app.get('/articles/type', (req, res) => {
-	let request =  "SELECT categorie.nom  FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 ORDER BY id_Categorie";
+	let request =  "SELECT categorie.nom  FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 GROUP BY id_Categorie";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
@@ -132,7 +132,7 @@ app.get('/articles/:choix', (req, res)=> {
 
 //List the article grouped by type when get request on /articles/type/:type
 app.get('/articles/type/:categorie', (req, res) => {
-	let request = "SELECT categorie.nom, article.id as id, article.nom_article as nom_article, article.url as url, article.prix as prix FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 AND categorie.nom ='"+ req.params.categorie+"' GROUP BY categorie.nom";
+	let request = "SELECT categorie.nom, article.id as id, article.nom_article as nom_article, article.url as url, article.prix as prix FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 AND categorie.nom ='"+ req.params.categorie+"' ORDER BY categorie.nom";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});

@@ -69,10 +69,6 @@
                         <label class="text-white" for="priceDown">Prix décroissant</label>
                         <input type="checkbox" id="down" name="filtre">
                     </p>
-                    <p>
-                        <label class="text-white" for="type">Type</label>
-                        <input type="checkbox" id="type" name="filtre">
-                    </p>
                 </form>
             </div>
             <div class="col-md-8 container-fluid bigvitrine">
