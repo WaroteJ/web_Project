@@ -2,6 +2,7 @@
     $error=NULL;
 
     if(isset($_POST['newEvent'])){
+        if($_FILES["img"]["error"] == 0){
         include ("php/image.php");
         $photoArray=imageUpload("assets/img/events/"); // Renvoie la validation de l'image et son chemin d'accès
 
@@ -37,19 +38,34 @@
         else{
             $error=1;
         }
+    }else{
+        $error=2;
+    }
     }
 ?>
 <form class="add_event whole_form col-lg-6 col-md-8 col-11" action="" method="post" enctype="multipart/form-data">
     <h2>Création d'un évènement</h2>
-    <?php if ($error!=NULL) {
-        echo '<h3>Image incorrecte ou déjà existante</h3>';
-        $error=NULL;
-    }?>
+    <?php
+        switch ($error) {
+            case 1:
+                echo '<h3>Image incorrecte ou déjà existante</h3>';
+                $error=NULL;
+                break;
+            
+            case 2:
+                echo '<h3>Image trop grosse</h3>';
+                $error=NULL;
+                break;
+            default:
+                # code...
+                break;
+        }
+    ?>
     <label for="nom">Nom de l'évènement</label>
     <input type="text" class="form-control" name="nom" id="nom" placeholder="Nom de l'évènement" required maxlength="50">
     <label for="payant">Payant </label>
     <input type="checkbox" name="payant" id="payant"> 
-    <input type="number" class="form-control" name="prix" id="prix" placeholder="Prix" min="0">
+    <input type="number" class="form-control" name="prix" id="prix" placeholder="Prix" min="0" step="any">
     <label for="descri">Description de l'évènement</label>
     <textarea class="form-control" name="descri" id="descri" placeholder="Description de l'évènement" row=5></textarea>
     <label for="date">Date de l'évènement</label>

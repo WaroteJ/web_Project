@@ -81,7 +81,7 @@ main .bouton_admin i {
   margin: auto;
   margin-top: 20px;
   padding: 10px;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: #1c385e;
   border: 2px solid black;
   border-radius: 5px;
   display: flex;
@@ -116,6 +116,12 @@ main .bouton_admin i {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.2s;
+}
+.whole_form .cgv {
+  color: white;
+}
+.whole_form .cgu {
+  color: white;
 }
 
 .user_table {

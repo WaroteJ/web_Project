@@ -4,7 +4,10 @@
     if(isset($_SESSION["centre"])){
         $first=true;
         $id_center = $_SESSION["centre"];
-        $requete = $bdd->prepare("SELECT photo.url FROM photo INNER JOIN event ON id_Event = photo.id_Event WHERE id_centre = :id_centre ORDER BY event.date LIMIT 3");
+        $requete = $bdd->prepare("SELECT photo.url FROM photo 
+                                INNER JOIN event ON photo.id_Event=event.id 
+                                WHERE id_centre = :id_centre
+                                ORDER BY `event`.`date` DESC LIMIT 3");
         // Liaison des variables de la requête préparée aux variables PHP
         $requete->bindValue(':id_centre', $id_center, PDO::PARAM_INT);
         // Exécution de la requête

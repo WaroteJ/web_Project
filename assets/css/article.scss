@@ -12,7 +12,7 @@ h3{
     padding: 10px;
     margin-right: auto;
     margin-left: auto;
-
+    color: white;
 }
 
 footer {
@@ -25,7 +25,12 @@ footer {
     padding-top: 3%;
     border: 2px $primary-color solid;
     border-radius: $radius;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgb(28, 56, 94);
+}
+.article_b{
+    border: 2px $primary-color solid;
+    border-radius: $radius;
+    background-color: #326295;
 }
 .picture{
     height: aut;

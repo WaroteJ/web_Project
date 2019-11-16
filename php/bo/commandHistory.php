@@ -11,6 +11,7 @@
   WHERE commande.etat=1
   ORDER BY commande.id");
   $requete->execute();
+  $once=false;
   echo'<div class="container-fluid">
   <div class="row">';
   while($result = $requete->fetch(PDO::FETCH_BOTH)){ // Affiche toutes les commandes qui ont été validées
@@ -26,13 +27,15 @@
         echo'<div class="col-12 command">
         <h3>Commande n°'.$result[2].' du '.$result[3].' : '.$result[0].' '.$result[1].'</h3>';
         $groupID=true;
+        $once=true;
         $id=$result[2];
     }
         echo '<div class="suivi">'.$result[5].' x '.$result[4].'</div>';
   }
-
+  if($once){
     echo'Commande validée
     </div>';
+  }
   $requete->closeCursor();
 ?>
 </table>
