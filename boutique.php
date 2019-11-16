@@ -54,7 +54,7 @@
     
     <div class="container-fluid articles">
         <div class="row filtre">
-            <div class="col-4">
+            <div class="col-md-4">
                 <form class="whole_form">
                     <h2 class="text-white">Filtres</h2>
                     <p>
@@ -71,7 +71,7 @@
                     </p>
                 </form>
             </div>
-            <div class="col-8 container-fluid bigvitrine">
+            <div class="col-md-8 container-fluid bigvitrine">
                 <div class="row">
                     <div class="col-12 container vitrine">
                         <div class="row results" >
