@@ -19,14 +19,19 @@ $(document).ready(function() {
                 $headerTr.append($('<th/>').html(index));
               }
             table.append($headerTr);
+
+          
             // Creating the <tr/> (lign) for each person
             for (var i = 0; i < donnees.length; i++) {
-                var $tableTr = $('<tr/>');
+                //if(donnees[i].id != donnees[i-1].id){
+                    var $tableTr = $('<tr/>');
+                //}
                 for (var index in donnees[i]) {
                     $tableTr.append($('<td/>').html(donnees[i][index]));
-                }
+                 }
+            // console.log(donnees[i].nom);
             table.append($tableTr);
-            }
+                }
             $('#listing').remove();
             $('table').remove();
             $('main').append(table);

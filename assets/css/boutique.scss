@@ -53,8 +53,8 @@ main{
 
 
 .basket {
-    position: absolute;
-    top: 5px;
+    position: fixed;
+    top: 150px;
     right: 5px;
     border-radius: $radius;
     background-color: gray;
