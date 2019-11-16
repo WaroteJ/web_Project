@@ -57,6 +57,7 @@ main{
     flex-grow: 1;
 }
 
+
 footer {
     display: flex;
     flex-flow: row nowrap;
@@ -80,6 +81,9 @@ a:hover{
     cursor: pointer; 
 }
 
-.carousel-button {
-    box-shadow: 2px 2px 2px black !important ; 
+.carousel-button-right {
+    box-shadow: 2px  0 1px 0px black !important;
+}
+.carousel-button-left {
+    box-shadow: -2px  0 1px 0px black !important;
 }

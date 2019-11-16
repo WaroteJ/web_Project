@@ -77,6 +77,12 @@ $centre = $_SESSION['centre'];
                         <p>Suivi des commandes</p>
                     </div>
                 </a>
+                <div class="col-lg-2 col-md-3 col-6">
+                    <div class="bouton_admin" id="list_commandes">
+                        <i class="fas fa-book-open fa-3x"></i>
+                        <p>Historique des commandes</p>
+                    </div>
+                </div>
                 <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=commandHistory">
                     <div class="bouton_admin">
                         <i class="fas fa-book-open fa-3x"></i> 
@@ -109,7 +115,7 @@ $centre = $_SESSION['centre'];
     require("php/bdd.php");
     require("php/input_secure.php");
         if(isset($_GET['page'])){
-            ?> <div id="mylist"> <?php
+            ?> <div id="listing"> <?php
             switch ($_GET['page']) {
                 case 'newEvent':
                     require("php/bo/newEvent.php");
@@ -154,11 +160,11 @@ $centre = $_SESSION['centre'];
         }
     ?>
     </div>    
-    <table></table>
     </main>
 
     <?php include('php/footer.php');?>
     <script type="text/javascript" src="restweb/ajax_users.js"></script>  
+    <script type="text/javascript" src="restweb/ajax_command.js"></script>  
     <script src="assets/js/photoUploadName.js"></script>
 </body>
 </html>

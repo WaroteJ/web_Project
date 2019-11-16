@@ -59,9 +59,9 @@ main {
 }
 
 .basket {
-  position: absolute;
-  top: 0;
-  right: 0;
+  position: fixed;
+  top: 150px;
+  right: 5px;
   border-radius: 5px;
   background-color: gray;
 }
@@ -95,8 +95,12 @@ a:hover {
   cursor: pointer;
 }
 
-.carousel-button {
-  box-shadow: 2px 2px 2px black !important;
+.carousel-button-right {
+  box-shadow: 2px 0 1px 0px black !important;
+}
+
+.carousel-button-left {
+  box-shadow: -2px 0 1px 0px black !important;
 }
 
 /*# sourceMappingURL=boutique.css.map */

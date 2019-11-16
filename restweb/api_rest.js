@@ -28,6 +28,8 @@ let bodyParser = require ("body-parser");
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(bodyParser.json());
 
+
+
 //List all the user when get request on /users
 app.get('/users', (req, res) => {
 	con.query("SELECT  user.nom, user.prenom, user.droit, centre.nom as centre  FROM user INNER JOIN centre ON user.id_Centre = centre.id", function (err, result) {
@@ -35,7 +37,12 @@ app.get('/users', (req, res) => {
 	});
 });
 
-
+// List all the articles when get request on /articles
+app.get('/commandes', (req, res) => {
+	con.query("SELECT  user.nom, user.prenom, commande.id, commande.date ,article.nom_article,article_commande.qte FROM ((commande INNER JOIN user ON commande.id_User = user.id) INNER JOIN article_commande ON commande.id = article_commande.id_Commande)  INNER JOIN article on article_commande.id = article.id WHERE commande.etat=1 ORDER BY commande.id", function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
 
 //List all the articles when get request on /articles
 app.get('/articles', (req, res) => {
@@ -97,11 +104,12 @@ app.get('/articles/down', (req, res) => {
 
 //List the article grouped by type when get request on /articles/down
 app.get('/articles/type', (req, res) => {
-	let request =  "SELECT url, nom_article, prix, id FROM article WHERE deleted = 0 ORDER BY id_Categorie";
+	let request =  "SELECT categorie.nom  FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 ORDER BY id_Categorie";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });
+
 
 //List the user with the corresponding id when get request on /users/user_:centre
 app.get('/users/:user_centre', (req, res) => {
@@ -111,15 +119,21 @@ app.get('/users/:user_centre', (req, res) => {
 	});
 });
 
-//List the article with the corresponding id when get request on /articles/article_:id
-app.get('/articles/:choix', (req, res)=> {
-	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+// //List the article with the corresponding id when get request on /articles/article_:id
+// app.get('/articles/:choix', (req, res)=> {
+// 	request =  "SELECT url, nom_article, prix, id FROM article WHERE id ="+ req.params.choix;
+// 	con.query(request, function (err, result) {
+// 		res.send(JSON.stringify(result));
+// 	});
+// });
+
+//List the article grouped by type when get request on /articles/type/:type
+app.get('/articles/type/:categorie', (req, res) => {
+	let request = "SELECT categorie.nom, article.id as id, article.nom_article as nom_article, article.url as url, article.prix as prix FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 AND categorie.nom ='"+ req.params.categorie+"' ORDER BY id_Categorie";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
 });
-
-
 
 // Start the server
 app.listen(port, hostname, function(){
