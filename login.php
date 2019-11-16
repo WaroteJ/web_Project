@@ -35,7 +35,7 @@ if(isset($_SESSION["centre"])){
     <div class="container-fluid">
             <div class="row justify-content-md-center">
                     <form class="whole_form col-lg-6 col-md-8 col-11" method="post" action="php/scriptLogin.php">  
-                        <h2>Connexion</h2>
+                        <h2 class="text-white">Connexion</h2>
                         <?php
                             if(isset($_SESSION["centre"])){
                                 if($_SESSION["centre"]==0){
@@ -45,17 +45,17 @@ if(isset($_SESSION["centre"])){
                             }
                         ?>
                         <p>
-                            <label for="mail">Adresse mail</label>
+                            <label class="text-white" for="mail">Adresse mail</label>
                             <input class="form-control" type="email" name="mail" id="mail" required placeholder="adresse@mail.fr">
                         </p>
                         <p>
-                            <label for="password">Mot de passe</label>
+                            <label class="text-white" for="password">Mot de passe</label>
                             <input class="form-control" type="password" name="password" id="password" required placeholder="password">
                         </p>        
                         <input class="btn btn-primary" type="submit" value="Se connecter">
                         <div class="bottom-form">
-                                <a href="register.php">S'enregistrer</a>
-                                <a href="#">Mot de passe oublié ?</a>
+                                <a class="text-white" href="register.php">S'enregistrer</a>
+                                <a class="text-white" href="#">Mot de passe oublié ?</a>
                         </div>
                     </form>
             </div>

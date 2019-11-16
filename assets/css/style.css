@@ -117,6 +117,12 @@ main .bouton_admin i {
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.2s;
 }
+.whole_form .cgv {
+  color: white;
+}
+.whole_form .cgu {
+  color: white;
+}
 
 .user_table {
   border: 1px solid black;
