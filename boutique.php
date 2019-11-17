@@ -80,12 +80,14 @@
 ?>
 </body>
 <?php 
-    if(isset($_SESSION["admin"])){
-        if($_SESSION['admin'] == 2){
-            echo '<script src="assets/js/boutique_admin.js"></script>';
-        }else{
-            echo '<script src="assets/js/boutique.js"></script>';
-        }
-    }
+
+if(isset($_SESSION['admin'])){
+    echo "<input type='hidden' id='admin' name='admin' value= ".$_SESSION['admin'] .">";     
+}
+if(isset($_SESSION['centre'])){
+    echo "<input type='hidden' id='centre' name='centre' value= ".$_SESSION['centre'] .">";     
+}
+
 ?>
+<script src="assets/js/boutique.js"></script>
 </html>

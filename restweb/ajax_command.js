@@ -13,6 +13,7 @@ $(document).ready(function() {
             let table = $('<table/>');
             table.addClass('user_table');
             var $headerTr = $('<tr/>');
+            let input;
     
             // Put the <th/> (title) of each column
             for (var index in donnees[0]) {
@@ -27,7 +28,17 @@ $(document).ready(function() {
                     var $tableTr = $('<tr/>');
                 //}
                 for (var index in donnees[i]) {
-                    $tableTr.append($('<td/>').html(donnees[i][index]));
+                    if(donnees[i][index] ==  donnees[i].date){
+                    let first_page = donnees[i][index].split("-",3);
+                    let snd_date = first_page[2].split("T",1);
+                    let final_date = first_page[0] + "-"+ first_page[1] +"-"+ snd_date;
+
+                    input = first_page[0] + "-"+ first_page[1] +"-"+ snd_date;
+
+                    }else {
+                        input = donnees[i][index];
+                    }
+                    $tableTr.append($('<td/>').html(input));
                  }
             // console.log(donnees[i].nom);
             table.append($tableTr);
