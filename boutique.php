@@ -21,14 +21,6 @@
 
 </head>
 <body>
-    <header class="">
-        <div class="container-fluid">
-            <div class="row">
-            <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Boutique du BDE <?php echo $_SESSION['nomCentre']?></h1>
-            </div>
-        </div>
-    </header>
     <?php include('php/menu.php') ?>
     <main>
         <div class="container">
@@ -88,10 +80,12 @@
 ?>
 </body>
 <?php 
-   if($_SESSION['admin'] == 2){
-        echo '<script src="assets/js/boutique_admin.js"></script>';
-    }else{
-        echo '<script src="assets/js/boutique.js"></script>';
+    if(isset($_SESSION["admin"])){
+        if($_SESSION['admin'] == 2){
+            echo '<script src="assets/js/boutique_admin.js"></script>';
+        }else{
+            echo '<script src="assets/js/boutique.js"></script>';
+        }
     }
 ?>
 </html>

@@ -35,26 +35,23 @@
 
 </head>
 <body>
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-            <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Boutique du BDE <?php echo $_SESSION['nomCentre']?></h1>
-            </div>
-        </div>
-    </header>
     <?php include('php/menu.php') ?>
     <main>
         <div class="container-fluid b">
             <div class="col article a">
-            <div class ='filtre col-3'>
-                <form action='php/addPanier.php' method="POST">
-                    <label for='qte'>Quantité</label>
-                    <input type='number' name='qte' id='qte' min='1' max='100' required>
-                    <input type='hidden' id='qte_art' name='id_art'>
-                    <input type='submit' value='Ajouter'>
-                </form>
-        </div>     
+                <div class ='filtre col-3'>
+                <?php 
+                if (isset($_SESSION["user"])){
+                echo <<<HTML
+                        <form action='php/addPanier.php' method="POST">
+                        <label for='qte'>Quantité</label>
+                        <input type='number' name='qte' id='qte' min='1' max='100' required>
+                        <input type='hidden' id='qte_art' name='id_art'>
+                        <input type='submit' value='Ajouter'>
+                    </form>
+HTML;
+                }?>
+                </div>     
             </div>
         </div>
         </div>

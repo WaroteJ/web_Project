@@ -36,14 +36,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="">
-        <div class="container-fluid">
-            <div class="row">
-            <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Photo</h1>
-            </div>
-        </div>
-    </header>
     <?php include('php/menu.php') ?>
     <main>
         <?php include 'php/scriptPhoto.php' ?>
@@ -61,13 +53,17 @@
         <div class="blog container-fluid">
                 <?php show_comment($_GET['photo']); ?>
         </div>
-        <div class="container-fluid">
-                <form class="row" action="php/scriptPhoto.php" method="post">
-                    <input type="text" class="col-md-10 text-center" name="commentaire" placeholder="Ecrire votre commentaire ici..." size="150">
-                    <input type="hidden" name="id_photo" value="<?php echo $_GET['photo'];?>">
-                    <input type="submit" class="col-md-2 text-center btn btn-success" value="Poster">
-                </form>
-        </div>
+        <?php if(isset($_SESSION["user"])){
+        echo <<<HTML
+            <div class="container-fluid">
+                    <form class="row" action="php/scriptPhoto.php" method="post">
+                        <input type="text" class="col-md-10 text-center" name="commentaire" placeholder="Ecrire votre commentaire ici..." size="150">
+                        <input type="hidden" name="id_photo" value="echo {$_GET['photo']}">
+                        <input type="submit" class="col-md-2 text-center btn btn-success" value="Poster">
+                    </form>
+            </div>
+HTML;
+        }?>
     </main>
 
 <?php include('php/footer.php') ?>

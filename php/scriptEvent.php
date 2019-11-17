@@ -63,7 +63,7 @@
                         <label for="prix"><strong>Prix:</strong> '.$response[1].'€</label>
                     </p>
                     <div class="row buttons" >';
-
+                    if(isset($_SESSION["user"])){
                     $req = $bdd->prepare('  SELECT COUNT(event_user.id_user) as participation
                                             FROM event_user
                                             WHERE `id`=:id AND `id_User`= :idUser');
@@ -73,19 +73,19 @@
                     ));
 
                     $participe = $req->fetch();
+                    if(isset($_SESSION['admin'])){
+                        if ( $_SESSION['admin'] > 1) {
+                            echo '  <form class="bottom-article button col-md-4 col-sm-12" action="" method="post">
+                                    <input class="btn btn-danger" type="submit" value="Supprimer cet event" name="deletEvent">
+                                    </form>';
+                        }
 
-                    if ( $_SESSION['admin'] > 1) {
-                        echo '  <form class="bottom-article button col-md-4 col-sm-12" action="" method="post">
-                                <input class="btn btn-danger" type="submit" value="Supprimer cet event" name="deletEvent">
-                                </form>';
+                        if ( $_SESSION['admin'] > 0) {
+                            echo '  <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
+                                    <input class="btn btn-warning" type="submit" value="Signaler cet event" name="signalEvent">
+                                    </form>';
+                        }
                     }
-
-                    if ( $_SESSION['admin'] > 0) {
-                        echo '  <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
-                                <input class="btn btn-warning" type="submit" value="Signaler cet event" name="signalEvent">
-                                </form>';
-                    }
-
                     if ( $participe[0] > 0  ) {
                         echo '  <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
                                 <input class="btn btn-primary" type="submit" value="Se Désinscrire" name="desabo">
@@ -100,4 +100,5 @@
                                  </div>
                                 </article>';
                     }
+                }
 ?>
