@@ -14,13 +14,16 @@ if(isset($_SESSION["centre"])){
     <link rel="stylesheet" href="assets/vendors/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/vitrine.css">
-    <title>BDE du CESI</title>
+    <title>BDE : Choix du centre</title>
 </head>
 <body>
     <?php include('php/menu.php');?>
     <main>
-        <h2 class="col title_intro font-weight-bold">Bienvenue sur le site du BDE</h2>
+    <div class="container-fluid">
+        <div class="row">
+            <?php include('php/displayCentre.php');?>
+        </div>
+    </div>
     </main>
     <?php include('php/footer.php');?>
 </body>

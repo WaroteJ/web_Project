@@ -39,14 +39,19 @@
     <main>
         <div class="container-fluid b">
             <div class="col article a">
-            <div class ='filtre col-3'>
-                <form action='php/addPanier.php' method="POST">
-                    <label for='qte'>Quantité</label>
-                    <input type='number' name='qte' id='qte' min='1' max='100' required>
-                    <input type='hidden' id='qte_art' name='id_art'>
-                    <input type='submit' value='Ajouter'>
-                </form>
-        </div>     
+                <div class ='filtre col-3'>
+                <?php 
+                if (isset($_SESSION["user"])){
+                echo <<<HTML
+                        <form action='php/addPanier.php' method="POST">
+                        <label for='qte'>Quantité</label>
+                        <input type='number' name='qte' id='qte' min='1' max='100' required>
+                        <input type='hidden' id='qte_art' name='id_art'>
+                        <input type='submit' value='Ajouter'>
+                    </form>
+HTML;
+                }?>
+                </div>     
             </div>
         </div>
         </div>
