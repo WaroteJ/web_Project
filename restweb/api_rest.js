@@ -89,6 +89,15 @@ app.get('/articles/up/:centre', (req, res) => {
 	});
 });
 
+
+//List the top 3 the most sold articles
+app.get('/articles/carousel', (req, res) => {
+	let request =  "SELECT article.url FROM `article_commande` INNER JOIN article on article_commande.id = article.id GROUP BY article_commande.id ORDER BY SUM(`qte`) DESC LIMIT 3";
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
+	});
+});
+
 //List the top 3 the most sold articles
 app.get('/articles/carousel/:centre', (req, res) => {
 	let request =  "SELECT article.url FROM `article_commande` INNER JOIN article on article_commande.id = article.id WHERE id_centre="+req.params.centre+" GROUP BY article_commande.id ORDER BY SUM(`qte`) DESC LIMIT 3";
@@ -133,7 +142,6 @@ app.get('/articles/:choix', (req, res)=> {
 //List the article grouped by type when get request on /articles/type/:type
 app.get('/articles/type/:categorie/:centre', (req, res) => {
 	let request = "SELECT categorie.nom, article.id as id, article.nom_article as nom_article, article.url as url, article.prix as prix FROM categorie INNER JOIN article ON categorie.id = article.id_Categorie WHERE deleted = 0 AND categorie.nom ='"+ req.params.categorie+"'	 AND id_centre=" +req.params.centre+" ORDER BY categorie.nom";
-	console.log(req.params.categorie, req.params.centre)
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});

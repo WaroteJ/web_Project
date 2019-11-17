@@ -22,6 +22,7 @@ $centre = $_SESSION['centre'];
     <link rel="stylesheet" href="assets/css/style.css">
     <title>BDE CESI <?php echo $_SESSION['nomCentre']?> Admin</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script type="text/javascript" src="assets/vendors/pagination/pagination.js"></script>  
     <script type="text/javascript" src="assets/js/admin.js"></script>  
 
 </head>
@@ -163,8 +164,8 @@ $centre = $_SESSION['centre'];
     </main>
 
     <?php include('php/footer.php');?>
-    <script type="text/javascript" src="restweb/ajax_users.js"></script>  
-    <script type="text/javascript" src="restweb/ajax_command.js"></script>  
+    <script type="text/javascript" src="assets/js/ajax_users.js"></script>  
+    <script type="text/javascript" src="assets/js/ajax_command.js"></script>  
     <script src="assets/js/photoUploadName.js"></script>
 </body>
 </html>

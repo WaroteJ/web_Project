@@ -29,11 +29,11 @@ $(document).ready(function() {
                 //}
                 for (var index in donnees[i]) {
                     if(donnees[i][index] ==  donnees[i].date){
-                    let first_page = donnees[i][index].split("-",3);
-                    let snd_date = first_page[2].split("T",1);
-                    let final_date = first_page[0] + "-"+ first_page[1] +"-"+ snd_date;
+                    let first_date = donnees[i][index].split("-",3);
+                    let snd_date = first_date[2].split("T",1);
+                    let final_date = first_date[0] + "-"+ first_date[1] +"-"+ snd_date;
 
-                    input = first_page[0] + "-"+ first_page[1] +"-"+ snd_date;
+                    input = first_date[0] + "-"+ first_date[1] +"-"+ snd_date;
 
                     }else {
                         input = donnees[i][index];
