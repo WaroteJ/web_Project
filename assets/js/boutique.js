@@ -1,21 +1,25 @@
 $(function(){
+  // Get the user's centre
   let centre = $('#centre').val();
+
+  // Ajax request
   function ajax_call(form,url){
     $.ajax({
+      // Http verb
       type:'GET',
+      // Route result that we want
       url: url ,
       dataType:'json'
     })
     .done(function(data){
-      let donnees = typeof data !='object' ? JSON.parse(data) : data;   
+      // Translate the data into an js object 
+      let donnees = typeof data !='object' ? JSON.parse(data) : data;
+      // Different data processing depending of the objective   
       if(form == "carousel"){
-        console.log("adding carousel pic");
         for(let i=0;i<donnees.length;i++){
-          console.log("adding carousel pic");
-
           $(".carousel-inner").append('<div class="carousel-item "><img src="' +donnees[i].url+'" class="d-block w-50 mx-auto" alt=top'+i+'></div>');
         }
-        console.log("adding carousel pic");
+        // Initializing the first carousel's picture 
       $(".carousel-inner :nth-child(1)").addClass("active"); 
       }else if (form == "article"){
         for(let i=0;i<donnees.length;i++){  
@@ -26,44 +30,40 @@ $(function(){
             spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
           }          $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
         }
-        console.log("adding articles");
       }else if (form == "checkbox"){
         for(let i=0;i<donnees.length;i++){   
         $('.whole_form').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
         }
         $(":checkbox").on('click',only_one);
       }
-      console.log("adding type buttons");
       })
     .fail(function(jqXHR, textStatus, err){
-      console.log('AJAX error response:', textStatus);
     });
   }
 
   ajax_call("checkbox","http://localhost:3000/articles/type/" + centre);
   ajax_call("article","http://localhost:3000/articles/up/" +centre);
-  ajax_call("carousel","http://localhost:3000/articles/carousel" +centre);
-
-
+  ajax_call("carousel","http://localhost:3000/articles/carousel/" +centre);
 
   function only_one(){
     $(".results").empty();
     let $wt, $block,i=0, url;
-    // in the handler, 'this' refers to the box clicked on
+    // Put the selected checkbox in $box
     let $box = $(this);
-    //console.log($box.attr("id"));
+    // Select the checked box
     if ($box.is(":checked")) {
-      // as it is assumed and expected to be immutable
       let group = "input:checkbox[name='" + $box.attr("name") + "']";
-      // the checked state of the group/box on the other hand will change
-      // and the current value is retrieved using .prop() method
+      // Desactivate all the other checkbox 
       $(group).prop("checked", false);
+      // Activate $box
       $box.prop("checked", true);
     }else{
+      // Desactivate $box if not clicked on 
       $box.prop("checked", false);
     }
-
+      //Adapting the url for the ajax request
     if($box.attr("id") == "up" || $box.attr("id") == "down"){
+
       url = 'http://localhost:3000/articles/' + $box.attr("id")+'/'+centre;
     }else{
       url = 'http://localhost:3000/articles/type/' + $box.attr("id")+'/'+centre;
@@ -71,10 +71,11 @@ $(function(){
     ajax_call("article",url);
   }
 
-
+  // Adding listener on the basket
   $("#panier").on('click', function(){
-  ajax_call("carousel","http://localhost:3000/articles/carousel");
-  window.location.href = "http://localhost/web_project/panier.php";
+    ajax_call("carousel","http://localhost:3000/articles/carousel");
+    // Redirecting the user
+    window.location.href = "http://localhost/web_project/panier.php";
   });
 
 })
