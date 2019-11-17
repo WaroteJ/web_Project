@@ -84,10 +84,9 @@
 ?>
 </body>
 <?php 
-   if($_SESSION['admin'] == 2){
-        echo '<script src="assets/js/boutique_admin.js"></script>';
-    }else{
-        echo '<script src="assets/js/boutique.js"></script>';
-    }
+if(isset($_SESSION['admin'])){
+    echo "<input type='hidden' id='admin' name='centre' value= ".$_SESSION['admin'] .">";     
+}
 ?>
+<script src="assets/js/boutique.js"></script>
 </html>
