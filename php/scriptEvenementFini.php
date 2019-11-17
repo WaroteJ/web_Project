@@ -84,20 +84,20 @@ HTML;
                 <label class="custom-file-label" for="img">Choose file</label>
             </div>
         </div>
-        <input class="btn btn-primary" type="submit" value="Ajouter une photo" name="newPhoto">
+        <input class="btn btn-success" type="submit" value="Ajouter une photo" name="newPhoto">
     </form>
 HTML;
     if ( $_SESSION['admin'] > 0) {
         echo <<<HTML
             <div class="row" >
                 <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input class="btn btn-primary" type="submit" value="Télécharger toutes les photos" name="getPhotos">
+                    <input class="btn btn-warning" type="submit" value="Télécharger toutes les photos" name="getPhotos">
                 </form>
 HTML;
     if($_SESSION['admin'] > 1){
             echo <<<HTML
                 <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input class="btn btn-primary" type="submit" value="Récupérer liste participants" name="getEntrants">
+                    <input class="btn btn-danger" type="submit" value="Récupérer liste participants" name="getEntrants">
                 </form>
 HTML;
         }
