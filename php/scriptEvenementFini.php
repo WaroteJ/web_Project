@@ -75,6 +75,17 @@ HTML;
             # code...
             break;
     }
+
+
+
+
+    $request=$bdd->prepare('SELECT `id_User` FROM `event_user` WHERE `id`=:id_centre AND `id_User`=:id_user');
+    $request->execute(array(
+        'id_centre' => $_SESSION["centre"],
+        'id_user'=>$_SESSION['user']
+        ));
+    $response = $request->fetch();   
+    if($response[0]==$_SESSION['user']){
     echo <<<HTML
     <form action="" method="post" enctype="multipart/form-data">
         <label for="img">Ajouter une photo à l'événement</label>
@@ -87,6 +98,7 @@ HTML;
         <input class="btn btn-success" type="submit" value="Ajouter une photo" name="newPhoto">
     </form>
 HTML;
+    }
     if ( $_SESSION['admin'] > 0) {
         echo <<<HTML
             <div class="row" >
