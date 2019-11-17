@@ -1,4 +1,8 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }
+    
     function getEntrants($id){
         require("bdd.php");
         $list=array();

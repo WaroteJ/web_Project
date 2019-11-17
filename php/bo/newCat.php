@@ -7,8 +7,8 @@
         $requete->closeCursor();
     }
 ?>
-<form action="" method="post" class="whole_form col-lg-6 col-md-8 col-11">
-    <h2>Ajouter une catégorie</h2>
+<form action="" method="post" class="whole_form col-lg-6 col-md-8 col-11 text-white">
+    <h2 class="underline">Ajouter une catégorie</h2>
     <label for="nom">Nom de la catégorie</label>
     <input class="form-control" type="text" name="nom" id="nom" placeholder="Nom de la catégorie" required>
     <input class="btn btn-primary" type="submit" value="Créer" name="newCat">

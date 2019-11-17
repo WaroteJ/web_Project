@@ -1,4 +1,8 @@
-<?php session_start(); ?>
+<?php session_start(); 
+    if(!isset($_SESSION["centre"])){
+        header("Location: ./index.php"); 
+     }
+    ?>
 <!doctype html>
 <html lang="fr">
 <head>
@@ -17,18 +21,10 @@
 
 </head>
 <body>
-    <header class="">
-        <div class="container-fluid">
-            <div class="row">
-            <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Boutique du BDE <?php echo $_SESSION['nomCentre']?></h1>
-            </div>
-        </div>
-    </header>
     <?php include('php/menu.php') ?>
     <main>
         <div class="container">
-            <div class="event row">
+            <div class="row">
                 <h3 class="col-12 text-center font-weight-bold underline">Meilleures ventes</h3>
                 <div id="carouselExampleFade" class="carousel slide carousel-fade col-12 w-100 mx-auto" data-ride="carousel">
                     <div class="carousel-inner row">
@@ -84,12 +80,14 @@
 ?>
 </body>
 <?php 
+
 if(isset($_SESSION['admin'])){
     echo "<input type='hidden' id='admin' name='admin' value= ".$_SESSION['admin'] .">";     
 }
 if(isset($_SESSION['centre'])){
     echo "<input type='hidden' id='centre' name='centre' value= ".$_SESSION['centre'] .">";     
 }
+
 ?>
 <script src="assets/js/boutique.js"></script>
 </html>

@@ -1,10 +1,21 @@
 <?php
-session_start();
-if(!isset($_SESSION["centre"])){
-    header("Location: index.php"); 
- } 
-
-require_once('php/bdd.php');
+    session_start();
+    if(!isset($_SESSION["centre"])){
+        header("Location: ./index.php"); 
+    }
+    if(!isset($_GET["event"])){
+        header("Location: ./evenements.php");
+    }
+    require("php/bdd.php");
+    $requete = $bdd->prepare("SELECT `id` FROM `event` WHERE `id_centre`=:id_centre AND `deleted`=0 AND `id`=:id");
+    $requete->execute(array(
+        ':id_centre'=>$_SESSION['centre'],
+        ':id'=>$_GET["event"]
+    ));
+    $result = $requete->fetch(PDO::FETCH_BOTH);
+    if($result[0]==NULL){
+        header("Location: ./evenements.php");
+    }
 ?>
 
 <!DOCTYPE html>
@@ -21,18 +32,6 @@ require_once('php/bdd.php');
     </head>
 
     <body>
-
-    <!-- L'en-tête -->    
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">Site du BDE Evenements</h1>
-            </div>
-        </div>
-    </header>
-
-    
     <?php include('php/menu.php');?>
     <main>
     <div class="container-fluid">

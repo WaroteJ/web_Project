@@ -11,14 +11,6 @@
   <title>BDE CESI <?php echo $_SESSION['nomCentre']?> Mentions légales</title>
 </head>
 <body>
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Mentions légales</h1>
-            </div>
-        </div>
-    </header>
     <?php include ('php/menu.php');?>
     <main>
         <a href="index.php">Acceuil</a>

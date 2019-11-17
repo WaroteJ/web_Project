@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }   
     require ("bdd.php");
       
     function recup_photo($id_photo){
@@ -54,10 +57,12 @@ HTML;
                                                 </div>
 HTML;
                     }
-                            echo '       
-                                            </div>';
+                            echo '</div>';
                     if($_SESSION["admin"]>0){echo '</div></div></div>';}
                     
+                }
+                else{
+                    echo '</div>';
                 }
             endwhile;
                 echo '  </div>';         
@@ -110,21 +115,22 @@ HTML;
                 'id_photo' => $id
             ));
         }
+        if(isset($_SESSION["user"])){
+            if(isset($id)){
+                $req = $bdd->prepare('  SELECT COUNT(user_photo.id_User) as aime
+                                        FROM user_photo
+                                        WHERE id=:id_photo AND id_User= :id_User');
+                $req->execute(array(
+                    'id_User' => $_SESSION["user"],
+                    'id_photo' => $id
+                ));
+                $aime = $req->fetch();
 
-        if(isset($id)){
-            $req = $bdd->prepare('  SELECT COUNT(user_photo.id_User) as aime
-                                    FROM user_photo
-                                    WHERE id=:id_photo AND id_User= :id_User');
-            $req->execute(array(
-                'id_User' => $_SESSION["user"],
-                'id_photo' => $id
-            ));
-            $aime = $req->fetch();
-
-            if ( $aime[0] > 0  ) {
-                echo'   <input class="btn btn-primary" type="submit" value="Dislike" name="aime_pas">';               
-            }else{
-                echo'   <input class="btn btn-primary" type="submit" value="Like" name="aime">';                   
+                if ( $aime[0] > 0  ) {
+                    echo'   <input class="btn btn-primary" type="submit" value="Dislike" name="aime_pas">';               
+                }else{
+                    echo'   <input class="btn btn-primary" type="submit" value="Like" name="aime">';                   
+                }
             }
         }
     } 

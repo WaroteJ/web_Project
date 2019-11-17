@@ -1,4 +1,7 @@
 <?php
+  if(!isset($_SESSION["centre"])){
+    header("Location: ../../index.php");
+  }
     $error=NULL;
 
     if(isset($_POST['newEvent'])){
@@ -43,8 +46,8 @@
     }
     }
 ?>
-<form class="add_event whole_form col-lg-6 col-md-8 col-11" action="" method="post" enctype="multipart/form-data">
-    <h2>Création d'un évènement</h2>
+<form class="add_event whole_form col-lg-6 col-md-8 col-11 text-white" action="" method="post" enctype="multipart/form-data">
+    <h2 class="underline">Création d'un évènement</h2>
     <?php
         switch ($error) {
             case 1:

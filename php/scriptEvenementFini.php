@@ -27,14 +27,14 @@ if(isset($_POST["newPhoto"])){
         $error=2;
     }
 }
-if(isset($_POST["signalPhoto"])){
+if(isset($_POST["signalPhoto"],$_POST['id'])){
     $req = $bdd->prepare('UPDATE `photo` SET `signale`= 1 WHERE id = :id');
     $req->execute(array(
     'id' => $_POST['id']
     ));
 }
 
-if(isset($_POST["deletPhoto"])){
+if(isset($_POST["deletPhoto"],$_POST['id'])){
     $req = $bdd->prepare('UPDATE `photo` SET `deleted`= 1 WHERE id = :id');
     $req->execute(array(
     'id' => $_POST['id']
@@ -75,6 +75,17 @@ HTML;
             # code...
             break;
     }
+
+
+
+if(isset($_SESSION["user"])){
+    $request=$bdd->prepare('SELECT `id_User` FROM `event_user` WHERE `id`=:id_centre AND `id_User`=:id_user');
+    $request->execute(array(
+        'id_centre' => $_SESSION["centre"],
+        'id_user'=>$_SESSION['user']
+        ));
+    $response = $request->fetch();   
+    if($response[0]==$_SESSION['user']){
     echo <<<HTML
     <form action="" method="post" enctype="multipart/form-data">
         <label for="img">Ajouter une photo à l'événement</label>
@@ -84,31 +95,38 @@ HTML;
                 <label class="custom-file-label" for="img">Choose file</label>
             </div>
         </div>
-        <input class="btn btn-primary" type="submit" value="Ajouter une photo" name="newPhoto">
+        <input class="btn btn-success" type="submit" value="Ajouter une photo" name="newPhoto">
     </form>
 HTML;
-    if ( $_SESSION['admin'] > 0) {
-        echo <<<HTML
-            <div class="row" >
-                <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input class="btn btn-primary" type="submit" value="Télécharger toutes les photos" name="getPhotos">
-                </form>
-HTML;
-    if($_SESSION['admin'] > 1){
-            echo <<<HTML
-                <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
-                    <input class="btn btn-primary" type="submit" value="Récupérer liste participants" name="getEntrants">
-                </form>
-HTML;
-        }
-        echo'
-            </div>
-        </article>';
     }
-    else{
+    if(isset($_SESSION["admin"])){
+        if ( $_SESSION['admin'] > 0) {
+            echo <<<HTML
+                <div class="row" >
+                    <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                        <input class="btn btn-warning" type="submit" value="Télécharger toutes les photos" name="getPhotos">
+                    </form>
+HTML;
+        if($_SESSION['admin'] > 1){
+                echo <<<HTML
+                    <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                        <input class="btn btn-danger" type="submit" value="Récupérer liste participants" name="getEntrants">
+                    </form>
+HTML;
+            }
+            echo'
+                </div>
+            </article>';
+        }
+        else{
+            echo '</article>';
+            }
+    }else{
         echo '</article>';
         }
-
+    }else{
+        echo '</article>';
+        }
     $req = $bdd->prepare('SELECT `url`, `id` FROM `photo` WHERE `deleted`= 0 AND `signale` = 0 AND `id_Event`= :id');
     $req->execute(array(
     'id' => $_GET["event"]
@@ -122,6 +140,7 @@ HTML;
             <a href="photo.php?photo='.$response[1].'"><img class="w-100" src="'.$response[0].'" alt="Une photo de l événement"/></a>
         </div>
         <div class="row" >';
+    if(isset($_SESSION["admin"])){    
         if ( $_SESSION['admin'] > 1) {
             echo <<<HTML
               <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
@@ -139,6 +158,7 @@ HTML;
                     </form>
 HTML;
         }
+    }
     echo '  </div>
             </article>';
     }
