@@ -36,5 +36,13 @@
         $requete4->bindValue(':id_User', $id_User, PDO::PARAM_INT);
         //execution de la requête
         $requete4->execute();
+
+     //   $requete5
+        $to = "pihet.jerome@gmail.com";
+        $subject = "Nouvelle commande";
+        $txt = "Une nouvelle commande vient d'être effectué";
+        $headers = 'From: noreply-bde@gmail.com';
+        mail($to,$subject,$txt,$headers);
+
     }
 ?>

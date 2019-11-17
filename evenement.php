@@ -28,7 +28,7 @@
         <link rel="stylesheet" href="assets/vendors/fontawesome-free-5.11.1-web/css/all.min.css">
         <link rel="stylesheet" href="assets/css/events.css">
         <link rel="stylesheet" href="assets/css/style.css">
-        <title>Site BDE Events</title>
+        <title>BDE CESI <?php echo $_SESSION['nomCentre']?> Evénement</title>
     </head>
 
     <body>
