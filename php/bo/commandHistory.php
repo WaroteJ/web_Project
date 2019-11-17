@@ -1,5 +1,7 @@
 <?php
-
+  if(!isset($_SESSION["centre"])){
+    header("Location: ../../index.php");
+  }
   $groupID=NULL; // Sert à déterminer si l'article fait partie de la même commande
   $id=NULL;
 

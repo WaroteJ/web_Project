@@ -1,5 +1,7 @@
 <?php
-    
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }
     function recup_infos(){
         require("bdd.php");
         if(isset($_SESSION["user"])){

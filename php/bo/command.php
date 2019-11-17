@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../../index.php");
+    }
 
     if(isset($_POST["valid_command"],$_POST["id_command"])){ // Si un bouton modifier a été cliqué 
         $req = $bdd->prepare("UPDATE `commande` SET `etat`=1 WHERE `id`=:id"); //Valide la commande

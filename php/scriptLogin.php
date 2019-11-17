@@ -54,5 +54,7 @@ if (isset($_POST['mail'],$_POST['password'])){
         };
         // Fermeture de la connexion
         $requete->closeCursor();
+    }else{
+        header("Location: ../index.php");
     }
 ?>

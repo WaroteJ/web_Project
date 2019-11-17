@@ -1,4 +1,7 @@
 <?php
+    if(!isset($_SESSION["centre"])){
+        header("Location: ../index.php");
+    }
     function imageUpload($root){ // Return un tableau donnant le statut de l'upload et le chemin de l'image
         $url="";
         $target_dir = $root;
