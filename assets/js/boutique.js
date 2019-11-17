@@ -1,6 +1,5 @@
 $(function(){
   let centre = $('#centre').val();
-  console.log(centre);
   function ajax_call(form,url){
     $.ajax({
       type:'GET',
@@ -10,9 +9,13 @@ $(function(){
     .done(function(data){
       let donnees = typeof data !='object' ? JSON.parse(data) : data;   
       if(form == "carousel"){
+        console.log("adding carousel pic");
         for(let i=0;i<donnees.length;i++){
+          console.log("adding carousel pic");
+
           $(".carousel-inner").append('<div class="carousel-item "><img src="' +donnees[i].url+'" class="d-block w-50 mx-auto" alt=top'+i+'></div>');
         }
+        console.log("adding carousel pic");
       $(".carousel-inner :nth-child(1)").addClass("active"); 
       }else if (form == "article"){
         for(let i=0;i<donnees.length;i++){  
@@ -20,15 +23,17 @@ $(function(){
           if($('#admin').val() == 0 ||$('#admin').val() == 1 ){
             spanC=""; 
           }else if($('#admin').val() == 2){
-            spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='idarticle' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
+            spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
           }          $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
         }
+        console.log("adding articles");
       }else if (form == "checkbox"){
         for(let i=0;i<donnees.length;i++){   
         $('.whole_form').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
         }
         $(":checkbox").on('click',only_one);
       }
+      console.log("adding type buttons");
       })
     .fail(function(jqXHR, textStatus, err){
       console.log('AJAX error response:', textStatus);
