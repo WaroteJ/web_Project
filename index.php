@@ -18,18 +18,6 @@ if(isset($_SESSION["centre"])){
     <title>BDE du CESI</title>
 </head>
 <body>
-    <header>
-<<<<<<< HEAD
-        
-=======
-        <div class="container-fluid">
-            <div class="row">
-                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">BDE du CESI</h1>
-            </div>
-        </div>
->>>>>>> b5ef2e029c1643fc01ee30d4f6a7f41909df3abb
-    </header>
     <?php include('php/menu.php');?>
     <main>
         <?php     

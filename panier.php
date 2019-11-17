@@ -20,14 +20,6 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 </head>
 <body>
-    <header class="">
-        <div class="container-fluid">
-            <div class="row">
-            <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Panier</h1>
-            </div>
-        </div>
-    </header>
     <?php include('php/menu.php') ?>
     <main>
         <?php include('php/scriptPanier.php') ?>

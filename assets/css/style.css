@@ -19,11 +19,17 @@ header {
   color: white;
   border-right: 1px solid grey;
   text-align: center;
+  align-self: center;
 }
 .menu:hover {
   color: #FFC252;
   text-decoration: none;
   transition: 0.2s;
+}
+
+.menu_logo {
+  background: white;
+  box-shadow: 0px 1px 3px 0px rgba(0, 0, 0, 0.75);
 }
 
 main {
@@ -116,12 +122,6 @@ main .bouton_admin i {
   text-decoration: none;
   background-color: rgba(0, 0, 0, 0.4);
   transition: 0.2s;
-}
-.whole_form .cgv {
-  color: white;
-}
-.whole_form .cgu {
-  color: white;
 }
 
 .user_table {

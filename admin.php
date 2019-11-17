@@ -26,17 +26,7 @@ $centre = $_SESSION['centre'];
 
 </head>
 <body>
-    <header>
-        <div class="container-fluid">
-            <div class="row">
-                <img src="assets/img/site/cesi_logo.png" alt="Logo du cesi" height=100px >
-                <h1 class="col-md-8 ml-auto">BDE CESI <?php echo $_SESSION['nomCentre']?> Admin</h1>
-            </div>
-        </div>
-    </header>
-
     <?php include('php/menu.php');?>
-
     <main>
     <div class="container-fluid"> <!-- Boutons des différentes fonctionnalités du BO-->
             <div id="admin_buttons" class="row">
