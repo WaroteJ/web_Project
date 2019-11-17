@@ -1,7 +1,7 @@
 $(function(){
   // Get the user's centre
   let centre = $('#centre').val();
-
+  let admin = $('#admin').val();
   // Ajax request
   function ajax_call(form,url){
     $.ajax({
@@ -24,11 +24,14 @@ $(function(){
       }else if (form == "article"){
         for(let i=0;i<donnees.length;i++){  
           let spanC; 
-          if($('#admin').val() == 0 ||$('#admin').val() == 1 ){
-            spanC=""; 
-          }else if($('#admin').val() == 2){
-            spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
-          }          $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
+          if($('#admin').length() > 0){
+            if($('#admin').val() == 0 ||$('#admin').val() == 1 ){
+              spanC=""; 
+            }else if($('#admin').val() == 2){
+              spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
+            }          
+            $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
+          }
         }
       }else if (form == "checkbox"){
         for(let i=0;i<donnees.length;i++){   
@@ -38,6 +41,7 @@ $(function(){
       }
       })
     .fail(function(jqXHR, textStatus, err){
+      console.log('AJAX error response:', textStatus);
     });
   }
 

@@ -33,8 +33,9 @@ $(document).ready(function() {
         $('main').append(table);
       })
     .fail(function(jqXHR, textStatus, err){
+        console.log('AJAX error response:', textStatus);
     });
-    }
+  }
     $("#list_user").on("click", function() {      
         ajax_call("", url);
     });
