@@ -1,4 +1,6 @@
 $(function(){
+  let centre = $('#centre').val();
+  console.log(centre);
   function ajax_call(form,url){
     $.ajax({
       type:'GET',
@@ -33,9 +35,9 @@ $(function(){
     });
   }
 
-  ajax_call("checkbox","http://localhost:3000/articles/type");
-  ajax_call("article","http://localhost:3000/articles/up ");
-  ajax_call("carousel","http://localhost:3000/articles/carousel");
+  ajax_call("checkbox","http://localhost:3000/articles/type/" + centre);
+  ajax_call("article","http://localhost:3000/articles/up/" +centre);
+  ajax_call("carousel","http://localhost:3000/articles/carousel" +centre);
 
 
 
@@ -57,9 +59,9 @@ $(function(){
     }
 
     if($box.attr("id") == "up" || $box.attr("id") == "down"){
-      url = 'http://localhost:3000/articles/' + $box.attr("id");
+      url = 'http://localhost:3000/articles/' + $box.attr("id")+'/'+centre;
     }else{
-      url = 'http://localhost:3000/articles/type/' + $box.attr("id");
+      url = 'http://localhost:3000/articles/type/' + $box.attr("id")+'/'+centre;
     }   
     ajax_call("article",url);
   }
