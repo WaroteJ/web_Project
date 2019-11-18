@@ -75,26 +75,26 @@
                     $participe = $req->fetch();
                     if(isset($_SESSION['admin'])){
                         if ( $_SESSION['admin'] > 1) {
-                            echo '  <form class="bottom-article button col-md-4 col-sm-12" action="" method="post">
+                            echo '  <form class="bottom-article col-md-4 col-sm-12" action="" method="post">
                                     <input class="btn btn-danger" type="submit" value="Supprimer" name="deletEvent">
                                     </form>';
                         }
 
                         if ( $_SESSION['admin'] > 0) {
-                            echo '  <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
+                            echo '  <form class="bottom-article col-md-4 col-sm-12" action="" method="post">
                                     <input class="btn btn-warning" type="submit" value="Signaler" name="signalEvent">
                                     </form>';
                         }
                     }
                     if ( $participe[0] > 0  ) {
-                        echo '  <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
+                        echo '  <form class="bottom-article col-md-4 col-sm-12" action="" method="post">
                                 <input class="btn btn-primary" type="submit" value="Désinscription" name="desabo">
                                 </form>
                                 </div>
                                 </article>';
                     }
                     else{
-                        echo'   <form class="bottom-article button col-md-3 col-sm-12" action="" method="post">
+                        echo'   <form class="bottom-article col-md-4 col-sm-12" action="" method="post">
                                 <input class="btn btn-primary" type="submit" value="Participer!" name="participe">
                                  </form>
                                  </div>

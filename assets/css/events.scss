@@ -7,11 +7,8 @@ $radius:5px;
 .buttons {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
-
-    .button{
-        margin-left:20px;
-    }
+    justify-content: space-around;
+    margin-top: 5px;
   }
 
 

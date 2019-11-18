@@ -102,14 +102,14 @@ HTML;
     if(isset($_SESSION["admin"])){
         if ( $_SESSION['admin'] > 0) {
             echo <<<HTML
-                <div class="row" >
-                    <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
+                <div class="row buttons" >
+                    <form class="bottom-article button col-md-6 col-sm-12" action="" method="post">
                         <input class="btn btn-warning" type="submit" value="Télécharger toutes les photos" name="getPhotos">
                     </form>
 HTML;
         if($_SESSION['admin'] > 1){
                 echo <<<HTML
-                    <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
+                    <form class="bottom-article button col-md-6 col-sm-12" action="" method="post">
                         <input class="btn btn-danger" type="submit" value="Récupérer liste participants" name="getEntrants">
                     </form>
 HTML;
@@ -139,11 +139,11 @@ HTML;
         <div>
             <a href="photo.php?photo='.$response[1].'"><img class="w-100" src="'.$response[0].'" alt="Une photo de l événement"/></a>
         </div>
-        <div class="row" >';
+        <div class="row buttons" >';
     if(isset($_SESSION["admin"])){    
         if ( $_SESSION['admin'] > 1) {
             echo <<<HTML
-              <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
+              <form class="bottom-article col-md-6 col-sm-12" action="" method="post">
                     <input type="hidden" name="id" value="{$response[1]}">
                     <input class="btn btn-danger" type="submit" value="Supprimer" name="deletPhoto">
                     </form>
@@ -152,7 +152,7 @@ HTML;
 
         if ( $_SESSION['admin'] > 0) {
             echo <<<HTML
-              <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
+              <form class="bottom-article col-md-6 col-sm-12" action="" method="post">
                     <input type="hidden" name="id" value="{$response[1]}">
                     <input class="btn btn-warning" type="submit" value="Signaler" name="signalPhoto">
                     </form>

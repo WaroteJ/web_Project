@@ -34,14 +34,14 @@
           if($_SESSION['user']!=$result[0]){
           echo'  
           <form method="post">
-              <select name="droit" id="droit" required>
+              <select class="form-control" name="droit" id="droit" required>
                   <option value="0"';if($result[3]==0){echo 'selected="selected"';}echo '>Utilisateur</option>"; 
                   <option value="1"';if($result[3]==1){echo 'selected="selected"';}echo '>Membre CESI</option>";
                   <option value="2"';if($result[3]==2){echo 'selected="selected"';}echo '>Admin</option>";
               </select>
               <input type="hidden" name="id" class="id" value="'.$result[0].'">
           </td>
-          <td><input type="submit" value="Modifier" name="user_modify"></td>
+          <td><input class="btn btn-primary" type="submit" value="Modifier" name="user_modify"></td>
           </form>';
           }else{
             echo 'Admin</td>
