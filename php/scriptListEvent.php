@@ -23,8 +23,8 @@
         }
        // echo $response['logo'];
        // Cet echo génère le code HTML de chaque événement dans la base de données
-        echo '<article class= "col-md-5 col-sm-12 shadow-lg p-3 mb-5">
-                        <h2> '.$response[1].'</h2>
+        echo '<article class= "col-md-5 col-sm-12 p-3 mb-5">
+                        <h2 class="font-weight-bold"> '.$response[1].'</h2>
                         <p>
                             <label for="description">'.substr($response[2], 0, 50).'...</label>
                         </p>
@@ -36,7 +36,7 @@
 
                 if ( $response[3] >= date('Y-m-d')  ) {
                     echo '  <div class="bottom-article">
-                            <a href="evenement.php?event='.$response[0].'">Plus d\'informations</a>
+                            <a href="evenement.php?event='.$response[0].'">Plus d\'informations </a>
                             </div>
                             </article>';
                 }

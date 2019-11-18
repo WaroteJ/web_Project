@@ -3,18 +3,19 @@
   flex-direction: row;
   justify-content: flex-end;
 }
-
-.button {
+.buttons .button {
   margin-left: 20px;
 }
 
 article {
   margin: auto;
-  margin-top: 20px;
+  margin-top: 15px;
+  margin-bottom: 10px;
   padding: 10px;
   background-color: #326295;
-  display: flex;
-  flex-direction: column;
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.75);
+  color: white;
   text-align: center;
 }
 article h3 {
@@ -34,8 +35,7 @@ article > .bottom-article {
   justify-content: flex-end;
 }
 article > .bottom-article > a {
-  color: black;
-  border: 1px solid black;
+  color: #f8f8ff;
   border-radius: 5px;
   padding: 2px;
   background-color: rgba(0, 0, 0, 0.2);
@@ -43,7 +43,10 @@ article > .bottom-article > a {
 article > .bottom-article > a:hover {
   color: white;
   text-decoration: none;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.2);
+}
+article > .bottom-article > a:hover::after {
+  content: ">";
 }
 
 /*# sourceMappingURL=events.css.map */
