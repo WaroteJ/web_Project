@@ -82,10 +82,21 @@ main .bouton_admin {
 main .bouton_admin i {
   color: rgba(0, 0, 0, 0.85);
 }
+main .carousel-right {
+  box-shadow: 2px 0 1px 0px black !important;
+}
+main .carousel-left {
+  box-shadow: -2px 0 1px 0px black !important;
+}
+
+.no_pad {
+  padding-right: 0 !important;
+}
 
 .whole_form {
   margin: auto;
   margin-top: 20px;
+  margin-bottom: 20px;
   padding: 10px;
   background-color: #1c385e;
   border: 2px solid black;

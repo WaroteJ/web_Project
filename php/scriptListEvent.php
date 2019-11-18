@@ -17,13 +17,13 @@
             echo '<h2 class="col-12 text-center font-weight-bold underline">Evénements à venir</h2>';
             $firstNew=false;
         }
-        if($firstOld && ($response[3] <= date('Y-m-d'))){
+        if($firstOld && ($response[3] < date('Y-m-d'))){
             echo '<h2 class="col-12 text-center font-weight-bold underline">Evénements passés</h2>';
             $firstOld=false;
         }
        // echo $response['logo'];
        // Cet echo génère le code HTML de chaque événement dans la base de données
-        echo '<article class= "col-md-5 col-sm-12">
+        echo '<article class= "col-md-5 col-sm-12 shadow-lg p-3 mb-5">
                         <h2> '.$response[1].'</h2>
                         <p>
                             <label for="description">'.substr($response[2], 0, 50).'...</label>

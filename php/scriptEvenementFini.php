@@ -79,10 +79,10 @@ HTML;
 
 
 if(isset($_SESSION["user"])){
-    $request=$bdd->prepare('SELECT `id_User` FROM `event_user` WHERE `id`=:id_centre AND `id_User`=:id_user');
+    $request=$bdd->prepare('SELECT `id_User` FROM `event_user` WHERE `id`=:id AND `id_User`=:id_user');
     $request->execute(array(
-        'id_centre' => $_SESSION["centre"],
-        'id_user'=>$_SESSION['user']
+        'id' => $_GET['event'],
+        'id_user'=>$_SESSION["user"]
         ));
     $response = $request->fetch();   
     if($response[0]==$_SESSION['user']){

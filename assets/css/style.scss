@@ -91,12 +91,21 @@ main{
         }
 
     }
+    .carousel-right {
+        box-shadow: 2px  0 1px 0px black !important;
+    }
+    .carousel-left {
+        box-shadow: -2px  0 1px 0px black !important;
+    }
 
 }
-
+.no_pad{
+    padding-right:0 !important;
+}
 .whole_form {
     margin: auto;
     margin-top: 20px;
+    margin-bottom: 20px;
     padding:10px;
     background-color: rgb(28, 56, 94);
     border: 2px solid black;
