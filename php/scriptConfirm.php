@@ -37,18 +37,20 @@
         //execution de la requête
         $requete4->execute();
 
-/*        $requete5 = $bdd->prepare("SELECT `email` FROM `user` WHERE `droit`=2 AND `id_Centre`=:id_centre");
+        $requete5 = $bdd->prepare("SELECT `email` FROM `user` WHERE `droit`=2 AND `id_Centre`=:id_centre");
         // Liaison des variables de la requête préparée aux variables PHP
         $requete5->bindValue(':id_centre', $_SESSION["centre"], PDO::PARAM_INT);
         //execution de la requête
-        $requete4->execute();
+        $requete5->execute();
+        $mail=array();
         while($result = $requete5->fetch()){
-            $to = $result[0];
-            $subject = "Nouvelle commande";
-            $txt = "Une nouvelle commande vient d'être effectué";
-            $headers = 'From: noreply-bde@gmail.com';
-            mail($to,$subject,$txt,$headers);
-        }*/
+            $mail[]= $result[0];
+        }
+        $to=implode(",",$mail);
+        $subject = "Nouvelle commande";
+        $txt = "Une nouvelle commande vient d'être effectué";
+        $headers = 'From: noreply-bde@mail.com';
+        mail($to,$subject,$txt,$headers);
 
     }
 ?>
