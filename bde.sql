@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 18 nov. 2019 à 16:56
+-- Généré le :  lun. 18 nov. 2019 à 21:42
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.3.5
 
@@ -316,6 +316,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(50) COLLATE utf8_bin NOT NULL,
   `password` tinytext COLLATE utf8_bin NOT NULL,
   `id_Centre` int(11) NOT NULL,
+  `token` tinytext COLLATE utf8_bin,
   PRIMARY KEY (`id`),
   KEY `User_Centre_FK` (`id_Centre`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
@@ -324,16 +325,16 @@ CREATE TABLE IF NOT EXISTS `user` (
 -- Déchargement des données de la table `user`
 --
 
-INSERT INTO `user` (`id`, `nom`, `prenom`, `droit`, `email`, `password`, `id_Centre`) VALUES
-(1, 'Pihet', 'Jérôme', 2, 'jerome.pihet@viacesi.fr', '$2y$10$6fstZxu7XIBRHhFdG3jCfeyQAntKwsC091iAiCeg8PqBLUv530pq.', 1),
-(2, 'Benazouzi', 'Sofiane', 2, 'sofiane.benazouzi@viacesi.fr', '$2y$10$.B0cOalHTNnLbJqUUDDov.68Fz6dFdaWVf1FpLZMUsB6apRzeHTFG', 1),
-(3, 'Etchart', 'Florian', 2, 'florian.etchart@viacesi.fr', '$2y$10$U37A3fQAoLc2dUz/twF4zOE5UmsMe/m9yRoQxS/0uD2wNnm/6ewxe', 1),
-(4, 'Basset', 'Adrien', 2, 'adrien.basset@viacesi.fr', '$2y$10$cb5GtKb38SIiJIkBPfFHTeIDbfX9vgiLGCSl7l2PMyhOlbrK3AY3G', 1),
-(5, 'Bourg Palette', 'Sacha', 1, 'pokemon@viacesi.fr', '$2y$10$MlZTulvAp8TkbvDBNQeBHOx.Lw7oDJTU1heTEogIy0h2lIoZo2c0O', 1),
-(6, 'Chris', 'de Naire', 0, 'bonta@viacesi.fr', '$2y$10$PgSV.tit9plPUPFGHCXE.uzda6lnJw9jbejOqfRETN.4QRUz.jxDe', 1),
-(7, 'Musk', 'Elon', 2, 'elon.musk@viacesi.fr', '$2y$10$ipi2Nvv0NsSkt10RUJyGm.BaXTlP9aqVquEhmsv1ppwpanuwLTSG.', 5),
-(8, 'Dupont', 'Jean', 1, 'jean.dupont@viacesi.fr', '$2y$10$YsvU.qTElqfrtXKTYoD/tO9PQAGsskreozSAVqu7OTeY/7Z60Zw.K', 5),
-(9, 'Diels', 'George', 0, 'george.diels@viacesi.fr', '$2y$10$GqlTzMWTcpbGQIBsXUZArObVw9AmwXVL7WHuvziFke1osBk7/N7AS', 5);
+INSERT INTO `user` (`id`, `nom`, `prenom`, `droit`, `email`, `password`, `id_Centre`, `token`) VALUES
+(1, 'Pihet', 'Jérôme', 2, 'jerome.pihet@viacesi.fr', '$2y$10$o9qAhcSCPNnWlW7RAyErsOSRqnOFT46eOTQJBKarvJeoLR4M3G5ii', 1, NULL),
+(2, 'Benazouzi', 'Sofiane', 2, 'sofiane.benazouzi@viacesi.fr', '$2y$10$.B0cOalHTNnLbJqUUDDov.68Fz6dFdaWVf1FpLZMUsB6apRzeHTFG', 1, ''),
+(3, 'Etchart', 'Florian', 2, 'florian.etchart@viacesi.fr', '$2y$10$U37A3fQAoLc2dUz/twF4zOE5UmsMe/m9yRoQxS/0uD2wNnm/6ewxe', 1, ''),
+(4, 'Basset', 'Adrien', 2, 'adrien.basset@viacesi.fr', '$2y$10$cb5GtKb38SIiJIkBPfFHTeIDbfX9vgiLGCSl7l2PMyhOlbrK3AY3G', 1, ''),
+(5, 'Bourg Palette', 'Sacha', 1, 'pokemon@viacesi.fr', '$2y$10$MlZTulvAp8TkbvDBNQeBHOx.Lw7oDJTU1heTEogIy0h2lIoZo2c0O', 1, ''),
+(6, 'Chris', 'de Naire', 0, 'bonta@viacesi.fr', '$2y$10$PgSV.tit9plPUPFGHCXE.uzda6lnJw9jbejOqfRETN.4QRUz.jxDe', 1, ''),
+(7, 'Musk', 'Elon', 2, 'elon.musk@viacesi.fr', '$2y$10$ipi2Nvv0NsSkt10RUJyGm.BaXTlP9aqVquEhmsv1ppwpanuwLTSG.', 5, ''),
+(8, 'Dupont', 'Jean', 1, 'jean.dupont@viacesi.fr', '$2y$10$YsvU.qTElqfrtXKTYoD/tO9PQAGsskreozSAVqu7OTeY/7Z60Zw.K', 5, ''),
+(9, 'Diels', 'George', 0, 'george.diels@viacesi.fr', '$2y$10$GqlTzMWTcpbGQIBsXUZArObVw9AmwXVL7WHuvziFke1osBk7/N7AS', 5, '');
 
 -- --------------------------------------------------------
 
