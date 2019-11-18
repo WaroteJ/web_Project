@@ -46,7 +46,7 @@ if(isset($_SESSION["centre"])){
                         <input class="btn btn-primary" type="submit" value="Se connecter">
                         <div class="bottom-form">
                                 <a class="text-white" href="register.php">S'enregistrer</a>
-                                <a class="text-white" href="#">Mot de passe oublié ?</a>
+                                <a class="text-white" href="forgottenPass.php">Mot de passe oublié ?</a>
                         </div>
                     </form>
             </div>

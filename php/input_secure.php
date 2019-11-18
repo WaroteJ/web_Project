@@ -1,7 +1,4 @@
 <?php
-    if(!isset($_SESSION["centre"])){
-        header("Location: ../index.php");
-    }
     
     function inputSecure($data) {
     $data = trim($data); // Retire les charactères d'espacement
