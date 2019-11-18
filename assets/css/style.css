@@ -57,8 +57,10 @@ main #admin_buttons a {
 }
 main #admin_buttons a:hover {
   text-decoration: none;
-  color: #FFC252;
   transition: 0.2s;
+}
+main #admin_buttons a:hover div {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 main .bouton_admin {
   display: flex;
@@ -171,14 +173,14 @@ footer {
   flex-flow: row nowrap;
 }
 
-.list_user:hover {
+#list_user:hover {
   cursor: pointer;
-  color: #FFC252;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 #list_commandes:hover {
   cursor: pointer;
-  color: #FFC252;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 /*# sourceMappingURL=style.css.map */

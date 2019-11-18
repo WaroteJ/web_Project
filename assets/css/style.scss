@@ -67,8 +67,11 @@ main{
 
             &:hover{
                 text-decoration: none;
-                color: $secondary-color;
                 transition: 0.2s;
+
+                div{
+                    background-color: rgba(0, 0, 0, 0.1);
+                }
             }
         }
 
@@ -194,12 +197,13 @@ footer {
     flex-flow: row nowrap;
 } 
 
-.list_user:hover {
+#list_user:hover {
     cursor: pointer;
-    color: $secondary-color;
+    background-color: rgba(0, 0, 0, 0.1);
+
 }
 
 #list_commandes:hover {
     cursor: pointer;
-    color: $secondary-color;
+    background-color: rgba(0, 0, 0, 0.1);
 }
