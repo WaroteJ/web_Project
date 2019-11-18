@@ -59,7 +59,7 @@ $centre = $_SESSION['centre'];
                     <div class="bouton_admin" id="list_user">
                         <?php echo "<input type='hidden' id='centre' name='centre' value='$centre'/>"; ?>              
                         <i class="fas fa-users fa-3x"></i>
-                        <p>Lister les utilisateurs</p>
+                        <p>Lister les utilisateurs (via Ajax)</p>
                     </div>
                 </div>
                 <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=command">
@@ -71,7 +71,7 @@ $centre = $_SESSION['centre'];
                 <div class="col-lg-2 col-md-3 col-6">
                     <div class="bouton_admin" id="list_commandes">
                         <i class="fas fa-book-open fa-3x"></i>
-                        <p>Historique des commandes</p>
+                        <p>Historique des commandes (via Ajax)</p>
                     </div>
                 </div>
                 <a class="col-lg-2 col-md-3 col-6" href="admin.php?page=commandHistory">
