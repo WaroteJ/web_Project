@@ -17,6 +17,7 @@ $(document).ready(function() {
         table.addClass('user_table');
         var $headerTr = $('<tr/>');
 
+
         // Put the <th/> (title) of each column
         for (var index in donnees[0]) {
             $headerTr.append($('<th/>').html(index));
@@ -40,9 +41,12 @@ $(document).ready(function() {
         {
             text: 'Previous', id: 'previous', name: 'previous'
         });
+        
+
         $('button').remove();
         $('table').remove();
-        // $('main').append(table);
+        $('#listing').remove();
+        $('main').append(table);
 
         $('#button').prepend(table);
 

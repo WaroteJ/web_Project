@@ -151,9 +151,9 @@ $centre = $_SESSION['centre'];
         }
     ?>
     </div>
-    <div id="button">
-        <span class="next"></span>
-        <span class="previous"></span>  
+    <div id="button">       
+    <span class="previous"></span>  
+    <span class="next"></span>
     </div> 
     </main>
 

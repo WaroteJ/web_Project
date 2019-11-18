@@ -46,6 +46,7 @@ $(document).ready(function() {
             $('#listing').remove();
             $('table').remove();
             $('main').append(table);
+            $('button').remove();
         })
         .fail(function(jqXHR, textStatus, err){
             console.log('AJAX error response:', textStatus);
