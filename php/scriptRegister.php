@@ -11,6 +11,9 @@ if (isset($_POST['lastname'],$_POST['firstname'],$_POST['mail'],$_POST['centre']
     $password = inputSecure($_POST['password']);
     $passwordC = inputSecure($_POST['passwordC']);
 
+    if(preg_match("/[A-Za-zÀ-ÖØ-öø-ÿ \-]{2,25}/",$lastname)) // Seulement des lettres, espaces et -
+    if(preg_match("/[A-Za-zÀ-ÖØ-öø-ÿ \-]{2,25}/",$firstname))
+    if(preg_match("/^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/",$mail))// regex mail
     if (preg_match("/^(?=.*[A-Z])(?=.*\d)[a-zA-Z\d]{2,}$/",$password)){   //Vérifie qu'il y ait 1 lettre maj et un chiffre
         if ($password==$passwordC) { // Vérifie que les 2 mdp sont identiques
                 require("bdd.php");      

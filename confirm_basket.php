@@ -2,7 +2,7 @@
     session_start();
     if(!isset($_SESSION["centre"])){
         header("Location: ./index.php"); 
-     }
+    }
 ?>
 <!doctype html>
 <html lang="fr">

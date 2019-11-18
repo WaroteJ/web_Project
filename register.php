@@ -40,11 +40,11 @@ if(isset($_SESSION["centre"])){
                         ?>
                         <p>
                             <label class="text-white" for="lastname">Nom</label>
-                            <input class="form-control" type="text" id="lastname" name="lastname" required placeholder="Nom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}" maxlength="25">
+                            <input class="form-control" type="text" id="lastname" name="lastname" required placeholder="Nom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ \-]{2,25}" maxlength="25">
                         </p>    
                         <p>
                             <label class="text-white" for="firstname">Prénom</label>
-                            <input class="form-control" type="text" id="firstname" name="firstname" required placeholder="Prénom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ ]{2,25}" maxlength="25">
+                            <input class="form-control" type="text" id="firstname" name="firstname" required placeholder="Prénom" pattern="[A-Za-zÀ-ÖØ-öø-ÿ \-]{2,25}" maxlength="25">
                         </p>    
                         <p>
                             <label class="text-white" for="mail">Adresse mail</label>

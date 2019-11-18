@@ -1,8 +1,9 @@
 <?php
     require('bdd.php');
 
-    if (isset($_POST["val"],$_POST["id"])){
+    if (isset($_POST["val"],$_POST["id"],$_POST["nom"])){
         $_SESSION["centre"]=$_POST["id"];
+        $_SESSION['nomCentre']=$_POST["nom"];
         header("Location: centre.php");
     }
     $req=$bdd->prepare('SELECT * FROM `centre` ');
@@ -14,6 +15,7 @@
                 <h2>{$response[1]}</h2>
                 <form action="" method="post">
                     <input type="hidden" name="id" value="{$response[0]}">
+                    <input type="hidden" name="nom" value="{$response[1]}">
                     <input class="btn btn-success" type="submit" name="val" value="Aller vers ce centre">
                 </form>
             </div>
