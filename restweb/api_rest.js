@@ -91,6 +91,14 @@ app.get('/users/:user_centre', (req, res) => {
 	});
 });
 
+//Count user number of one centre 
+app.get('/users/total/:user_centre', (req, res) => {
+	con.query("SELECT COUNT(nom) as total FROM user WHERE id_Centre ="+req.params.user_centre+"", function (err, result) {
+		res.send(JSON.stringify(result));
+		console.log("total user");
+	});
+});
+
 //List the article with the corresponding id and the corresponding center with specifics letters
 app.get('/articles/:choix/:user_centre', (req, res)=> {
 	request =  "SELECT url, nom_article, prix, id FROM article WHERE  id_centre =" + req.params.user_centre + " AND UPPER(nom_article) LIKE UPPER('%"+ req.params.choix +"%')";

@@ -1,6 +1,5 @@
 $(document).ready(function() {
-    $("#list_commandes").on("click", function() {
-            
+    $("#list_commandes").on("click", function() {   
         let url  = 'http://localhost:3000/commandes/' /*+ $('#admin').val();*/
     
         $.ajax({
