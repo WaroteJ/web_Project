@@ -95,13 +95,20 @@ app.get('/users/:user_centre', (req, res) => {
 app.get('/users/total/:user_centre', (req, res) => {
 	con.query("SELECT COUNT(nom) as total FROM user WHERE id_Centre ="+req.params.user_centre+"", function (err, result) {
 		res.send(JSON.stringify(result));
-		console.log("total user");
+	});
+});
+
+//List an specific article
+app.get('/articles/:choix', (req, res)=> {
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE  id= "+ req.params.choix +"";
+	con.query(request, function (err, result) {
+		res.send(JSON.stringify(result));
 	});
 });
 
 //List the article with the corresponding id and the corresponding center with specifics letters
 app.get('/articles/:choix/:user_centre', (req, res)=> {
-	request =  "SELECT url, nom_article, prix, id FROM article WHERE  id_centre =" + req.params.user_centre + " AND UPPER(nom_article) LIKE UPPER('%"+ req.params.choix +"%')";
+	request =  "SELECT url, nom_article, prix, id FROM article WHERE  id_centre =" + req.params.user_centre + " AND UPPER(nom_article) LIKE UPPER('%"+ req.params.choix +"%') AND deleted = 0";
 	con.query(request, function (err, result) {
 		res.send(JSON.stringify(result));
 	});
