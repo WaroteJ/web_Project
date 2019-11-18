@@ -52,7 +52,7 @@
     <div class="container-fluid articles">
         <div class="row filtre">
             <div class="col-md-4">
-                <form class="whole_form">
+                <form class="tri">
                     <h2 class="text-white">Filtres</h2> 
                     <p>
                         <label class="text-white" for="article">Recherche article</label>
