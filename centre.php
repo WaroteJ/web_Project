@@ -30,11 +30,11 @@
                         <?php include('php/scriptCentre.php');?>
                     </div>
                     <a class="carousel-control-prev carousel-left" href="#carouselExampleFade" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <!-- <span class="carousel-control-prev-icon" aria-hidden="true"></span> -->
                         <span class="sr-only">Previous</span>
                     </a>
                     <a class="carousel-control-next carousel-right" href="#carouselExampleFade" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <!-- <span class="carousel-control-next-icon" aria-hidden="true"></span> -->
                         <span class="sr-only">Next</span>
                     </a>
                 </div>
