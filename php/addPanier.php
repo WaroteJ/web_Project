@@ -8,12 +8,12 @@ if (isset($_POST['qte'],$_POST['id_art']) && $_POST['qte'] > 0 ){
     $qte_newArticle = $_POST['qte'];
     $id_newArticle = $_POST['id_art'];
     $diff = 0;
-
+    // Select the article to check if it's not already required
     $prep = $bdd->prepare('SELECT  id, qte FROM user_article WHERE id_User = :id_User');   
     $prep->execute(array(
         ':id_User' => $_SESSION['user'],
     ));
-
+    // check if it's not already required
     while($response = $prep->fetch()){
         if($id_newArticle == $response['id']){
             $qte_final= $response['qte'] + $qte_newArticle;
@@ -26,6 +26,7 @@ if (isset($_POST['qte'],$_POST['id_art']) && $_POST['qte'] > 0 ){
             $diff = 1;
         } 
     }
+    // If the article is not required
     if($diff == 0){
         $prep = $bdd->prepare('INSERT INTO `user_article` (id,id_User,qte) 
         VALUES(:id,:id_User,:qte)');     

@@ -24,13 +24,16 @@ $(function(){
       }else if (form == "article"){
         for(let i=0;i<donnees.length;i++){  
           let spanC; 
-          if($('#admin').val() == 0 ||$('#admin').val() == 1 ){
+          // Display of the products
+          if($('#admin').val() == 0 ||$('#admin').val() == 1 || typeof $('#admin').val() == 'undefined'){
             spanC=""; 
           }else if($('#admin').val() == 2){
             spanC="<form action='./php/bo/deleteProduct.php' method='post'><input type=hidden name='id_article' value =" +donnees[i].id+"><button class='btn btn-danger close '>\u00D7</button></form>"; 
-          }          $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
+          }          
+          $(".results").append('<div class="col-5 article">'+spanC+'<a href=articles.php?art='+donnees[i].id +'><img class="picture"src= "'+ donnees[i].url +'" width=60%><div class="description">Prix: '+ donnees[i].prix +'€</div><div class="description">Nom: '+donnees[i].nom_article+'</div></div></div></div>');
         }
       }else if (form == "checkbox"){
+        // Adding types buttons
         for(let i=0;i<donnees.length;i++){   
         $('.whole_form').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
         }
@@ -78,4 +81,13 @@ $(function(){
     window.location.href = "http://localhost/web_project/panier.php";
   });
 
+  // Research bar 
+  $("#recherche").keyup(function(){ 
+    $(".results").empty();
+    ajax_call("article","http://localhost:3000/articles/"+ $("#recherche").val()+"/"+ centre);
+    if ($("#recherche").val().length > 0) {
+    }else{
+      ajax_call("article","http://localhost:3000/articles/up/" +centre);
+    }
+  });
 })

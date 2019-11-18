@@ -57,7 +57,7 @@ $centre = $_SESSION['centre'];
                 </a>
                 <div class="col-lg-2 col-md-3 col-6">
                     <div class="bouton_admin" id="list_user">
-                        <?php echo "<input type='hidden' id='admin' name='centre' value='$centre'/>"; ?>              
+                        <?php echo "<input type='hidden' id='centre' name='centre' value='$centre'/>"; ?>              
                         <i class="fas fa-users fa-3x"></i>
                         <p>Lister les utilisateurs</p>
                     </div>
@@ -150,8 +150,13 @@ $centre = $_SESSION['centre'];
             }
         }
     ?>
-    </div>    
+    </div>
+    <div id="button">
+        <span class="next"></span>
+        <span class="previous"></span>  
+    </div> 
     </main>
+
 
     <?php include('php/footer.php');?>
     <script type="text/javascript" src="assets/js/ajax_users.js"></script>  

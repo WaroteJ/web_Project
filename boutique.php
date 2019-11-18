@@ -52,7 +52,11 @@
         <div class="row filtre">
             <div class="col-md-4">
                 <form class="whole_form">
-                    <h2 class="text-white">Filtres</h2>
+                    <h2 class="text-white">Filtres</h2> 
+                    <p>
+                        <label class="text-white" for="article">Recherche article</label>
+                        <input type="text" id="recherche" name="filtre">
+                    </p>
                     <p>
                         <label class="text-white" for="priceUp">Prix croissant</label>
                         <input type="checkbox" id="up" name="filtre">
@@ -61,6 +65,7 @@
                         <label class="text-white" for="priceDown">Prix décroissant</label>
                         <input type="checkbox" id="down" name="filtre">
                     </p>
+
                 </form>
             </div>
             <div class="col-md-8 container-fluid bigvitrine">

@@ -1,7 +1,8 @@
 $(document).ready(function() {
-       
+    let debut = 0;
+    let pas = 2;
 
-    let url  = 'http://localhost:3000/users/' + $('#admin').val();
+    let url  = 'http://localhost:3000/users/' + $('#centre').val();
 
     // Ajax request
     function ajax_call(form,url){
@@ -29,14 +30,45 @@ $(document).ready(function() {
             }
         table.append($tableTr);
         }
+        // let div_next = $('<div/>');
+        let next = $('<button/>',
+        {
+            text: 'Next',id: 'next',name: 'next'
+        });
+        // let div_previous = $('<div/>');
+        let previous = $('<button/>',
+        {
+            text: 'Previous', id: 'previous', name: 'previous'
+        });
+        $('button').remove();
         $('table').remove();
-        $('main').append(table);
-      })
+        // $('main').append(table);
+
+        $('#button').prepend(table);
+
+        $('.next').append(next);
+        $('.previous').append(previous);
+    })
     .fail(function(jqXHR, textStatus, err){
     });
     }
+    // Listener pagination button
+    $('.next').on("click",function(){
+        debut = debut +2;
+        ajax_call("",url +"/"+debut+"/"+2);
+    });
+    // Listener pagination button
+    $('.previous').on("click",function(){
+        if (debut <= 0 ){
+            debut = debut;
+        }else {
+            debut = debut -2;
+        }
+        ajax_call("",url +"/"+debut+"/"+pas);
+    });
+
     $("#list_user").on("click", function() {      
-        ajax_call("", url);
+        ajax_call("",url +"/"+debut+"/"+pas);
     });
 });
 
