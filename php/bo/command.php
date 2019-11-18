@@ -23,7 +23,7 @@
   WHERE commande.etat=0
   ORDER BY commande.id");
   $requete->execute();
-  echo '<div class="container-fluid">
+  echo '<div class="container-fluid white">
         <div class="row">';
   while($result = $requete->fetch(PDO::FETCH_BOTH)){  // Affiche les articles de chaque commande
     if($result[2]!=$id){

@@ -103,13 +103,13 @@ HTML;
         if ( $_SESSION['admin'] > 0) {
             echo <<<HTML
                 <div class="row" >
-                    <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
                         <input class="btn btn-warning" type="submit" value="Télécharger toutes les photos" name="getPhotos">
                     </form>
 HTML;
         if($_SESSION['admin'] > 1){
                 echo <<<HTML
-                    <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+                    <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
                         <input class="btn btn-danger" type="submit" value="Récupérer liste participants" name="getEntrants">
                     </form>
 HTML;
@@ -143,18 +143,18 @@ HTML;
     if(isset($_SESSION["admin"])){    
         if ( $_SESSION['admin'] > 1) {
             echo <<<HTML
-              <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+              <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
                     <input type="hidden" name="id" value="{$response[1]}">
-                    <input class="btn btn-danger" type="submit" value="Supprimer cette photo" name="deletPhoto">
+                    <input class="btn btn-danger" type="submit" value="Supprimer" name="deletPhoto">
                     </form>
 HTML;
         }
 
         if ( $_SESSION['admin'] > 0) {
             echo <<<HTML
-              <form class="bottom-article button col-md-5 col-sm-12" action="" method="post">
+              <form class="bottom-article button col-md-5 col-sm-11" action="" method="post">
                     <input type="hidden" name="id" value="{$response[1]}">
-                    <input class="btn btn-warning" type="submit" value="Signaler cette photo" name="signalPhoto">
+                    <input class="btn btn-warning" type="submit" value="Signaler" name="signalPhoto">
                     </form>
 HTML;
         }
