@@ -35,7 +35,7 @@ $(function(){
       }else if (form == "checkbox"){
         // Adding types buttons
         for(let i=0;i<donnees.length;i++){   
-        $('.whole_form').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
+        $('.tri').append('<p><label for="type" class="text-white">' +donnees[i].nom+'</label><input type="checkbox" id='+donnees[i].nom+' name="filtre"></p>');
         }
         $(":checkbox").on('click',only_one);
       }
