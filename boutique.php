@@ -56,7 +56,7 @@
                     <h2 class="text-white">Filtres</h2> 
                     <p>
                         <label class="text-white" for="article">Recherche article</label>
-                        <input type="text" id="recherche" name="filtre">
+                        <input class="form-control" type="text" id="recherche" name="filtre">
                     </p>
                     <p>
                         <label class="text-white" for="priceUp">Prix croissant</label>

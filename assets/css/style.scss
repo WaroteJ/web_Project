@@ -1,6 +1,6 @@
 $primary-color:black;
 $secondary-color:#FFC252;
-$primary-bg:black;
+$primary-bg:rgb(24, 22, 22);
 $secondary-bg:white;
 $radius:5px;
 $border:1px black solid;
@@ -12,19 +12,12 @@ body{
     justify-content: space-between;
     min-height: 100vh;
 }
-header {
-    background-color: $secondary-bg;
-    display: flex;
-    flex-flow: column nowrap;
-    padding-bottom: 5px;
-}
 
 .menu {
 
     background: $primary-bg;
     color:  $secondary-bg;
     border-right :1px solid grey;
-    box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
 
     text-align: center;
     align-self: center;
@@ -36,6 +29,8 @@ header {
 }
 .menu_logo{
         background: white;
+        box-shadow: 0px 1px 3px 0px rgba(0,0,0,0.75);
+
 }
 main{
     background-color: $secondary-bg;
@@ -60,10 +55,12 @@ main{
         display: flex;
         flex-direction: row;
         justify-content: center;
-        background-color: rgba(0, 0, 0, 0.5);    
-        border: $border;
+        //background-color: rgba(0, 0, 0, 0.1);   
+        //box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
+        //border: $border;
         border-radius: 10px;
         margin:5px;
+        margin-top:20px;
         font-size:0.8em;
         a{
             color: black;
@@ -81,8 +78,9 @@ main{
         flex-direction: column;
         text-align: center;
         margin: 5px;
-        background-color: rgba(245, 245, 245, 0.3);    
-        border: $border;
+        background-color: #f8f8ff;    
+        //border: $border;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); 
         border-radius: 10px;
         padding: 10px;
         height: 120px;
@@ -108,7 +106,8 @@ main{
     margin-bottom: 20px;
     padding:10px;
     background-color: rgb(28, 56, 94);
-    border: 2px solid black;
+    //border: 2px solid black;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
     border-radius: $radius;
 
     display: flex;
@@ -162,6 +161,15 @@ main{
         text-align: center;
         border: 1px solid black;
     }
+    tr{
+        &:nth-child(odd){
+            background-color: #f8f8ff;
+        }
+        &:nth-child(even){
+            background-color: #fefefa;
+        }
+    }
+
 }
 .add_event>#prix{
     display:none;
@@ -170,11 +178,13 @@ main{
 .command,.signal{
     padding: 0px 0px 5px 0px;
     &:nth-child(odd){
-        background-color: rgba(0, 0, 0, 0.4);
+        background-color: #f8f8ff;
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75); 
     }
 
     &:nth-child(even){
-        background-color: rgba(0, 0, 0, 0.2);
+        background-color: #fefefa;
+        box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75); 
     }
 }
 .suivi{

@@ -4,57 +4,60 @@ $primary-bg:black;
 $secondary-bg:white;
 $radius:5px;
 
-body{
-    background-color: $primary-bg;
-    display: flex;
-    flex-direction: column;
-    flex-flow: column nowrap;
-    justify-content: space-between;
-    min-height: 100vh;
-}
-header {
-    background-color: $secondary-bg;
-    display: flex;
-    flex-flow: column nowrap;
-}
-.bigvitrine{
-    background-color: rgb(28, 56, 94);
-    margin-top: 20px;
-    text-align: center;
-}
 .articles{
-    border: 3px $primary-color solid;
-}
-.vitrine{
-    background-color: rgb(28, 56, 94);
-    border: 2px solid black;
-    border-radius: $radius;
-    margin-right: 20px;
-}
-.article{
-    background-color: #326295;
-    border: 2px solid black;
-    border-radius: $radius;
-    padding-top: 20px;
-    margin-bottom: 15px;
-    margin-left: 25px;
-}
-.description{
-    color: white;
-}
-.results{
-    background-color: rgb(28, 56, 94);
-    margin-top: 3%;
-    justify-content: center;
-}
-
-main{
-    background-color: $secondary-bg;
-    width: 90%;
+    width: 98%;
     margin: auto;
-    display: flex;
-    flex-flow: column nowrap;
-    flex-grow: 1;
+    margin:5px 0px;
+
+    .bigvitrine{
+        background-color: rgb(28, 56, 94);
+        margin-top: 20px;
+        text-align: center;
+        box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+        border-radius: $radius;
+    
+        .vitrine{
+            background-color: rgb(28, 56, 94);
+            //border: 2px solid black;
+            box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+            border-radius: $radius;
+            margin-right: 20px;
+        
+            .results{
+                margin-top: 3%;
+                justify-content: center;
+            
+                .article{
+                    background-color: #326295;
+                    //border: 2px solid black;
+                    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+                    border-radius: $radius;
+                    padding-top: 20px;
+                    margin-bottom: 15px;
+                    margin-left: 25px;
+                    
+                    a:hover{
+                        text-decoration: none;
+                        color: black;
+                    }
+
+                    .description{
+                        color: white;
+                    }
+
+                    .close {
+                        position: absolute;
+                        right: 10px;
+                        top: 0;
+
+                        &:hover{
+                            cursor: pointer; 
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .basket{
@@ -62,33 +65,10 @@ main{
     right:5px;
     top:150px;
     z-index: 9999;
-    background-color: grey;
-    border: 2px solid black;
+    background-color: #f8f8ff;
+    box-shadow: 0px 0px 5px 2px rgba(0,0,0,0.75);
     border-radius: $radius;
-    color:white;
-}
-
-footer {
-    display: flex;
-    flex-flow: row nowrap;
-} 
-
-a{
-    text-decoration: none;
-    color: black;
-}
-a:hover{
-    text-decoration: none;
-    color: black;
-}
-.close {
-    position: absolute;
-    right: 10px;
-    top: 0;
-}
-
-.close:hover{
-    cursor: pointer; 
+    padding: 2px;
 }
 
 .carousel-button-right {
