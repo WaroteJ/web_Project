@@ -131,17 +131,14 @@ main{
         justify-content: space-between;
 
         >a{
-            color: $primary-color;
-            border: 1px solid black;
+            color: #f8f8ff;           
             border-radius: $radius;
             padding: 2px;
-            background-color: rgba(0, 0, 0, 0.2);
+
             &:hover{
                 color: white;
                 text-decoration: none;
-                background-color: rgba(0, 0, 0, 0.4);
-                transition: 0.2s;
-
+                background-color: rgba(0, 0, 0, 0.2);
             }
         }
     }

@@ -58,7 +58,7 @@
         echo <<<HTML
             <div class="container-fluid">
                     <form class="row" action="php/scriptPhoto.php" method="post">
-                        <input type="text" class="col-md-10 text-center" name="commentaire" placeholder="Ecrire votre commentaire ici..." size="150">
+                        <input type="text" class="col-md-10 text-center form-control" name="commentaire" placeholder="Ecrire votre commentaire ici..." size="150">
                         <input type="hidden" name="id_photo" value="echo {$_GET['photo']}">
                         <input type="submit" class="col-md-2 text-center btn btn-success" value="Poster">
                     </form>

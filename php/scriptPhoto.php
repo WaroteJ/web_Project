@@ -12,7 +12,7 @@
             // Exécution de la requête
             $requete->execute();
             $resultat=$requete->fetch();
-            echo '<img class="w-75" src="'.$resultat[0].'">';
+            echo '<img class="img_comment" src="'.$resultat[0].'">';
         //}
     }
 
@@ -25,7 +25,7 @@
              $requete->bindValue(':id_Photo', $id_photo, PDO::PARAM_INT);
             $requete->execute();
             while($resultat = $requete->fetch()):          
-                echo '  <div class="row m-0">
+                echo '  <div class="row m-0 comment">
                             <div class="col-md-2 name"><span class="name_Comment">'.$resultat[0].' '.$resultat[1].'</span></div>
                                 <div class="col-md-8 commentaire">'.$resultat[2].'</div>'; 
                                                                 
@@ -127,7 +127,7 @@ HTML;
                 $aime = $req->fetch();
 
                 if ( $aime[0] > 0  ) {
-                    echo'   <input class="btn btn-primary" type="submit" value="Dislike" name="aime_pas">';               
+                    echo'   <input class="btn btn-primary" type="submit" value="Unlike" name="aime_pas">';               
                 }else{
                     echo'   <input class="btn btn-primary" type="submit" value="Like" name="aime">';                   
                 }
