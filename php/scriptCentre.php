@@ -20,7 +20,7 @@
         while($result = $requete->fetch()):          
         ?><div class="carousel-item col-12 w-100 <?php if($first){echo 'active';$first=false;}?>">
         <?php
-        echo '<img style="max-height:800px;" src="'.$result[0].'" class="d-block mx-auto w-100" alt="logo_bad">
+        echo '<img style="max-height:800px;" src="'.$result[0].'" class="d-block mx-auto w-100" alt="Photo event">
             </div>';
         endwhile;    
         }

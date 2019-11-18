@@ -23,13 +23,13 @@
   WHERE commande.etat=0
   ORDER BY commande.id");
   $requete->execute();
-  echo '<div class="container-fluid white">
+  echo '<div class="container-fluid">
         <div class="row">';
   while($result = $requete->fetch(PDO::FETCH_BOTH)){  // Affiche les articles de chaque commande
     if($result[2]!=$id){
         if($groupID!=NULL){
             echo'<form action="" method="post">
-                    <input type="hidden" name="id_command" id="id_command" value="'.$id.'">
+                    <input type="hidden" name="id_command" value="'.$id.'">
                     <input class="btn btn-success" type="submit" value="Valider la commande" name="valid_command">
                 </form>
                 </div>';
